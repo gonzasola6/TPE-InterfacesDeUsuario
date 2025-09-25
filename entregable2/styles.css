@@ -1,0 +1,114 @@
+/* Estilo del navbar */
+
+body, form, input {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between; /* separa inicio y nav */
+  align-items: center;            /* centra verticalmente */
+  height: 56px;                   /* altura recomendada */
+  padding: 0 16px;                /* espacio lateral */
+  background-color: #10114B;      /* opcional */
+  border-bottom: 1px solid #ddd;  /* opcional */
+  gap: 16px;
+}
+
+/* Contenedor de la izquierda (menú y logo) */
+.inicio {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* separación entre botón y logo */
+  flex: 0 0 auto;
+}
+
+/* Logo y botón de menú */
+.imagenLogo {
+  height: 40px; /* ajusta según tu gusto */
+}
+#logoMenu {
+  height: 30px;
+  cursor: pointer;
+}
+
+/* Contenedor de búsqueda */
+.buscador {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex: 1 1 0;
+  justify-content: center;
+  min-width: 200px;
+  max-width: 350px; /* igual al input */
+}
+
+.buscador input[type="search"] {
+  height: 28px;
+  width: 100%; /* ocupa todo el ancho del contenedor */
+  max-width: 350px;
+  padding: 0 12px 0 36px; /* espacio para la lupa */
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background-color: #D9D9D9;
+}
+
+.buscador .icon {
+  position: absolute;
+  left: 12px;
+  font-size: 16px;
+  pointer-events: none;
+  color: #666;
+}
+
+.botones-derecha {
+  display: flex;
+  gap: 24px;
+  flex: 0 0 auto;
+}
+
+.boton1 .btn-large {
+  width: 201px;
+  height: 35px;
+  border-radius: 6px;
+  border: 2px solid #E53935; /* borde más marcado */
+  background-color: #E53935;
+  /* sombra difusa debajo */
+  box-shadow: 0 4px 6px #E53935; 
+  color: white;
+  cursor: pointer;
+}
+
+/* Botón 2 */
+
+.user-button {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Cambia de space-between a center */
+  gap: 4px;                /* Menor separación entre flecha e imagen */
+  width: 80px;   /* ancho del botón */
+  height: 40px;   /* alto del botón */
+  padding: 0 8px;
+  border-radius: 962.17px;
+  border: 1px solid white;
+  background-color: #10114B;
+  color: white;
+  cursor: pointer;
+}
+
+.user-button .user-photo {
+  width: 32px;         /* más grande */
+  height: 32px;        /* más grande */
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 6px;    /* la empuja un poco a la derecha */
+}
+
+/* Flecha a la izquierda */
+.user-button .arrow {
+  font-size: 14px;
+}
+

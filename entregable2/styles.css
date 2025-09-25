@@ -1,17 +1,24 @@
+h1{
+    font-family: "Inter", sans-serif;
+    font-weight: 600;/* Semibold */
+    size: 48px;
+}
+
 footer {
-    background-color: #212D3B;
+    background-color: #10114B;
     color: white;
-    padding: 20px 10px 5px;
+    padding: 20px 40px 5px;
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
 }
 
 .footer-logo img {
     width: 120px;
+    display: block;
+    margin: 0 auto;
 }
 
 .footer-links {
@@ -36,7 +43,17 @@ footer {
 }
 
 .footer-social a {
-    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
 }
 
 .footer-social img {
@@ -51,4 +68,7 @@ footer {
 
 .footer-copy p {
     font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

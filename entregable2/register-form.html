@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario registro</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+  <header class="header">
+    <div class="inicio">
+      <div class="btn-menu"><img id="logoMenu" src="img/menuhambur.png" alt=""></div>
+      <div class="DivImagenLogo">
+        <a href="index.html"><img class="imagenLogo" src="img/logo.png" alt="Mi marca"></a>
+      </div>
+    </div>
+
+    <div class="buscador">
+      <span class="icon">🔍</span>
+      <input type="search" id="q" name="q" placeholder="Buscar..." />
+    </div>
+    <div class="botones-derecha">
+      <div class="boton1"><button class="btn-large">¡Hazte usuario Premium!</button></div>
+      <button class="btn-small user-button">
+        <span class="arrow">▼</span>
+        <img class="user-photo" src="img/user.png" alt="Usuario">
+      </button>
+    </div>
+  </header>
+
+
+<main>
+  <div class="registro">
+    <h2 class="titulo-registro">Crear una cuenta</h2>
+    <p class="subtitulo-registro">Registrate para empezar a jugar</p>
+
+    <form class="form-registro">
+      <label for="nombre">Nombre y Apellido <span class="req">*</span></label><br>
+      <input type="text" id="nombre" name="nombre" class="input-text" required><br><br>
+
+      <label for="apodo">Apodo</label><br>
+      <input type="text" id="apodo" name="apodo" class="input-text"><br><br>
+
+      <label for="edad">Edad <span class="req">*</span></label><br>
+      <input type="number" id="edad" name="edad" class="input-text" required><br><br>
+
+      <label for="email">Email <span class="req">*</span></label><br>
+      <input type="email" id="email" name="email" class="input-text" required><br><br>
+
+      <label for="password">Contraseña <span class="req">*</span></label><br>
+      <input type="password" id="password" name="password" class="input-text" required><br><br>
+
+      <label for="password2">Repetir contraseña <span class="req">*</span></label><br>
+      <input type="password" id="password2" name="password2" class="input-text" required><br><br>
+
+      <div class="captcha">
+        <input type="checkbox" id="captcha" name="captcha" required>
+        <label for="captcha">No soy un robot</label>
+      </div><br>
+
+      <button type="submit" class="btn-large btn-registrar">Registrarme</button>
+    </form>
+
+    <p class="texto-login">¿Ya tenés cuenta? <a href="#">Iniciá sesión</a></p>
+
+    <p class="texto-redes">O registrate con:</p>
+    <div class="botones-redes">
+      <button type="button" class="btn-small">Facebook</button>
+      <button type="button" class="btn-small">Google</button>
+    </div>
+  </div>
+</main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <a href="#">
+          <img src="images/logo.png" alt="GoodGames Logo" />
+        </a>
+        <div class="footer-social">
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><img
+              src="images/instagram-icon.png" alt="Instagram"></a>
+          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img src="images/twitter-icon.png"
+              alt="Twitter"></a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img
+              src="images/facebook-icon.png" alt="Facebook"></a>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><img src="images/youtube-icon.png"
+              alt="YouTube"></a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <div class="links">
+          <h3>Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Categorías</a></li>
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Privacidad</a></li>
+          </ul>
+        </div>
+
+        <div class="nosotros">
+          <h3>Nosotros</h3>
+          <ul>
+            <li><a href="#">Quienes somos</a></li>
+            <li><a href="#">Preguntas Frecuentes</a></li>
+            <li><a href="#">Contáctanos</a></li>
+          </ul>
+        </div>
+
+        <div class="ayuda">
+          <h3>Ayuda</h3>
+          <ul>
+            <li><a href="#">Guía de juego</a></li>
+            <li><a href="#">Soporte técnico</a></li>
+            <li><a href="#">Tutoriales</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-copy">
+      <p>Copyright © 2025 GAMES Todos los derechos reservados</p>
+    </div>
+
+  </footer>
+</body>
+
+</html>

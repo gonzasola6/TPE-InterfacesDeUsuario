@@ -281,3 +281,132 @@ footer {
     flex-direction: column;
     align-items: center;
 }
+/* --- Estilos para el formulario de registro --- */
+.registro {
+  width: 370px;
+  margin: 48px auto 32px;
+  padding: 32px 28px;
+  background-color: #f5f6fa;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(16, 17, 75, 0.13);
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+.titulo-registro {
+  color: #10114B;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.subtitulo-registro {
+  color: #5153A0;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.form-registro label {
+  display: block;
+  text-align: left;
+  color: #10114B;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.form-registro .req {
+  color: #E53935;
+  font-size: 14px;
+}
+
+.input-text {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #D9D9D9;
+  font-size: 15px;
+}
+
+.captcha {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.btn-registrar {
+  width: 100%;
+  height: 40px;
+  background-color: #10114B;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  transition: background 0.2s;
+}
+
+.btn-registrar:hover {
+  background-color: #5153A0;
+}
+
+.texto-login {
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.texto-login a {
+  color: #E53935;
+  text-decoration: underline;
+}
+
+.texto-redes {
+  margin-top: 18px;
+  font-size: 15px;
+  color: #5153A0;
+}
+
+.botones-redes {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn-small {
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: 1px solid #10114B;
+  background-color: #fff;
+  color: #10114B;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-small:hover {
+  background-color: #D9D9D9;
+}
+html, body {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

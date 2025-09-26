@@ -3,46 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Good Games</title>
+    <title>Iniciar sesión - GoodGames</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
         <div class="inicio">
-            <div><img id="logoMenu" src="images/menuhambur.png" alt=""></div>
             <div>
                 <a href="index.html"><img class="imagenLogo" src="images/logo.png" alt="Mi marca"></a>
             </div>
         </div>
-        <div class="buscador">
-            <span class="icon">🔍</span>
-            <input type="search" id="q" name="q" placeholder="Buscar..." />
-        </div>
-        <div class="botones-derecha">
-            <div class="btn-premium"><button class="btn-large">¡Hazte usuario Premium!</button></div>
-            <div class="user">
-                <button class="user-button">
-                    <span class="arrow">▼</span>
-                    <img class="user-photo" src="images/user.png" alt="Usuario">
-                </button>
-                <div class="menu-user">
-                    <span class="user-name">Nombre de Usuario</span>
-                    <a href="#">Mi perfil</a>
-                    <a href="#">Mis juegos</a>
-                    <a href="#">Configuración</a>
-                    <a href="#">Ayuda</a>
-                    <div class="logout-section">
-                        <button class="btn-logout">Cerrar sesión</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </header>
-    
-    <h1>entregable2</h1>
 
-    
+    <main>
+        <div class="registro">
+            <h2 class="titulo-registro">Inicia Sesión</h2>
+            <p class="subtitulo-registro">Inicia sesión para empezar a jugar</p>
 
+            <p class="texto-redes">Ingresa con:</p>
+            <div class="botones-redes">
+                <button type="button" class="btn-small">Facebook</button>
+                <button type="button" class="btn-small">Google</button>
+            </div>
+    
+            <form class="form-registro">
+    
+                <label for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" class="input-text" required>
+    
+                <label for="password">Contraseña <span class="req">*</span></label>
+                <input type="password" id="password" name="password" class="input-text" required>
+    
+    
+                <div class="captcha">
+                    <input type="checkbox" id="captcha" name="captcha" required>
+                    <label for="captcha">No soy un robot</label>
+                </div>
+    
+                <a href="home.html" class="btn-large btn-registrar"
+                    style="display:inline-block; text-align:center; text-decoration:none;">Iniciar sesión</a>
+            </form>
+    
+            <p class="texto-login">¿No tenés cuenta? <a href="singup.html">Registrate</a></p>
+    
+            
+        </div>
+    </main>
 
     <footer>
         <div class="footer-container">
@@ -51,10 +57,14 @@
                     <img src="images/logo.png" alt="GoodGames Logo" />
                 </a>
                 <div class="footer-social">
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><img src="images/instagram-icon.png" alt="Instagram"></a>
-                    <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img src="images/twitter-icon.png" alt="Twitter"></a>
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                    <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><img src="images/youtube-icon.png" alt="YouTube"></a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><img
+                            src="images/instagram-icon.png" alt="Instagram"></a>
+                    <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img
+                            src="images/twitter-icon.png" alt="Twitter"></a>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img
+                            src="images/facebook-icon.png" alt="Facebook"></a>
+                    <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><img
+                            src="images/youtube-icon.png" alt="YouTube"></a>
                 </div>
             </div>
     
@@ -87,14 +97,13 @@
                     </ul>
                 </div>
             </div>
-    
-            
         </div>
     
         <div class="footer-copy">
             <p>Copyright © 2025 GAMES Todos los derechos reservados</p>
         </div>
+    
     </footer>
-
+    
 </body>
 </html>

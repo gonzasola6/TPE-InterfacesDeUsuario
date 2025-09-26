@@ -9,6 +9,8 @@ input {
     color:#fff
 }
 
+
+
 body {
     background-color: #06061F;
 }
@@ -408,6 +410,7 @@ footer {
 .texto-login {
     font-size: 13px;
     margin-top: 6px;
+    color: black;
 }
 
 .texto-login a {

@@ -190,10 +190,11 @@ color: white; /* color normal */
 .menu-user .btn-logout {
   width: 134px;
   height: 45px;
-  background-color: red;
+  background-color: #AB0000;
   color: white;
   border: none;
   border-radius: 11px;
+  border: 1px solid black;
   cursor: pointer;
   font-family: "Poppins", sans-serif;
   font-size: 14px;

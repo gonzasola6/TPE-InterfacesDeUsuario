@@ -70,7 +70,7 @@ body, form, input {
   flex: 0 0 auto;
 }
 
-.boton1 .btn-large {
+.btn-premium .btn-large {
   width: 201px;
   height: 35px;
   border-radius: 6px;
@@ -87,7 +87,7 @@ body, form, input {
 .user-button {
   display: flex;
   align-items: center;
-  justify-content: center; /* Cambia de space-between a center */
+  justify-content: space-between; /* Cambia de space-between a center */
   gap: 4px;                /* Menor separación entre flecha e imagen */
   width: 80px;   /* ancho del botón */
   height: 40px;   /* alto del botón */
@@ -107,9 +107,101 @@ body, form, input {
   margin-left: 6px;    /* la empuja un poco a la derecha */
 }
 
+/* Menu hamburguesa usuario */
+.user {
+  position: relative; /* el menú se posicionará relativo a este */
+  display: inline-block;
+}
+
+.foto-usuario {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.menu-user {
+  display: none; /* oculto por defecto */
+  position: absolute;
+  top: 100%;   /* debajo del botón */
+  right: 0;    /* alineado a la derecha */
+  width: 302px;            /* ancho fijo */
+  height: 381px;           /* alto fijo */
+  background-color: #5153A0;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  z-index: 1000; /* se superpone */
+
+  font-family: "Poppins", sans-serif; /* tipo de letra */
+  font-size: 18px;
+  color: white; /* color normal */
+  
+}
+.menu-user a {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+color: white; /* color normal */
+}
+
+/* Al pasar el mouse */
+.menu-user a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Mostrar el menú al pasar el mouse */
+.user:hover .menu-user {
+  display: flex;              /* aparece como flex */
+  flex-direction: column;     /* apila elementos */
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 12px;                  /* espacio entre los elementos */
+}
+
 /* Flecha a la izquierda */
 .user-button .arrow {
   font-size: 14px;
+}
+
+.menu-user .user-name {
+   display: block;
+  margin: 24px auto 16px;   /* lo baja un poco del borde superior */
+  padding-bottom: 8px;      /* espacio entre texto y línea */
+  border-bottom: 1px solid white;
+  width: 80%;               /* línea más corta (no toca bordes) */
+  color: white;
+}
+
+/* --- Contenedor de logout con borde arriba --- */
+.menu-user .logout-section {
+  border-top: 1px solid white;  /* línea blanca arriba */
+  margin: 24px auto 16px;  
+  padding-top: 16px;            /* separa el borde del botón */
+  text-align: center;
+  width: 80%;               /* línea más corta (no toca bordes) */
+}
+
+/* --- Botón logout --- */
+.menu-user .btn-logout {
+  width: 134px;
+  height: 45px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 11px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  line-height: 45px;
+}
+
+.menu-user .btn-logout:hover {
+  background-color: darkred;
 }
 
 h1{

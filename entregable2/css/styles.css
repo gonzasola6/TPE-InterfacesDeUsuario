@@ -1,0 +1,466 @@
+/* Estilo del navbar */
+
+body,
+form,
+input {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color:#fff
+}
+
+body {
+    background-color: #06061F;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    /* separa inicio y nav */
+    align-items: center;
+    /* centra verticalmente */
+    height: 56px;
+    /* altura recomendada */
+    padding: 0 16px;
+    /* espacio lateral */
+    background-color: #10114B;
+    /* opcional */
+    /*border-bottom: 1px solid #ddd;  /* opcional */
+    gap: 16px;
+}
+
+/* Contenedor de la izquierda (menú y logo) */
+.inicio {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    /* separación entre botón y logo */
+    flex: 0 0 auto;
+}
+
+/* Logo y botón de menú */
+.imagenLogo {
+    height: 40px;
+    /* ajusta según tu gusto */
+}
+
+#logoMenu {
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Contenedor de búsqueda */
+.buscador {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex: 1 1 0;
+    justify-content: center;
+    min-width: 200px;
+    max-width: 350px;
+    /* igual al input */
+}
+
+.buscador input[type="search"] {
+    height: 28px;
+    width: 100%;
+    /* ocupa todo el ancho del contenedor */
+    max-width: 350px;
+    padding: 0 12px 0 36px;
+    /* espacio para la lupa */
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: #D9D9D9;
+}
+
+.buscador .icon {
+    position: absolute;
+    left: 12px;
+    font-size: 16px;
+    pointer-events: none;
+    color: #666;
+}
+
+.botones-derecha {
+    display: flex;
+    gap: 24px;
+    flex: 0 0 auto;
+}
+
+.btn-premium .btn-large {
+    width: 201px;
+    height: 35px;
+    border-radius: 6px;
+    border: 2px solid #E53935;
+    /* borde más marcado */
+    background-color: #E53935;
+    /* sombra difusa debajo */
+    box-shadow: 0 4px 6px #E53935;
+    color: white;
+    cursor: pointer;
+}
+
+/* Botón 2 */
+
+.user-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Cambia de space-between a center */
+    gap: 4px;
+    /* Menor separación entre flecha e imagen */
+    width: 80px;
+    /* ancho del botón */
+    height: 40px;
+    /* alto del botón */
+    padding: 0 8px;
+    border-radius: 962.17px;
+    border: 1px solid white;
+    background-color: #10114B;
+    color: white;
+    cursor: pointer;
+}
+
+.user-button .user-photo {
+    width: 32px;
+    /* más grande */
+    height: 32px;
+    /* más grande */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 6px;
+    /* la empuja un poco a la derecha */
+}
+
+/* Menu hamburguesa usuario */
+.user {
+    position: relative;
+    /* el menú se posicionará relativo a este */
+    display: inline-block;
+}
+
+.foto-usuario {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.menu-user {
+    display: none;
+    /* oculto por defecto */
+    position: absolute;
+    top: 100%;
+    /* debajo del botón */
+    right: 0;
+    /* alineado a la derecha */
+    width: 302px;
+    /* ancho fijo */
+    height: 381px;
+    /* alto fijo */
+    background-color: #5153A0;
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    z-index: 1000;
+    /* se superpone */
+
+    font-family: "Poppins", sans-serif;
+    /* tipo de letra */
+    font-size: 18px;
+    color: white;
+    /* color normal */
+
+}
+
+.menu-user a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    color: white;
+    /* color normal */
+}
+
+/* Al pasar el mouse */
+.menu-user a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Mostrar el menú al pasar el mouse */
+.user:hover .menu-user {
+    display: flex;
+    /* aparece como flex */
+    flex-direction: column;
+    /* apila elementos */
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 12px;
+    /* espacio entre los elementos */
+}
+
+/* Flecha a la izquierda */
+.user-button .arrow {
+    font-size: 14px;
+}
+
+.menu-user .user-name {
+    display: block;
+    margin: 24px auto 16px;
+    /* lo baja un poco del borde superior */
+    padding-bottom: 8px;
+    /* espacio entre texto y línea */
+    border-bottom: 1px solid white;
+    width: 80%;
+    /* línea más corta (no toca bordes) */
+    color: white;
+}
+
+/* --- Contenedor de logout con borde arriba --- */
+.menu-user .logout-section {
+    border-top: 1px solid white;
+    /* línea blanca arriba */
+    margin: 24px auto 16px;
+    padding-top: 16px;
+    /* separa el borde del botón */
+    text-align: center;
+    width: 80%;
+    /* línea más corta (no toca bordes) */
+}
+
+/* --- Botón logout --- */
+.menu-user .btn-logout {
+    width: 134px;
+    height: 45px;
+    background-color: #AB0000;
+    color: white;
+    border: none;
+    border-radius: 11px;
+    border: 1px solid black;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    line-height: 45px;
+}
+
+.menu-user .btn-logout:hover {
+    background-color: darkred;
+}
+
+h1 {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    /* Semibold */
+    size: 48px;
+}
+
+/* Estilo del footer */
+
+footer {
+    background-color: #10114B;
+    color: white;
+    padding: 20px 40px 5px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-logo img {
+    width: 120px;
+    display: block;
+    margin: 0 auto;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.footer-links h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-social a {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-social img {
+    width: 25px;
+}
+
+.footer-copy {
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+.footer-copy p {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- Estilos para el formulario de registro --- */
+.registro {
+    width: 340px;
+    margin: 0 auto;
+    padding: 12px 8px;
+    background-color: #f5f6fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(16, 17, 75, 0.10);
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+}
+
+.titulo-registro {
+    color: #10114B;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.subtitulo-registro {
+    color: #5153A0;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.form-registro label {
+    display: block;
+    text-align: left;
+    color: #10114B;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 1px;
+}
+
+.form-registro .req {
+    color: #E53935;
+    font-size: 14px;
+}
+
+.input-text {
+    width: 100%;
+    padding: 7px 10px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #D9D9D9;
+    font-size: 13px;
+}
+
+.captcha {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.btn-registrar {
+    width: 100%;
+    height: 32px;
+    background-color: #10114B;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    transition: background 0.2s;
+}
+
+.btn-registrar:hover {
+    background-color: #5153A0;
+}
+
+.texto-login {
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.texto-login a {
+    color: #E53935;
+    text-decoration: underline;
+}
+
+.texto-redes {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #5153A0;
+}
+
+.botones-redes {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #10114B;
+    background-color: #fff;
+    color: #10114B;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-small:hover {
+    background-color: #D9D9D9;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}

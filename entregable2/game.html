@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar sesión - GoodGames</title>
+    <title>Good Games</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
     <header class="header">
         <div class="inicio">
+            <div><img id="logoMenu" src="images/menuhambur.png" alt=""></div>
             <div>
                 <a href="index.html"><img class="imagenLogo" src="images/logo.png" alt="Mi marca"></a>
             </div>
         </div>
+        <div class="buscador">
+            <span class="icon">🔍</span>
+            <input type="search" id="q" name="q" placeholder="Buscar..." />
+        </div>
+        <div class="botones-derecha">
+            <div class="btn-premium"><button class="btn-large">¡Hazte usuario Premium!</button></div>
+            <div class="user">
+                <button class="user-button">
+                    <span class="arrow">▼</span>
+                    <img class="user-photo" src="images/user.png" alt="Usuario">
+                </button>
+                <div class="menu-user">
+                    <span class="user-name">Nombre de Usuario</span>
+                    <a href="#">Mi perfil</a>
+                    <a href="#">Mis juegos</a>
+                    <a href="#">Configuración</a>
+                    <a href="#">Ayuda</a>
+                    <div class="logout-section">
+                        <button type="button" class="btn-logout">Cerrar sesión</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <div class="registro">
-            <h2 class="titulo-registro">Inicia Sesión</h2>
-            <p class="subtitulo-registro">Inicia sesión para empezar a jugar</p>
+    <h1>JUEGO</h1>
 
-            <p class="texto-redes">Ingresa con:</p>
-            <div class="botones-redes">
-                <button type="button" class="btn-small">Facebook</button>
-                <button type="button" class="btn-small">Google</button>
-            </div>
-    
-            <form class="form-registro">
-    
-                <label for="email">Email <span class="req">*</span></label>
-                <input type="email" id="email" name="email" class="input-text" required>
-    
-                <label for="password">Contraseña <span class="req">*</span></label>
-                <input type="password" id="password" name="password" class="input-text" required>
-    
-    
-                <div class="captcha">
-                    <input type="checkbox" id="captcha" name="captcha" required>
-                    <label for="captcha">No soy un robot</label>
-                </div>
-    
-                <button type="button" class="btn-large btn-registrar">Iniciar sesión</button>
-            </form>
-    
-            <p class="texto-login">¿No tenés cuenta? <a href="singup.html">Registrate</a></p>
-    
-            
-        </div>
-    </main>
+    <p>BLA</p>
+    <p>BLA</p>
+    <p>AYUDA</p>
+    <p>COMENTARIOS</p>
+
+
+
+
 
     <footer>
         <div class="footer-container">
@@ -66,7 +69,7 @@
                             src="images/youtube-icon.png" alt="YouTube"></a>
                 </div>
             </div>
-    
+
             <div class="footer-links">
                 <div class="links">
                     <h3>Links</h3>
@@ -77,7 +80,7 @@
                         <li><a href="#">Privacidad</a></li>
                     </ul>
                 </div>
-    
+
                 <div class="nosotros">
                     <h3>Nosotros</h3>
                     <ul>
@@ -86,7 +89,7 @@
                         <li><a href="#">Contáctanos</a></li>
                     </ul>
                 </div>
-    
+
                 <div class="ayuda">
                     <h3>Ayuda</h3>
                     <ul>
@@ -96,13 +99,16 @@
                     </ul>
                 </div>
             </div>
+
+
         </div>
-    
+
         <div class="footer-copy">
             <p>Copyright © 2025 GAMES Todos los derechos reservados</p>
         </div>
-    
     </footer>
+
     <script src="js/scripts.js"></script>
 </body>
+
 </html>

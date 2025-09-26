@@ -6,6 +6,10 @@ body, form, input {
   box-sizing: border-box;
 }
 
+body {
+    background-color: #06061F;
+}
+
 .header {
   display: flex;
   justify-content: space-between; /* separa inicio y nav */
@@ -13,7 +17,7 @@ body, form, input {
   height: 56px;                   /* altura recomendada */
   padding: 0 16px;                /* espacio lateral */
   background-color: #10114B;      /* opcional */
-  border-bottom: 1px solid #ddd;  /* opcional */
+  /*border-bottom: 1px solid #ddd;  /* opcional */
   gap: 16px;
 }
 

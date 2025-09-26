@@ -6,8 +6,36 @@
     <title>Iniciar sesión - GoodGames</title>
 </head>
 <body>
-    <header>
-        <!-- ESTAMOS TRABAJANDO EN EL HEADER DISCULPE LAS MOLESTIAS-->
+    <header class="header">
+        <div class="inicio">
+            <div><img id="logoMenu" src="images/menuhambur.png" alt=""></div>
+            <div>
+                <a href="index.html"><img class="imagenLogo" src="images/logo.png" alt="Mi marca"></a>
+            </div>
+        </div>
+        <div class="buscador">
+            <span class="icon">🔍</span>
+            <input type="search" id="q" name="q" placeholder="Buscar..." />
+        </div>
+        <div class="botones-derecha">
+            <div class="btn-premium"><button class="btn-large">¡Hazte usuario Premium!</button></div>
+            <div class="user">
+                <button class="user-button">
+                    <span class="arrow">▼</span>
+                    <img class="user-photo" src="images/user.png" alt="Usuario">
+                </button>
+                <div class="menu-user">
+                    <span class="user-name">Nombre de Usuario</span>
+                    <a href="#">Mi perfil</a>
+                    <a href="#">Mis juegos</a>
+                    <a href="#">Configuración</a>
+                    <a href="#">Ayuda</a>
+                    <div class="logout-section">
+                        <button class="btn-logout">Cerrar sesión</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -15,7 +43,58 @@
     </main>
 
     <footer>
-        <!-- ACA TAMBIEN ESTAMOS TRABAJANDO, PERO YA ME CANSE DE PEDIR DISCULPAS :)-->
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="#">
+                    <img src="images/logo.png" alt="GoodGames Logo" />
+                </a>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><img
+                            src="images/instagram-icon.png" alt="Instagram"></a>
+                    <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img
+                            src="images/twitter-icon.png" alt="Twitter"></a>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img
+                            src="images/facebook-icon.png" alt="Facebook"></a>
+                    <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><img
+                            src="images/youtube-icon.png" alt="YouTube"></a>
+                </div>
+            </div>
+    
+            <div class="footer-links">
+                <div class="links">
+                    <h3>Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Categorías</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Privacidad</a></li>
+                    </ul>
+                </div>
+    
+                <div class="nosotros">
+                    <h3>Nosotros</h3>
+                    <ul>
+                        <li><a href="#">Quienes somos</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Contáctanos</a></li>
+                    </ul>
+                </div>
+    
+                <div class="ayuda">
+                    <h3>Ayuda</h3>
+                    <ul>
+                        <li><a href="#">Guía de juego</a></li>
+                        <li><a href="#">Soporte técnico</a></li>
+                        <li><a href="#">Tutoriales</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-copy">
+            <p>Copyright © 2025 GAMES Todos los derechos reservados</p>
+        </div>
+    
     </footer>
     
 </body>

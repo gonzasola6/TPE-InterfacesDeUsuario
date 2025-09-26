@@ -12,22 +12,33 @@
 <body>
   <header class="header">
     <div class="inicio">
-      <div class="btn-menu"><img id="logoMenu" src="img/menuhambur.png" alt=""></div>
-      <div class="DivImagenLogo">
-        <a href="index.html"><img class="imagenLogo" src="img/logo.png" alt="Mi marca"></a>
+      <div><img id="logoMenu" src="images/menuhambur.png" alt=""></div>
+      <div>
+        <a href="index.html"><img class="imagenLogo" src="images/logo.png" alt="Mi marca"></a>
       </div>
     </div>
-
     <div class="buscador">
       <span class="icon">🔍</span>
       <input type="search" id="q" name="q" placeholder="Buscar..." />
     </div>
     <div class="botones-derecha">
-      <div class="boton1"><button class="btn-large">¡Hazte usuario Premium!</button></div>
-      <button class="btn-small user-button">
-        <span class="arrow">▼</span>
-        <img class="user-photo" src="img/user.png" alt="Usuario">
-      </button>
+      <div class="btn-premium"><button class="btn-large">¡Hazte usuario Premium!</button></div>
+      <div class="user">
+        <button class="user-button">
+          <span class="arrow">▼</span>
+          <img class="user-photo" src="images/user.png" alt="Usuario">
+        </button>
+        <div class="menu-user">
+          <span class="user-name">Nombre de Usuario</span>
+          <a href="#">Mi perfil</a>
+          <a href="#">Mis juegos</a>
+          <a href="#">Configuración</a>
+          <a href="#">Ayuda</a>
+          <div class="logout-section">
+            <button class="btn-logout">Cerrar sesión</button>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 

@@ -1,3 +1,5 @@
+
+
 // Navegación de botones personalizados
 function redirectOnClick(selector, url) {
     document.querySelectorAll(selector).forEach(function(btn) {

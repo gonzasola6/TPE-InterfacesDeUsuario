@@ -91,7 +91,9 @@ body {
 }
 
 .btn-premium .btn-large {
-    width: 201px;
+    flex: 1 1 auto;        /* puede crecer y encogerse según el contenedor */
+    min-width: 120px;      /* ancho mínimo del botón en móviles */
+    max-width: 201px; 
     height: 35px;
     border-radius: 6px;
     border: 2px solid #E53935;
@@ -112,6 +114,9 @@ body {
     /* Cambia de space-between a center */
     gap: 4px;
     /* Menor separación entre flecha e imagen */
+        flex: 0 1 auto;       /* permite que se reduzca según el contenedor */
+    min-width: 60px;      /* ancho mínimo en pantallas pequeñas */
+    max-width: 80px;  
     width: 80px;
     /* ancho del botón */
     height: 40px;
@@ -136,6 +141,58 @@ body {
 }
 
 /* Menu hamburguesa usuario HAY QUE HACERLO MOBILE FIRST */
+.user {
+    position: relative;
+    /* el menú se posicionará relativo a este */
+    display: inline-block;
+}
+
+.foto-usuario {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.menu-user {
+    display: none;
+    /* oculto por defecto */
+    position: absolute;
+    top: 100%;
+    /* debajo del botón */
+    right: 0;
+    /* alineado a la derecha */
+    width: 302px;
+    /* ancho fijo */
+    height: 381px;
+    /* alto fijo */
+    background-color: #5153A0;
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    z-index: 1000;
+    /* se superpone */
+    overflow: hidden; /* evita que algo se desborde */
+
+    font-family: "Poppins", sans-serif;
+    /* tipo de letra */
+    font-size: 18px;
+    color: white;
+    /* color normal */
+
+}
+
+.menu-user a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    color: white;
+    /* color normal */
+}
 
 
 h1 {
@@ -356,58 +413,6 @@ main {
 
 @media (width >= 768px)  {
 /* Menu hamburguesa desktop */
-.user {
-    position: relative;
-    /* el menú se posicionará relativo a este */
-    display: inline-block;
-}
-
-.foto-usuario {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-}
-
-.menu-user {
-    display: none;
-    /* oculto por defecto */
-    position: absolute;
-    top: 100%;
-    /* debajo del botón */
-    right: 0;
-    /* alineado a la derecha */
-    width: 302px;
-    /* ancho fijo */
-    height: 381px;
-    /* alto fijo */
-    background-color: #5153A0;
-    min-width: 160px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    z-index: 1000;
-    /* se superpone */
-    overflow: hidden; /* evita que algo se desborde */
-
-    font-family: "Poppins", sans-serif;
-    /* tipo de letra */
-    font-size: 18px;
-    color: white;
-    /* color normal */
-
-}
-
-.menu-user a {
-    display: block;
-    padding: 8px 12px;
-    text-decoration: none;
-    background: none;
-    border: none;
-    text-align: left;
-    width: 100%;
-    cursor: pointer;
-    color: white;
-    /* color normal */
-}
 
 /* Al pasar el mouse */
 .menu-user a:hover {

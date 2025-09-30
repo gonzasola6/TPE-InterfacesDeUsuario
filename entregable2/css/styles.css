@@ -23,7 +23,7 @@ body {
     /* centra verticalmente */
     height: 56px;
     /* altura recomendada */
-    padding: 0 16px;
+    padding: 0 10px;
     /* espacio lateral */
     background-color: #10114B;
     /* opcional */
@@ -35,7 +35,7 @@ body {
 .inicio {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 4px;
     /* separación entre botón y logo */
     flex: 0 0 auto;
 }
@@ -51,6 +51,32 @@ body {
     cursor: pointer;
 }
 
+.menu-hamburguesa {
+    display: none;
+    /* oculto por defecto */
+    position: absolute;
+    top: 100%;
+    /* debajo del botón */
+    left: 0;
+    /* alineado a la izquierda */
+    width: 200px;
+    /* ancho fijo */
+    background-color: #5153A0;
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    z-index: 1000;
+    /* se superpone */
+    overflow: hidden; /* evita que algo se desborde */
+
+    font-family: "Poppins", sans-serif;
+    /* tipo de letra */
+    font-size: 18px;
+    color: white;
+    /* color normal */
+
+}
+
 /* Contenedor de búsqueda */
 .buscador {
     display: flex;
@@ -58,7 +84,7 @@ body {
     position: relative;
     flex: 1 1 0;
     justify-content: center;
-    min-width: 200px;
+    min-width: 50px;
     max-width: 350px;
     /* igual al input */
 }
@@ -86,7 +112,7 @@ body {
 
 .botones-derecha {
     display: flex;
-    gap: 24px;
+    gap: 15px;
     flex: 0 0 auto;
 }
 
@@ -411,10 +437,32 @@ main {
     padding: 0;
 }
 
-@media (width >= 768px)  {
-/* Menu hamburguesa desktop */
+/* Carrusel */
 
-/* Al pasar el mouse */
+
+@media (width >= 768px)  {
+
+.inicio {
+    gap: 16px;
+}
+/* Menu hamburguesa desktop */
+.menu-hamburguesa a:hover {
+    background-color: #44479e;
+}
+
+/* Mostrar el menú al pasar el mouse */
+.logo-menu-container:hover .menu-hamburguesa {
+    display: flex;
+    /* aparece como flex */
+    flex-direction: column;
+    /* apila elementos */
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 12px;
+    /* espacio entre los elementos */
+}
+
+/* Menu user desktop */
 .menu-user a:hover {
     background-color: #44479e;
 }

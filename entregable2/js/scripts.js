@@ -1,5 +1,4 @@
 
-
 // Navegación de botones personalizados
 function redirectOnClick(selector, url) {
     document.querySelectorAll(selector).forEach(function(btn) {
@@ -18,3 +17,5 @@ redirectOnClick('.btn-logout', 'index.html');
 
 // Para el botón de iniciar sesión en index.html
 redirectOnClick('.btn-registrar', 'home.html');
+
+

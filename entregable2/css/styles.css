@@ -9,7 +9,10 @@ input {
     color:#fff
 }
 
-
+* {
+    margin: 0px;
+    padding: 0px;
+}
 
 body {
     background-color: #06061F;
@@ -28,7 +31,7 @@ body {
     background-color: #10114B;
     /* opcional */
     /*border-bottom: 1px solid #ddd;  /* opcional */
-    gap: 16px;
+    gap: 10px;
 }
 
 /* Contenedor de la izquierda (menú y logo) */
@@ -52,7 +55,7 @@ body {
     position: relative; /* referencia para el menú interno */
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
 }
 
 .menu-hamburguesa {
@@ -142,11 +145,30 @@ body {
 
 .botones-derecha {
     display: flex;
+    justify-content: center;
     gap: 15px;
     flex: 0 0 auto;
 }
 
-.btn-premium .btn-large {
+.btn-premium-mobile {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #E53935;
+        border: 2px solid #E53935;
+        /* Centrado horizontal solo en mobile */
+}
+
+
+.btn-premium {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+
+
+.btn-premium .btn-premium-desktop {
     flex: 1 1 auto;        /* puede crecer y encogerse según el contenedor */
     min-width: 120px;      /* ancho mínimo del botón en móviles */
     max-width: 201px; 
@@ -159,6 +181,12 @@ body {
     box-shadow: 0 4px 6px #E53935;
     color: white;
     cursor: pointer;
+    align-items: center;
+    font-size: 12px;
+}
+
+.btn-premium-desktop{
+    display: none;
 }
 
 /* Botón 2 */
@@ -288,7 +316,6 @@ footer {
 
 .footer-links ul {
     list-style: none;
-    padding: 0;
 }
 
 .footer-links ul li a {
@@ -470,7 +497,7 @@ main {
 
 @media (width >= 768px)  {
 
-.inicio {
+.logo-menu-container {
     gap: 16px;
 }
 /* Menu hamburguesa desktop */
@@ -565,5 +592,71 @@ main {
   align-items: left;    /* opcional, centra horizontalmente */
   gap: 4px;               /* espacio entre imagen y texto */
   margin-left: 16px;
+}
+
+.btn-premium-desktop{
+    display: flex;
+}
+
+.btn-premium-mobile{
+    display: none;
+}
+
+.footer-logo img {
+    width: 120px;
+    display: block;
+    margin: 0 auto;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.footer-links h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-social a {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-social img {
+    width: 25px;
+}
+
+.footer-copy {
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+.footer-copy p {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 }

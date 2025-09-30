@@ -35,8 +35,6 @@ body {
 .inicio {
     display: flex;
     align-items: center;
-    gap: 4px;
-    /* separación entre botón y logo */
     flex: 0 0 auto;
 }
 
@@ -50,17 +48,20 @@ body {
     height: 30px;
     cursor: pointer;
 }
+.logo-menu-container {
+    position: relative; /* referencia para el menú interno */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
 .menu-hamburguesa {
     display: none;
-    /* oculto por defecto */
     position: absolute;
     top: 100%;
-    /* debajo del botón */
     left: 0;
-    /* alineado a la izquierda */
-    width: 200px;
-    /* ancho fijo */
+    width: 302px;
+    height: 529px;
     background-color: #5153A0;
     min-width: 160px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -70,11 +71,40 @@ body {
     overflow: hidden; /* evita que algo se desborde */
 
     font-family: "Poppins", sans-serif;
-    /* tipo de letra */
     font-size: 18px;
     color: white;
-    /* color normal */
+}
 
+.menu-hamburguesa a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    color: white;
+    /* color normal */
+}
+
+.borde-menu {
+    display: block;
+    width: 90%;
+    height: 1px;
+    background-color: #ccc;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    /* separa un poco del menú */
+    margin-left: 16px;
+}
+
+.menu-categorias {
+    display: block;
+    /* Semibold */
+    margin-left: 18px;
+    margin-bottom: 6px;
+    /* separa un poco del primer enlace */
 }
 
 /* Contenedor de búsqueda */
@@ -137,10 +167,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* Cambia de space-between a center */
     gap: 4px;
     /* Menor separación entre flecha e imagen */
-        flex: 0 1 auto;       /* permite que se reduzca según el contenedor */
+    flex: 0 1 auto;       /* permite que se reduzca según el contenedor */
     min-width: 60px;      /* ancho mínimo en pantallas pequeñas */
     max-width: 80px;  
     width: 80px;
@@ -166,10 +195,9 @@ body {
     /* la empuja un poco a la derecha */
 }
 
-/* Menu hamburguesa usuario HAY QUE HACERLO MOBILE FIRST */
+/* Menu usuario*/
 .user {
     position: relative;
-    /* el menú se posicionará relativo a este */
     display: inline-block;
 }
 

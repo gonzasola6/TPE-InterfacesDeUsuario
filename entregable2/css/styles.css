@@ -9,7 +9,10 @@ input {
     color:#fff
 }
 
-
+*{
+    margin:0;
+    padding: 0
+}
 
 body {
     background-color: #06061F;
@@ -18,11 +21,8 @@ body {
 .header {
     display: flex;
     justify-content: space-between;
-    /* separa inicio y nav */
     align-items: center;
-    /* centra verticalmente */
-    height: 56px;
-    /* altura recomendada */
+    height: 56px; /* altura recomendada */
     padding: 0 10px;
     /* espacio lateral */
     background-color: #10114B;
@@ -40,7 +40,9 @@ body {
 
 /* Logo y botón de menú */
 .imagenLogo {
-    height: 40px;
+    height: 80%; /* ocupa el 80% de la altura del header */
+    max-height: 45px; /* opcional, para limitar el tamaño máximo */
+    width: auto; /* mantiene la proporción */
     /* ajusta según tu gusto */
 }
 

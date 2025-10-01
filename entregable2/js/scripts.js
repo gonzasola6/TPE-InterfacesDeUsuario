@@ -9,6 +9,34 @@ function redirectOnClick(selector, url) {
     });
 }
 
+
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.querySelector(".form-registro");
+  const btn = document.querySelector(".btn-registrar");
+  const captcha = document.getElementById("captcha");
+
+  function validarCampos() {
+    // Selecciona todos los campos obligatorios
+    const obligatorios = form.querySelectorAll("[required]");
+    let completos = true;
+    obligatorios.forEach(campo => {
+      if (!campo.value.trim()) completos = false;
+    });
+    // Verifica el captcha
+    if (!captcha.checked) completos = false;
+    // Habilita o deshabilita el botón
+    btn.disabled = !completos;
+  }
+
+  // Escucha cambios en los campos y el captcha
+  form.addEventListener("input", validarCampos);
+  captcha.addEventListener("change", validarCampos);
+
+  // Deshabilita el botón al cargar la página
+  validarCampos();
+});
+
+
 // Para el botón de registro en register-form.html
 redirectOnClick('.btn-registrar', 'index.html');
 

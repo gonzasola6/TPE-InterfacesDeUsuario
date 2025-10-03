@@ -394,14 +394,17 @@ footer {
     margin-bottom: 12px;
 }
 
-.form-registro label {
+/* Estilo para las etiquetas de los formularios (login y registro) */
+.form-registro label,
+.form-registro-login label {
     display: block;
-    text-align: left;
+    text-align: left; /* Alinea el texto de las etiquetas a la izquierda */
     color: #fff;
     font-size: 13px;
     font-weight: 500;
-    margin-bottom: 1px;
+    margin-bottom: 5px; /* Agrega un pequeño margen para separarlas del input */
 }
+
 
 .input-container {
   position: relative;
@@ -515,6 +518,51 @@ footer {
     background-color: #D9D9D9;
 }
 
+/* Botones para login con redes sociales */
+.btn-facebook-login,
+.btn-google-login {
+    padding: 10px 20px; /* Aumenté el padding */
+    border-radius: 30px; /* Bordes redondeados */
+    border: 1px solid #10114B;
+    background-color: #fff;
+    color: #10114B;
+    font-size: 14px; /* Aumenté el tamaño de la fuente */
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 100%; /* Hace que el botón ocupe todo el ancho */
+}
+
+.btn-facebook-login:hover,
+.btn-google-login:hover {
+    background-color: #D9D9D9;
+}
+
+
+/* Estilo para el texto "Campo obligatorio" */
+.campo-obligatorio {
+    color: #fff; /* Color blanco */
+    font-size: 12px;
+    margin-top: 0px; /* Espacio entre el input y el texto */
+    margin-bottom: 20px;
+    text-align: left; /* Alineación a la izquierda */
+    margin-left: 0px; /* Un pequeño margen a la izquierda */
+}
+
+.campo-obligatorio::after {
+    content: "*";
+    color: #E53935; /* Rojo */
+    font-size: 14px;
+    margin-left: 4px; /* Separar un poco el asterisco del texto */
+}
+
+/* Línea separadora entre botones de redes sociales y el formulario */
+.linea-separadora {
+    width: 100%;
+    border-top: 1px solid #ccc;
+    margin: 20px 0; /* Espacio arriba y abajo de la línea */
+}
+
+
 .captcha-fake {
     display: flex;
     align-items: center;
@@ -556,7 +604,7 @@ footer {
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.7s ease;
 }
 
 .loader-overlay.active {
@@ -566,7 +614,7 @@ footer {
 
 .spinner {
   border: 5px solid rgba(255, 255, 255, 0.2);
-  border-top: 5px solid #00ffb3;
+  border-top: 5px solid #F8BD00;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -576,7 +624,7 @@ footer {
 
 .loader-text {
   font-size: 1.2em;
-  color: #00ffb3;
+  color: #F8BD00;
 }
 
 @keyframes spin {
@@ -587,7 +635,7 @@ footer {
 
 .loader-percentage {
   font-size: 2em;
-  color: #00ffb3;
+  color: #F8BD00;
   margin-top: 10px;
 }
 

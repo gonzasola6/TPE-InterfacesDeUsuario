@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -24,25 +24,28 @@
 
             <p class="texto-redes">Ingresa con:</p>
             <div class="botones-redes">
-                <button type="button" class="btn-small btn-facebook">
+                <button type="button" class="btn-small btn-facebook-login">
                     <img src="images/Icono-Facebook.png" alt="Icono-Facebook" class="icono-red-social">
                     Facebook
                 </button>
-                <button type="button" class="btn-small btn-google">
+                <button type="button" class="btn-small btn-google-login">
                     <img src="images/Icono-google.png" alt="Icono-google" class="icono-red-social">
                     Google
                 </button>
             </div>
 
+            <div class="linea-separadora"></div>
+
             <form class="form-registro-login">
-
                 <label for="email">Email</label>
+                <div class="input-container">
                 <input type="email" id="email" name="email" class="input-text" required>
-
+                </div>
                 <label for="password">Contraseña</label>
+                <div class="input-container">
                 <input type="password" id="password" name="password" class="input-text" required>
-
-
+                </div>
+                <div class="campo-obligatorio">Campo obligatorio</div>
                 <div class="captcha-fake">
                     <input type="checkbox" id="captcha-login" name="captcha" required>
                     <label for="captcha-login">No soy un robot</label>
@@ -53,7 +56,6 @@
             </form>
 
             <p class="texto-login">¿No tenés cuenta? <a href="singup.html">Registrate</a></p>
-
 
         </div>
     </main>
@@ -113,12 +115,11 @@
 
     </footer>
     <script src="js/scripts.js"></script>
-    <!-- Loader oculto por defecto -->
-<div id="loader-overlay" class="loader-overlay">
-  <div class="spinner"></div>
-  <p class="loader-text">Cargando tu experiencia GoodGames...</p>
-  <p id="loader-percentage" class="loader-percentage">0%</p>
-</div>
+    <div id="loader-overlay" class="loader-overlay">
+        <div class="spinner"></div>
+        <p class="loader-text">Cargando tu experiencia GoodGames...</p>
+        <p id="loader-percentage" class="loader-percentage">0%</p>
+    </div>
 
 </body>
 

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión - GoodGames</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
     <header class="header">
         <div class="inicio">
@@ -22,30 +24,37 @@
 
             <p class="texto-redes">Ingresa con:</p>
             <div class="botones-redes">
-                <button type="button" class="btn-small">Facebook</button>
-                <button type="button" class="btn-small">Google</button>
+                <button type="button" class="btn-small btn-facebook">
+                    <img src="images/Icono-Facebook.png" alt="Icono-Facebook" class="icono-red-social">
+                    Facebook
+                </button>
+                <button type="button" class="btn-small btn-google">
+                    <img src="images/Icono-google.png" alt="Icono-google" class="icono-red-social">
+                    Google
+                </button>
             </div>
-    
-            <form class="form-registro">
-    
+
+            <form class="form-registro-login">
+
                 <label for="email">Email <span class="req">*</span></label>
                 <input type="email" id="email" name="email" class="input-text" required>
-    
+
                 <label for="password">Contraseña <span class="req">*</span></label>
                 <input type="password" id="password" name="password" class="input-text" required>
-    
-    
-                <div class="captcha">
-                    <input type="checkbox" id="captcha" name="captcha" required>
+
+
+                <div class="captcha-fake">
+                    <input type="checkbox" id="captcha" name="captcha">
                     <label for="captcha">No soy un robot</label>
+                    <img src="images/recaptcha.png" alt="reCAPTCHA" class="img-recaptcha">
                 </div>
-    
-                <button type="button" class="btn-large btn-registrar">Iniciar sesión</button>
+
+                <button type="button" class="btn-large btn-login">Iniciar sesión</button>
             </form>
-    
+
             <p class="texto-login">¿No tenés cuenta? <a href="singup.html">Registrate</a></p>
-    
-            
+
+
         </div>
     </main>
 
@@ -66,7 +75,7 @@
                             src="images/youtube-icon.png" alt="YouTube"></a>
                 </div>
             </div>
-    
+
             <div class="footer-links">
                 <div class="links">
                     <h3>Links</h3>
@@ -77,7 +86,7 @@
                         <li><a href="#">Privacidad</a></li>
                     </ul>
                 </div>
-    
+
                 <div class="nosotros">
                     <h3>Nosotros</h3>
                     <ul>
@@ -86,7 +95,7 @@
                         <li><a href="#">Contáctanos</a></li>
                     </ul>
                 </div>
-    
+
                 <div class="ayuda">
                     <h3>Ayuda</h3>
                     <ul>
@@ -97,12 +106,13 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="footer-copy">
             <p>Copyright © 2025 GAMES Todos los derechos reservados</p>
         </div>
-    
+
     </footer>
     <script src="js/scripts.js"></script>
 </body>
+
 </html>

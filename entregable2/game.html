@@ -11,9 +11,65 @@
 <body>
     <header class="header">
         <div class="inicio">
-            <div><img id="logoMenu" src="images/menuhambur.png" alt=""></div>
-            <div>
-                <a href="index.html"><img class="imagenLogo" src="images/logo.png" alt="Mi marca"></a>
+            <div class="logo-menu-container">
+                <img id="logoMenu" src="images/menuhambur.png" alt="">
+                <div class="menu-hamburguesa">
+                    <span class="borde-menu"></span>
+                    <a href="#">
+                        <div class="link-content">
+                            <img src="images/home-icon.png" alt="Perfil">
+                            <span>Inicio</span>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="link-content">
+                            <img src="images/destacados-icon.png" alt="Perfil">
+                            <span>Juegos Destacados</span>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="link-content">
+                            <img src="images/recientes-icon.png" alt="Perfil">
+                            <span>Juegos Recientes</span>
+                        </div>
+                    </a>
+
+                    <span class="borde-menu"></span>
+                    <span class="menu-categorias">Categorias</span>
+                    <a href="#">
+                        <div class="link-content">
+                            <img src="images/accion-icon.png" alt="Perfil">
+                            <span>Accion</span>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="link-content">
+                            <img src="images/arcade-icon.png" alt="Perfil">
+                            <span>Arcade</span>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="link-content">
+                            <img src="images/deporte-icon.png" alt="Perfil">
+                            <span>Deportes</span>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="link-content">
+                            <img src="images/multijugador-icon.png" alt="Perfil">
+                            <span>Multijugador</span>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="link-content">
+                            <img src="images/mas-icon.png" alt="Perfil">
+                            <span>Mas...</span>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a href="index.html"><img class="imagenLogo" src="images/logo.png" alt="Mi marca"></a>
+                </div>
             </div>
         </div>
         <div class="buscador">
@@ -21,18 +77,41 @@
             <input type="search" id="q" name="q" placeholder="Buscar..." />
         </div>
         <div class="botones-derecha">
-            <div class="btn-premium"><button class="btn-large">¡Hazte usuario Premium!</button></div>
+            <div class="btn-premium">
+                <button class="btn-premium-mobile"> <img src="images/corona-icon.png" alt=""></button>
+                <button class="btn-premium-desktop">¡Hazte usuario Premium!</button>
+            </div>
             <div class="user">
-                <button class="user-button">
+                <button class="user-button" id="user-menu">
                     <span class="arrow">▼</span>
                     <img class="user-photo" src="images/user.png" alt="Usuario">
                 </button>
                 <div class="menu-user">
                     <span class="user-name">Nombre de Usuario</span>
-                    <a href="#">Mi perfil</a>
-                    <a href="#">Mis juegos</a>
-                    <a href="#">Configuración</a>
-                    <a href="#">Ayuda</a>
+                    <a href="#">
+                        <div class="link-content">
+                            <img src="images/perfil-icon.png" alt="">
+                            <span>Mi perfil</span>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="link-content">
+                            <img src="images/misjuegos-icon.png" alt="">
+                            <span>Mis Juegos</span>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="link-content">
+                            <img src="images/config-icon.png" alt="">
+                            <span>Configuración</span>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="link-content">
+                            <img src="images/ayuda.icon.png" alt="">
+                            <span>Ayuda</span>
+                        </div>
+                    </a>
                     <div class="logout-section">
                         <button type="button" class="btn-logout">Cerrar sesión</button>
                     </div>
@@ -41,74 +120,126 @@
         </div>
     </header>
 
-    <h1>JUEGO</h1>
+    <h1 class="tituloJuego">Peg Solitaire: Homer vs Bart - La Batalla del Sofa</h1>
 
-    <p>BLA</p>
-    <p>BLA</p>
-    <p>AYUDA</p>
-    <p>COMENTARIOS</p>
+    <p class="textoJuego"><a href="home.html" class="breadcrums">Inicio</a> <img src="images/arrow-icon.png" alt=""
+            class="arrowJuego"> Peg Solitaire: Homer vs Bart - La Batalla del Sofa</p>
+    <img src="images/game-img.png" alt="" class="imagenJuego">
+    <div class="btn-feedback">
+        <img src="images/like-icon.png" alt="">
+        <img src="images/fav-icon.png" alt="">
+        <img src="images/share-icon.png" alt="">
+        <img src="images/report-icon.png" alt="">
+    </div>
+    <p class="textoAyuda">Ayuda / Instrucciones</p>
+    <div class="contenedor-ayuda">
+        <h2 class="subtituloAyuda">¿Cómo jugar a Peg Solitaire: Homer vs Bart – La Batalla del Sofá?</h2>
+        <p>En esta versión especial del clásico Peg Solitaire, el tablero de madera se transforma en el sillón de la
+            familia Simpson. Los peones ya no son simples fichas: ahora son Homer y Bart, luchando por quedarse como el
+            único dueño del sillón.
 
+        <p>📜 Reglas del juego</p>
+        <p>1. Inicio del tablero</p>
+        <p>El sillón se llena con fichas de Homer y Bart, dejando un solo espacio vacío en el centro (una dona gigante
+            🍩).</p>
+        <p>2. Movimientos</p>
+        <p>Un personaje puede saltar sobre otro adyacente (arriba, abajo, izquierda o derecha, nunca en diagonal).
+            El que queda en el medio es eliminado y desaparece del sillón (como si hubiera ido a la cocina por más
+            comida).</p>
+        <p>3. Objetivo</p>
+        <p>Seguir saltando y eliminando hasta que solo quede una ficha en el tablero.</p>
+        <p>4. Fin alternativo</p>
+        <p>Si ya no hay más movimientos posibles y quedan varias fichas → ¡empate familiar! Ambos siguen discutiendo
+            frente al televisor.</p>
+    </div>
 
+    <p class="textoAyuda">Muestras del Juego</p>
+    <div class="contenedor-muestra">
 
-
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-logo">
-                <a href="#">
-                    <img src="images/logo.png" alt="GoodGames Logo" />
-                </a>
-                <div class="footer-social">
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><img
-                            src="images/instagram-icon.png" alt="Instagram"></a>
-                    <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img
-                            src="images/twitter-icon.png" alt="Twitter"></a>
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img
-                            src="images/facebook-icon.png" alt="Facebook"></a>
-                    <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><img
-                            src="images/youtube-icon.png" alt="YouTube"></a>
-                </div>
+            <div class="card">
+                <a href=""><img src="images/card-muestra.png" alt="Imagen del juego"></a>
+                <div class="texto">Imagen del juego</div>
+            </div>
+            <div class="card">
+                <a href=""><img src="images/card-trailer.png" alt="Imagen del juego"></a>
+                <div class="texto">Trailer del juego</div>
+            </div>
+            <div class="card">
+                <a href=""><img src="images/card-muestra.png" alt="Imagen del juego"></a>
+                <div class="texto">Imagen del juego</div>
             </div>
 
-            <div class="footer-links">
-                <div class="links">
-                    <h3>Links</h3>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Categorías</a></li>
-                        <li><a href="#">Términos y condiciones</a></li>
-                        <li><a href="#">Privacidad</a></li>
-                    </ul>
+    </div>
+        <p class="textoAyuda">Comentarios</p>
+        <div class="contenedor-formulario">
+            <img src="images/user.png" alt="" class="imagenUsuario"><p>Nombre de usuario</p>
+            <input type="text" placeholder="¿Qué opinas de este juego?" class="input-comentario">
+        </div>
+        <div class="contenedor-comentarios">
+            <p>ACA VAN LOS COMENTARIOS</p>
+        </div>
+
+
+
+
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <a href="#">
+                        <img src="images/logo.png" alt="GoodGames Logo" />
+                    </a>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><img
+                                src="images/instagram-icon.png" alt="Instagram"></a>
+                        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img
+                                src="images/twitter-icon.png" alt="Twitter"></a>
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img
+                                src="images/facebook-icon.png" alt="Facebook"></a>
+                        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><img
+                                src="images/youtube-icon.png" alt="YouTube"></a>
+                    </div>
                 </div>
 
-                <div class="nosotros">
-                    <h3>Nosotros</h3>
-                    <ul>
-                        <li><a href="#">Quienes somos</a></li>
-                        <li><a href="#">Preguntas Frecuentes</a></li>
-                        <li><a href="#">Contáctanos</a></li>
-                    </ul>
+                <div class="footer-links">
+                    <div class="links">
+                        <h3>Links</h3>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Categorías</a></li>
+                            <li><a href="#">Términos y condiciones</a></li>
+                            <li><a href="#">Privacidad</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="nosotros">
+                        <h3>Nosotros</h3>
+                        <ul>
+                            <li><a href="#">Quienes somos</a></li>
+                            <li><a href="#">Preguntas Frecuentes</a></li>
+                            <li><a href="#">Contáctanos</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="ayuda">
+                        <h3>Ayuda</h3>
+                        <ul>
+                            <li><a href="#">Guía de juego</a></li>
+                            <li><a href="#">Soporte técnico</a></li>
+                            <li><a href="#">Tutoriales</a></li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="ayuda">
-                    <h3>Ayuda</h3>
-                    <ul>
-                        <li><a href="#">Guía de juego</a></li>
-                        <li><a href="#">Soporte técnico</a></li>
-                        <li><a href="#">Tutoriales</a></li>
-                    </ul>
-                </div>
+
             </div>
 
+            <div class="footer-copy">
+                <p>Copyright © 2025 GAMES Todos los derechos reservados</p>
+            </div>
+        </footer>
 
-        </div>
-
-        <div class="footer-copy">
-            <p>Copyright © 2025 GAMES Todos los derechos reservados</p>
-        </div>
-    </footer>
-
-    <script src="js/scripts.js"></script>
+        <script src="js/scripts.js"></script>
 </body>
 
 </html>

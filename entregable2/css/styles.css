@@ -454,14 +454,21 @@ footer {
     cursor: pointer;
     margin-top: 16px;
     margin-bottom: 12px;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 2px 8px rgba(16, 17, 75, 0.10);
 }
 
 .btn-registrar:hover {
-    background-color: #005005;
-    /* Verde más oscuro al pasar el mouse */
+    background-color: #005005; /* Verde más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Ligeramente más grande */
+    box-shadow: 0 4px 12px rgba(16, 17, 75, 0.25); /* Sombra más intensa */
 }
+
+/* Animación pulsante sutil */
+.btn-registrar:active {
+    transform: scale(0.98); /* Pequeño “apretón” al hacer clic */
+}
+
 
 .btn-registrar:disabled,
 .btn-registrar:disabled:hover {
@@ -514,6 +521,7 @@ footer {
     transition: background 0.2s;
 }
 
+
 .btn-small:hover {
     background-color: #D9D9D9;
 }
@@ -530,11 +538,23 @@ footer {
     cursor: pointer;
     transition: background 0.2s;
     width: 100%; /* Hace que el botón ocupe todo el ancho */
+    box-shadow: 0 2px 4px rgba(16, 17, 75, 0.1);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
+
+
+/* Animación pulsante al hacer clic en botones sociales */
+.btn-facebook-login:active,
+.btn-google-login:active {
+    transform: scale(0.98);
+}
+
 
 .btn-facebook-login:hover,
 .btn-google-login:hover {
     background-color: #D9D9D9;
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(16, 17, 75, 0.2);
 }
 
 
@@ -588,7 +608,60 @@ footer {
     object-fit: contain;
 }
 
-/* ===== ANIMACIÓN DE CARGA ===== */
+/* ================= Preloader ================= */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+#preloader.oculto {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#logo-preloader {
+    width: 200px;
+    filter: brightness(0) invert(1);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 0.7s forwards;
+}
+
+#barra-carga {
+    width: 200px;
+    height: 20px;
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+}
+
+#barra-llenado {
+    width: 0%;
+    height: 100%;
+    background: #F8BD00;
+    transition: width 0.3s linear;
+}
+
+/* Animación de fadeIn */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+
+
+/* ===== ANIMACIÓN DE CARGA =====*/ 
 .loader-overlay {
   position: fixed;
   top: 0;

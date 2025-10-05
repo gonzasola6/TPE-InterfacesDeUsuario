@@ -461,14 +461,18 @@ footer {
 }
 
 .btn-registrar:hover {
-    background-color: #005005; /* Verde más oscuro al pasar el mouse */
-    transform: scale(1.05); /* Ligeramente más grande */
-    box-shadow: 0 4px 12px rgba(16, 17, 75, 0.25); /* Sombra más intensa */
+    background-color: #005005;
+    /* Verde más oscuro al pasar el mouse */
+    transform: scale(1.05);
+    /* Ligeramente más grande */
+    box-shadow: 0 4px 12px rgba(16, 17, 75, 0.25);
+    /* Sombra más intensa */
 }
 
 /* Animación pulsante sutil */
 .btn-registrar:active {
-    transform: scale(0.98); /* Pequeño “apretón” al hacer clic */
+    transform: scale(0.98);
+    /* Pequeño “apretón” al hacer clic */
 }
 
 
@@ -542,14 +546,12 @@ footer {
     /* Aumenté el tamaño de la fuente */
     cursor: pointer;
     transition: background 0.2s;
-<<<<<<< HEAD
-    width: 100%; /* Hace que el botón ocupe todo el ancho */
-    box-shadow: 0 2px 4px rgba(16, 17, 75, 0.1);
-    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-=======
     width: 100%;
     /* Hace que el botón ocupe todo el ancho */
->>>>>>> 9fe828b957e1c9d5c75646ce41a7a8eb767c6099
+    box-shadow: 0 2px 4px rgba(16, 17, 75, 0.1);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+    /* Hace que el botón ocupe todo el ancho */
 }
 
 
@@ -673,12 +675,14 @@ footer {
 
 /* Animación de fadeIn */
 @keyframes fadeIn {
-    to { opacity: 1; }
+    to {
+        opacity: 1;
+    }
 }
 
 
 
-/* ===== ANIMACIÓN DE CARGA =====*/ 
+/* ===== ANIMACIÓN DE CARGA =====*/
 .loader-overlay {
     position: fixed;
     top: 0;
@@ -880,17 +884,64 @@ main {
 }
 
 .contenedor-formulario {
-    max-width: 1300px;
-    margin: 0 auto 60px auto;
-    padding: 20px;
-    background-color: #5153A0;
-    border-radius: 20px;
-    box-shadow: 0 2px 8px rgba(16, 17, 75, 0.10);
-    font-family: "Inter", sans-serif;
     display: flex;
-    justify-content: column;
-    gap: 12px;
+    flex-direction: column;
+    width: auto;
+    /* opcional */
+    gap: 10px;
+    margin-left: 60px;
+    margin-right: 50px;
 }
+
+.usuario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nombre-usuario {
+    margin: 0;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+}
+
+.input-comentario {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+    box-sizing: border-box;
+    /* importante */
+}
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.icono-comentario {
+    position: absolute;
+
+    width: 22px;     /* Elegí solo el width */
+    height: 22px;    /* Permití que el alto se ajuste solo */
+
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* para no bloquear clics */
+}
+
+.input-comentario {
+    width: 100%;
+    padding: 10px 14px;
+    padding-left: 45px; /* espacio para el icono */
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+    box-sizing: border-box;
+    color: black;
+}
+
 
 .imagenUsuario {
     width: 40px;

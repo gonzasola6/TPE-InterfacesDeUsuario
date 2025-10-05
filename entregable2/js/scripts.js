@@ -1,3 +1,33 @@
+// Comentarios: alternar entre destacados y recientes
+document.addEventListener('DOMContentLoaded', function() {
+  var destacadosTab = document.getElementById('destacados-tab');
+  var recientesTab = document.getElementById('recientes-tab');
+  var destacados = document.getElementById('comentarios-destacados');
+  var recientes = document.getElementById('comentarios-recientes');
+  if(destacadosTab && recientesTab && destacados && recientes) {
+    destacadosTab.addEventListener('click', function() {
+      destacadosTab.classList.add('active');
+      recientesTab.classList.remove('active');
+      destacados.style.display = '';
+      recientes.style.display = 'none';
+    });
+    recientesTab.addEventListener('click', function() {
+      recientesTab.classList.add('active');
+      destacadosTab.classList.remove('active');
+      recientes.style.display = '';
+      destacados.style.display = 'none';
+    });
+  }
+
+  // Likes locales
+  document.querySelectorAll('.btn-like').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var likesSpan = btn.previousElementSibling;
+      var likes = parseInt(likesSpan.textContent, 10) || 0;
+      likesSpan.textContent = likes + 1;
+    });
+  });
+});
 // Función para agregar redirección a botones
 // selector = la clase o id del botón, url = a dónde queremos ir
 function redirectOnClick(selector, url) {

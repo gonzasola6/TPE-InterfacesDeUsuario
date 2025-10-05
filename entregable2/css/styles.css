@@ -6,58 +6,69 @@
     margin-bottom: 10px;
     max-width: 600px;
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-/* Más ancho para la sección de comentarios */
-.contenedor-comentarios {
-    max-width: 600px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    background: #5B5BAA;
-    border-radius: 16px;
-    padding: 18px 24px 18px 24px;
-    box-sizing: border-box;
-}
-.comentario-user-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
-    width: 100%;
-    justify-content: flex-start;
-    padding-left: 4px;
-}
-.comentario-user-row .imagenUsuario {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0;
-}
-.comentario-user-row .nombreUsuario {
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.08em;
-}
-.input-comentario-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 2px;
-    width: 100%;
-    max-width: 900px;
-    padding-left: 0;
-    padding-right: 0;
-}
 
+    .categoria-juegos {
+        position: relative;
+        width: 650px;
+        height: 150px;
+        margin: auto;
+    }
 
-.icono-comentario {
-    background: #FFD600;
+    .categoria-card {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 150px;
+        height: 150px;
+        transition: all 0.5s ease-in-out;
+        opacity: 0;
+        transform: scale(0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        cursor: pointer;
+        z-index: 0;
+    }
+
+    .categoria-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        background: #222;
+    }
+
+    .categoria-card span {
+        margin-top: 5px;
+        font-size: 1rem;
+        color: white;
+    }
+
+    .categoria-card.active {
+        left: 160px;
+        opacity: 1 !important;
+        transform: scale(1);
+        z-index: 2;
+    }
+    .categoria-card.active + .categoria-card.active {
+        left: 320px;
+        opacity: 1 !important;
+        transform: scale(1);
+        z-index: 2;
+    }
+    .categoria-card.prev {
+        left: 0;
+        opacity: 0.5 !important;
+        transform: scale(0.8);
+        z-index: 1;
+    }
+    .categoria-card.next {
+        left: 480px;
+        opacity: 0.5 !important;
+        transform: scale(0.8);
+        z-index: 1;
+    }
     border-radius: 8px;
     display: flex;
     align-items: center;

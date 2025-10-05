@@ -1,3 +1,97 @@
+// Carruseles por categoría
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.categoria-carrousel').forEach(function(carrousel, idx) {
+    const juegos = carrousel.querySelectorAll('.categoria-card');
+    let currentCatIndex = 0;
+    const leftArrow = carrousel.querySelector('.arrow.left');
+    const rightArrow = carrousel.querySelector('.arrow.right');
+
+    function updateCategoriaCarrousel() {
+      juegos.forEach((card, index) => {
+        card.classList.remove('active', 'prev', 'next');
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.8)';
+        card.style.zIndex = '0';
+      });
+
+      // Calcula los índices visibles
+      const prevIdx = (currentCatIndex - 1 + juegos.length) % juegos.length;
+      const activeIdx1 = currentCatIndex;
+      const activeIdx2 = (currentCatIndex + 1) % juegos.length;
+      const nextIdx = (currentCatIndex + 2) % juegos.length;
+
+      // Extremo izquierdo
+      juegos[prevIdx].classList.add('prev');
+      juegos[prevIdx].style.opacity = '0.5';
+      juegos[prevIdx].style.transform = 'scale(0.8)';
+      juegos[prevIdx].style.zIndex = '1';
+
+      // Centro principal
+      juegos[activeIdx1].classList.add('active');
+      juegos[activeIdx1].style.opacity = '1';
+      juegos[activeIdx1].style.transform = 'scale(1)';
+      juegos[activeIdx1].style.zIndex = '2';
+
+      // Centro secundario
+      juegos[activeIdx2].classList.add('active');
+      juegos[activeIdx2].style.opacity = '1';
+      juegos[activeIdx2].style.transform = 'scale(1)';
+      juegos[activeIdx2].style.zIndex = '2';
+
+      // Extremo derecho
+      juegos[nextIdx].classList.add('next');
+      juegos[nextIdx].style.opacity = '0.5';
+      juegos[nextIdx].style.transform = 'scale(0.8)';
+      juegos[nextIdx].style.zIndex = '1';
+    }
+
+    if (leftArrow) {
+      leftArrow.addEventListener('click', function() {
+        currentCatIndex = (currentCatIndex - 1 + juegos.length) % juegos.length;
+        updateCategoriaCarrousel();
+      });
+    }
+    if (rightArrow) {
+      rightArrow.addEventListener('click', function() {
+        currentCatIndex = (currentCatIndex + 1) % juegos.length;
+        updateCategoriaCarrousel();
+      });
+    }
+    updateCategoriaCarrousel();
+  });
+});
+// Carrusel principal de juegos
+document.addEventListener('DOMContentLoaded', function() {
+  var carousel = document.getElementById('carousel');
+  if (carousel) {
+    let currentIndex = 0;
+    const cards = carousel.querySelectorAll('.card');
+
+    function updateCarousel() {
+      cards.forEach((card, index) => {
+        card.classList.remove('active', 'prev', 'next');
+        card.style.opacity = '0';
+        if (index === currentIndex) {
+          card.classList.add('active');
+          card.style.opacity = '1';
+        } else if (index === (currentIndex - 1 + cards.length) % cards.length) {
+          card.classList.add('prev');
+          card.style.opacity = '0.5';
+        } else if (index === (currentIndex + 1) % cards.length) {
+          card.classList.add('next');
+          card.style.opacity = '0.5';
+        }
+      });
+    }
+
+    window.moveSlide = function(step) {
+      currentIndex = (currentIndex + step + cards.length) % cards.length;
+      updateCarousel();
+    }
+
+    updateCarousel();
+  }
+});
 // Comentarios: alternar entre destacados y recientes
 document.addEventListener('DOMContentLoaded', function() {
   var destacadosTab = document.getElementById('destacados-tab');

@@ -140,3 +140,47 @@ document.addEventListener("DOMContentLoaded", function() {
   }, intervalTime);
 });
 
+// ====== Carousel simple para home ======
+// Si existe un carrusel en la página, inicializarlo
+document.addEventListener('DOMContentLoaded', function() {
+  const carouselEl = document.querySelector('.carousel');
+  if (!carouselEl) return;
+
+  let currentIndex = 0;
+  const cards = carouselEl.querySelectorAll('.card');
+
+  function updateCarousel() {
+    cards.forEach((card, index) => {
+      card.classList.remove('active', 'prev', 'next');
+      card.style.opacity = '0';
+      if (index === currentIndex) {
+        card.classList.add('active');
+        card.style.opacity = '1';
+      } else if (index === (currentIndex - 1 + cards.length) % cards.length) {
+        card.classList.add('prev');
+        card.style.opacity = '0.5';
+      } else if (index === (currentIndex + 1) % cards.length) {
+        card.classList.add('next');
+        card.style.opacity = '0.5';
+      }
+    });
+  }
+
+  function moveSlide(step) {
+    currentIndex = (currentIndex + step + cards.length) % cards.length;
+    updateCarousel();
+  }
+
+  // Exponer globalmente para que los botones con onclick="moveSlide(...)" funcionen
+  window.moveSlide = moveSlide;
+
+  // Inicializa el estado
+  updateCarousel();
+
+  // También enlazar flechas si prefieres listeners en lugar de onclick inline
+  const leftArrow = document.querySelector('.carousel-container .arrow.left');
+  const rightArrow = document.querySelector('.carousel-container .arrow.right');
+  if (leftArrow) leftArrow.addEventListener('click', () => moveSlide(-1));
+  if (rightArrow) rightArrow.addEventListener('click', () => moveSlide(1));
+});
+

@@ -1,26 +1,36 @@
 /* Área para comentar */
 .contenedor-formulario {
-    background: #10113B;
-    padding: 18px 0 10px 0;
+    background: none;
+    padding: 0 0 10px 0;
     border-radius: 0;
     margin-bottom: 10px;
-    max-width: 900px;
-    width: 95%;
+    max-width: 600px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 /* Más ancho para la sección de comentarios */
 .contenedor-comentarios {
-    max-width: 900px;
-    width: 95%;
+    max-width: 600px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
+    background: #5B5BAA;
+    border-radius: 16px;
+    padding: 18px 24px 18px 24px;
+    box-sizing: border-box;
 }
 .comentario-user-row {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 8px;
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 4px;
 }
 .comentario-user-row .imagenUsuario {
     width: 32px;
@@ -37,11 +47,15 @@
 .input-comentario-row {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     margin-top: 2px;
     width: 100%;
+    max-width: 900px;
+    padding-left: 0;
+    padding-right: 0;
 }
-}
+
+
 .icono-comentario {
     background: #FFD600;
     border-radius: 8px;
@@ -52,11 +66,10 @@
     height: 36px;
     min-width: 36px;
     min-height: 36px;
-    margin-right: 2px;
+    margin-right: 8px;
 }
 .input-comentario {
-    flex: 1 1 0;
-    min-width: 0;
+    flex: 1;
     border: none;
     border-radius: 16px;
     padding: 12px 18px;
@@ -66,7 +79,7 @@
     outline: none;
     box-shadow: none;
     width: 100%;
-    margin-left: 0;
+    min-width: 0;
 }
 /* Comentarios tabs */
 .comentarios-switch {
@@ -712,15 +725,10 @@ footer {
     font-size: 14px;
     /* Aumenté el tamaño de la fuente */
     cursor: pointer;
-    transition: background 0.2s;
-<<<<<<< HEAD
+    /* transition: background 0.2s; */
     width: 100%; /* Hace que el botón ocupe todo el ancho */
     box-shadow: 0 2px 4px rgba(16, 17, 75, 0.1);
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-=======
-    width: 100%;
-    /* Hace que el botón ocupe todo el ancho */
->>>>>>> 9fe828b957e1c9d5c75646ce41a7a8eb767c6099
 }
 
 

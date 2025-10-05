@@ -542,14 +542,11 @@ footer {
     /* Aumenté el tamaño de la fuente */
     cursor: pointer;
     transition: background 0.2s;
-<<<<<<< HEAD
     width: 100%; /* Hace que el botón ocupe todo el ancho */
     box-shadow: 0 2px 4px rgba(16, 17, 75, 0.1);
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-=======
-    width: 100%;
-    /* Hace que el botón ocupe todo el ancho */
->>>>>>> 9fe828b957e1c9d5c75646ce41a7a8eb767c6099
+
+ 
 }
 
 

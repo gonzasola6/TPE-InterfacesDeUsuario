@@ -613,7 +613,9 @@ footer {
 .registro {
     width: 340px;
     margin: 0 auto;
-    padding: 12px 8px;
+    margin-top: 40px;   /* espacio con el header */
+    margin-bottom: 40px;
+    padding: 8px 6px;
     background-color: #10114B;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(16, 17, 75, 0.10);
@@ -667,8 +669,8 @@ footer {
 
 .input-text {
     width: 100%;
-    padding: 7px 10px;
-    margin-bottom: 8px;
+    padding: 8px 10px;
+    margin-bottom: 14px;
     border: 1px solid #ccc;
     border-radius: 6px;
     background-color: #D9D9D9;
@@ -694,8 +696,8 @@ footer {
     font-size: 22px;
     font-weight: 700;
     cursor: pointer;
-    margin-top: 16px;
-    margin-bottom: 12px;
+    margin-top: 20px;
+    margin-bottom: 16px;
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 2px 8px rgba(16, 17, 75, 0.10);
 }
@@ -733,19 +735,28 @@ footer {
 
 .texto-login {
     font-size: 13px;
-    margin-top: 6px;
+    margin-top: 12px;
     color: #fff;
 }
 
 .texto-login a {
     color: #00D9FF;
-    text-decoration: underline;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.texto-login a:hover {
+    color: #1f89e6;
+    transform: scale(1.1);
 }
 
 .texto-redes {
     margin-top: 10px;
     font-size: 13px;
     color: #ffff;
+    transition: color 0.5s;
 }
 
 .botones-redes {
@@ -848,7 +859,7 @@ footer {
     background: #fff;
     border-radius: 6px;
     padding: 10px 12px;
-    margin: 0 auto 16px auto;
+    margin:16px auto 20px auto;
     width: fit-content;
     box-shadow: 0 2px 8px rgba(16, 17, 75, 0.10);
     min-height: 38px;

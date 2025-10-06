@@ -1,65 +1,48 @@
-// Carruseles por categoría
+// Carruseles por categoría desplazables
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.categoria-carrousel').forEach(function(carrousel, idx) {
-    const juegos = carrousel.querySelectorAll('.categoria-card');
-    let currentCatIndex = 0;
+  document.querySelectorAll('.categoria-carrousel').forEach(function(carrousel) {
+    const juegos = Array.from(carrousel.querySelectorAll('.categoria-card'));
+    let offset = 0;
     const leftArrow = carrousel.querySelector('.arrow.left');
     const rightArrow = carrousel.querySelector('.arrow.right');
 
     function updateCategoriaCarrousel() {
-      juegos.forEach((card, index) => {
-        card.classList.remove('active', 'prev', 'next');
-        card.style.opacity = '0';
-        card.style.transform = 'scale(0.8)';
-        card.style.zIndex = '0';
+      juegos.forEach((card, i) => {
+        card.classList.remove('prev');
+        card.style.transform = 'scale(1)';
       });
-
-      // Calcula los índices visibles
-      const prevIdx = (currentCatIndex - 1 + juegos.length) % juegos.length;
-      const activeIdx1 = currentCatIndex;
-      const activeIdx2 = (currentCatIndex + 1) % juegos.length;
-      const nextIdx = (currentCatIndex + 2) % juegos.length;
-
-      // Extremo izquierdo
-      juegos[prevIdx].classList.add('prev');
-      juegos[prevIdx].style.opacity = '0.5';
-      juegos[prevIdx].style.transform = 'scale(0.8)';
-      juegos[prevIdx].style.zIndex = '1';
-
-      // Centro principal
-      juegos[activeIdx1].classList.add('active');
-      juegos[activeIdx1].style.opacity = '1';
-      juegos[activeIdx1].style.transform = 'scale(1)';
-      juegos[activeIdx1].style.zIndex = '2';
-
-      // Centro secundario
-      juegos[activeIdx2].classList.add('active');
-      juegos[activeIdx2].style.opacity = '1';
-      juegos[activeIdx2].style.transform = 'scale(1)';
-      juegos[activeIdx2].style.zIndex = '2';
-
-      // Extremo derecho
-      juegos[nextIdx].classList.add('next');
-      juegos[nextIdx].style.opacity = '0.5';
-      juegos[nextIdx].style.transform = 'scale(0.8)';
-      juegos[nextIdx].style.zIndex = '1';
+      // Recalcular el orden visual
+      juegos.forEach((card, i) => {
+        const visualOrder = ((i - offset + juegos.length) % juegos.length);
+        card.style.order = visualOrder;
+        card.style.opacity = '1';
+      });
+      // Solo el primero y el último visual deben tener opacidad 0.5
+      const visibles = Array.from(juegos).sort((a, b) => a.style.order - b.style.order);
+      if (visibles.length > 1) {
+        visibles[0].classList.add('prev');
+        visibles[0].style.opacity = '0.5';
+        visibles[visibles.length - 1].classList.add('prev');
+        visibles[visibles.length - 1].style.opacity = '0.5';
+      }
     }
 
     if (leftArrow) {
       leftArrow.addEventListener('click', function() {
-        currentCatIndex = (currentCatIndex - 1 + juegos.length) % juegos.length;
+        offset = (offset - 1 + juegos.length) % juegos.length;
         updateCategoriaCarrousel();
       });
     }
     if (rightArrow) {
       rightArrow.addEventListener('click', function() {
-        currentCatIndex = (currentCatIndex + 1) % juegos.length;
+        offset = (offset + 1) % juegos.length;
         updateCategoriaCarrousel();
       });
     }
     updateCategoriaCarrousel();
   });
 });
+
 // Carrusel principal de juegos
 document.addEventListener('DOMContentLoaded', function() {
   var carousel = document.getElementById('carousel');
@@ -85,11 +68,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.moveSlide = function(step) {
-      currentIndex = (currentIndex + step + cards.length) % cards.length;
+      currentIndex = (currentIndex - step + cards.length) % cards.length;
       updateCarousel();
     }
 
     updateCarousel();
+
+      // Botón jugar solo si el primer juego está al frente
+      const playBtn = document.querySelector('.play-btn');
+      if (playBtn) {
+        playBtn.addEventListener('click', function () {
+          // Verifica si la tarjeta activa tiene alt="Juego 1"
+          const activeCard = carousel.querySelector('.card.active img');
+          if (activeCard && activeCard.getAttribute('alt') === 'Juego 1') {
+            window.location.href = 'game.html';
+          }
+        });
+      }
   }
 });
 // Comentarios: alternar entre destacados y recientes
@@ -301,7 +296,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function moveSlide(step) {
-    currentIndex = (currentIndex + step + cards.length) % cards.length;
+    currentIndex = (currentIndex - step + cards.length) % cards.length;
     updateCarousel();
   }
 

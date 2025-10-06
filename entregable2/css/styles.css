@@ -1,11 +1,23 @@
+.tituloJuego,
+.textoJuego,
+.textoAyuda,
+.subtituloAyuda {
+    text-align: left;
+    margin-left: 40px;
+}
+
+
 /* Área para comentar */
 .contenedor-formulario {
     background: none;
-    padding: 0 0 10px 0;
+    padding: 0;
     border-radius: 0;
     margin-bottom: 10px;
-    max-width: 600px;
+    max-width: 1300px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .categoria-juegos {
         position: relative;
@@ -14,15 +26,14 @@
         margin: auto;
     }
 
+
     .categoria-card {
-        position: absolute;
-        top: 0;
-        left: 0;
+        position: static;
         width: 150px;
         height: 150px;
-        transition: all 0.5s ease-in-out;
-        opacity: 0;
-        transform: scale(0.8);
+        transition: transform 0.5s ease;
+        opacity: 1 !important;
+        transform: scale(1);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -45,6 +56,7 @@
         color: white;
     }
 
+
     .categoria-card.active {
         left: 160px;
         opacity: 1 !important;
@@ -59,13 +71,13 @@
     }
     .categoria-card.prev {
         left: 0;
-        opacity: 0.5 !important;
+        opacity: 1 !important;
         transform: scale(0.8);
         z-index: 1;
     }
     .categoria-card.next {
         left: 480px;
-        opacity: 0.5 !important;
+        opacity: 1 !important;
         transform: scale(0.8);
         z-index: 1;
     }
@@ -79,19 +91,46 @@
     min-height: 36px;
     margin-right: 8px;
 }
+
+.input-comentario-row{
+    width: 100%;
+    max-width: 1300px;
+    margin: 32px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.contenedor-comentador {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    margin-bottom: 10px;
+    max-width: 1300px;
+    width: 100%;
+    display: block;
+    flex-direction: column;
+    align-items: center;
+}
 .input-comentario {
-    flex: 1;
-    border: none;
+    width: 100%;
+    max-width: 1200px;
+    padding: 12px 18px 12px 50px; /* espacio para el icono */
     border-radius: 16px;
-    padding: 12px 18px;
+    border: none;
     font-size: 1.08em;
     background: #fff;
     color: #222;
+    box-sizing: border-box;
     outline: none;
-    box-shadow: none;
-    width: 100%;
-    min-width: 0;
+    margin: 0 auto;
 }
+.input-comentario::placeholder {
+    color: #888;
+    font-size: 1em;
+}
+
 /* Comentarios tabs */
 .comentarios-switch {
     margin-bottom: 18px;
@@ -140,6 +179,7 @@
     font-weight: 600;
     color: #fff;
     font-size: 1em;
+    margin-bottom: 2px;
 }
 .fechaComentario {
     color: #e0e0e0;
@@ -295,13 +335,13 @@ body {
 
 .borde-menu {
     display: block;
-    width: 90%;
-    height: 1px;
-    background-color: #ccc;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    /* separa un poco del menú */
-    margin-left: 16px;
+    width: 100%;
+    max-width: 1300px;
+    margin: 4px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
 }
 
 .menu-categorias {
@@ -1179,6 +1219,20 @@ h2 {
     height: auto;
 }
 
+.premium-label {
+    position: absolute;
+    top: -12px;
+    right: -18px;
+    background: #e53935;
+    color: #fff;
+    font-size: 0.85em;
+    font-weight: bold;
+    padding: 2px 14px;
+    border-radius: 8px;
+    z-index: 3;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
 .categoria-card {
     position: static;
     /* <-- Cambia de absolute a static */
@@ -1375,15 +1429,6 @@ h2 {
     font-family: "Inter", sans-serif;
 }
 
-.input-comentario {
-    width: 100%;
-    padding: 10px;
-    border-radius: 20px;
-    border: none;
-    font-size: 14px;
-    box-sizing: border-box;
-    /* importante */
-}
 
 .input-wrapper {
     position: relative;
@@ -1405,17 +1450,7 @@ h2 {
     /* para no bloquear clics */
 }
 
-.input-comentario {
-    width: 100%;
-    padding: 10px 14px;
-    padding-left: 45px;
-    /* espacio para el icono */
-    border-radius: 20px;
-    border: none;
-    font-size: 14px;
-    box-sizing: border-box;
-    color: black;
-}
+
 
 
 .imagenUsuario {

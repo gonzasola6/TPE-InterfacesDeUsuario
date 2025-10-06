@@ -1508,6 +1508,16 @@ footer {
     height: auto;
 }
 
+/* Animación sutil de zoom al cambiar elementos del carrusel de categoría */
+@keyframes categoria-zoom {
+    0% { transform: scale(0.96); }
+    50% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+}
+.categoria-juegos.anim .categoria-card {
+    animation: categoria-zoom 420ms ease;
+}
+
 .premium-label {
     position: absolute;
     top: -12px;

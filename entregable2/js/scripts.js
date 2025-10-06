@@ -53,19 +53,34 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Handler: clic en flecha izquierda del carrusel de categoría
-    // Qué hace: decrementa el offset (circular) y actualiza la vista
+    // Qué hace: decrementa el offset (circular), añade una clase temporal
+    // para disparar la animación CSS y actualiza la vista
+    function triggerAnim() {
+      const juegosContainer = carrousel.querySelector('.categoria-juegos');
+      if (!juegosContainer) return;
+      // remover y volver a añadir la clase para asegurar re-disparo
+      juegosContainer.classList.remove('anim');
+      // Force reflow
+      void juegosContainer.offsetWidth;
+      juegosContainer.classList.add('anim');
+      // quitar la clase tras la duración de la animación (casi 420ms)
+      setTimeout(() => juegosContainer.classList.remove('anim'), 500);
+    }
+
     if (leftArrow) {
       leftArrow.addEventListener('click', function() {
         offset = (offset - 1 + juegos.length) % juegos.length;
         updateCategoriaCarrousel();
+        triggerAnim();
       });
     }
     // Handler: clic en flecha derecha del carrusel de categoría
-    // Qué hace: incrementa el offset (circular) y actualiza la vista
+    // Qué hace: incrementa el offset (circular), dispara la animación y actualiza la vista
     if (rightArrow) {
       rightArrow.addEventListener('click', function() {
         offset = (offset + 1) % juegos.length;
         updateCategoriaCarrousel();
+        triggerAnim();
       });
     }
     updateCategoriaCarrousel();

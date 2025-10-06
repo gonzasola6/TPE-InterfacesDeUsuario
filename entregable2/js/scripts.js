@@ -1,4 +1,17 @@
 // Carruseles por categoría desplazables
+/*
+  Handler: inicializa y maneja los carruseles por categoría.
+  Qué hace: Busca todos los contenedores con la clase `.categoria-carrousel` y
+  prepara la lógica de desplazamiento (flechas izquierda/derecha) y el orden
+  visual de las tarjetas.
+  Para qué sirve: permite recorrer los juegos de una categoría sin recargar
+  la página, ajustando la 'order' y opacidad para crear un efecto visual.
+  Puntos clave:
+  - Usa `offset` para calcular el desplazamiento circular.
+  - Recalcula `order` en CSS para mantener el layout flexible.
+  - Añade/quita clases `prev` para marcar los elementos que quedan en los
+    extremos y atenuar su opacidad.
+*/
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.categoria-carrousel').forEach(function(carrousel) {
     const juegos = Array.from(carrousel.querySelectorAll('.categoria-card'));
@@ -6,6 +19,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const leftArrow = carrousel.querySelector('.arrow.left');
     const rightArrow = carrousel.querySelector('.arrow.right');
 
+    /*
+      updateCategoriaCarrousel: recalcula el orden y el estilo visual de las
+      tarjetas dentro de un carrusel de categoría.
+      Qué hace: resetea clases/estilos, calcula el `visualOrder` en base al
+      `offset` actual y aplica opacidad/clase `prev` a los extremos.
+      Puntos clave:
+      - Mantiene el arreglo original `juegos` intacto y sólo cambia CSS `order`.
+      - Asegura un comportamiento circular con el modulo (%) para índices.
+      - Ajusta `opacity` y `prev` para que los extremos se vean atenuados.
+    */
     function updateCategoriaCarrousel() {
       juegos.forEach((card, i) => {
         card.classList.remove('prev');
@@ -27,12 +50,16 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
+    // Handler: clic en flecha izquierda del carrusel de categoría
+    // Qué hace: decrementa el offset (circular) y actualiza la vista
     if (leftArrow) {
       leftArrow.addEventListener('click', function() {
         offset = (offset - 1 + juegos.length) % juegos.length;
         updateCategoriaCarrousel();
       });
     }
+    // Handler: clic en flecha derecha del carrusel de categoría
+    // Qué hace: incrementa el offset (circular) y actualiza la vista
     if (rightArrow) {
       rightArrow.addEventListener('click', function() {
         offset = (offset + 1) % juegos.length;
@@ -44,12 +71,33 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Carrusel principal de juegos
+/*
+  Handler: gestiona el carrusel principal (slider) de la página.
+  Qué hace: controla qué tarjeta está activa, la anterior y la siguiente,
+  aplicando clases CSS (`active`, `prev`, `next`) y opacidades.
+  Para qué sirve: destaca un juego en el centro y permite navegar entre ellos.
+  Puntos clave:
+  - Mantiene `currentIndex` para saber qué tarjeta está en el centro.
+  - Usa clases para controlar estilos/animaciones desde CSS.
+  - Expone `moveSlide` en `window` para compatibilidad con botones inline.
+*/
 document.addEventListener('DOMContentLoaded', function() {
   var carousel = document.getElementById('carousel');
   if (carousel) {
     let currentIndex = 0;
     const cards = carousel.querySelectorAll('.card');
 
+    /*
+      updateCarousel: actualiza las clases y opacidades de las tarjetas del
+      carrusel principal en base a `currentIndex`.
+      Qué hace: remueve clases previas y asigna `active`, `prev`, `next` al
+      correspondiente elemento; ajusta opacidad para enfatizar la tarjeta
+      central.
+      Puntos clave:
+      - Calcula índices de elementos adyacentes con aritmética modular.
+      - Resetea estilos inline antes de aplicar los nuevos para evitar
+        acumulación de estilos inesperados.
+    */
     function updateCarousel() {
       cards.forEach((card, index) => {
         card.classList.remove('active', 'prev', 'next');
@@ -67,6 +115,8 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
+    // Función pública: cambia la diapositiva en el carrusel principal
+    // Parámetro: step (número) → si es 1 mueve a la siguiente, -1 a la anterior
     window.moveSlide = function(step) {
       currentIndex = (currentIndex - step + cards.length) % cards.length;
       updateCarousel();
@@ -76,6 +126,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Botón jugar solo si el primer juego está al frente
       const playBtn = document.querySelector('.play-btn');
+      // Handler: clic en botón 'Jugar'
+      // Qué hace: sólo redirige al detalle del juego si la tarjeta activa
+      // coincide con el esperado (ej. alt="Juego 1"). Esto permite que el
+      // botón sólo funcione cuando el primer juego está en el frente.
       if (playBtn) {
         playBtn.addEventListener('click', function () {
           // Verifica si la tarjeta activa tiene alt="Juego 1"
@@ -88,18 +142,32 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 // Comentarios: alternar entre destacados y recientes
+/*
+  Handler: controla la pestaña de comentarios (destacados vs recientes) y
+  añade un contador local de 'likes'.
+  Qué hace: cambia la visibilidad de las listas de comentarios al hacer
+  click en las pestañas y maneja incrementos locales de likes al pulsar
+  botones correspondientes.
+  Puntos clave:
+  - No persiste likes: es sólo manipulación del DOM local.
+  - Cambia clases `active` en las pestañas para estilos.
+*/
 document.addEventListener('DOMContentLoaded', function() {
   var destacadosTab = document.getElementById('destacados-tab');
   var recientesTab = document.getElementById('recientes-tab');
   var destacados = document.getElementById('comentarios-destacados');
   var recientes = document.getElementById('comentarios-recientes');
   if(destacadosTab && recientesTab && destacados && recientes) {
+    // Handler: mostrar 'destacados'
+    // Qué hace: marca la pestaña destacada como activa y muestra la lista
     destacadosTab.addEventListener('click', function() {
       destacadosTab.classList.add('active');
       recientesTab.classList.remove('active');
       destacados.style.display = '';
       recientes.style.display = 'none';
     });
+    // Handler: mostrar 'recientes'
+    // Qué hace: marca la pestaña recientes como activa y muestra su lista
     recientesTab.addEventListener('click', function() {
       recientesTab.classList.add('active');
       destacadosTab.classList.remove('active');
@@ -109,6 +177,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Likes locales
+  // Qué hace: incrementa el contador visual de likes al hacer click en el
+  // botón correspondiente. No se guarda en servidor; sólo DOM.
   document.querySelectorAll('.btn-like').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var likesSpan = btn.previousElementSibling;
@@ -119,18 +189,41 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 // Función para agregar redirección a botones
 // selector = la clase o id del botón, url = a dónde queremos ir
+/*
+  redirectOnClick(selector, url)
+  Qué hace: añade un listener a todos los elementos que coinciden con `selector`
+  que previene el comportamiento por defecto y redirige el navegador a `url`
+  Para qué sirve: reutilizable para botones de redes sociales u otros enlaces
+  que deben llevar a una página concreta sin depender del markup original.
+  Puntos clave:
+  - Llama a `e.preventDefault()` para evitar navegación por defecto.
+  - Usa `window.location.href` para forzar la redirección.
+*/
 function redirectOnClick(selector, url) {
-    document.querySelectorAll(selector).forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.location.href = url;
-        });
+  document.querySelectorAll(selector).forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.href = url;
     });
+  });
 }
 
 // ============================
 // FUNCION PARA MANEJAR LOGIN
 // ============================
+// ============================
+// FUNCION PARA MANEJAR LOGIN
+// ============================
+/*
+  manejarLogin(options)
+  Qué hace: habilita/deshabilita el botón de login según la validez de los
+  campos obligatorios y del captcha 'falso' presente en el form.
+  Parámetros (objeto): formSelector, btnSelector, captchaSelector, redireccion
+  Puntos clave:
+  - Valida sólo en el cliente (no hay petición al servidor).
+  - Desactiva el botón si faltan campos o el captcha no está checkeado.
+  - Al hacer click (si está habilitado) redirige a `redireccion`.
+*/
 function manejarLogin({
   formSelector,
   btnSelector,
@@ -143,6 +236,14 @@ function manejarLogin({
 
   if (!form || !btn || !captcha) return;
 
+  /*
+    validarCampos(): comprueba que todos los campos `required` del formulario
+    tengan texto y que el checkbox del captcha esté marcado. Habilita o
+    deshabilita el botón de envío en consecuencia.
+    Puntos clave:
+    - Usa `trim()` para evitar espacios vacíos como entrada válida.
+    - Lee `captcha.checked` para validar el 'captcha' falso.
+  */
   function validarCampos() {
     const obligatorios = form.querySelectorAll("[required]");
     let completos = true;
@@ -157,6 +258,8 @@ function manejarLogin({
   captcha.addEventListener("change", validarCampos);
   validarCampos();
 
+  // Handler: clic en botón de login
+  // Qué hace: previene el envio por defecto y redirige si el botón está habilitado
   btn.addEventListener("click", function(e) {
     e.preventDefault();
     if (btn.disabled) return;
@@ -167,6 +270,18 @@ function manejarLogin({
 // ============================
 // FUNCION PARA MANEJAR REGISTRO
 // ============================
+// ============================
+// FUNCION PARA MANEJAR REGISTRO
+// ============================
+/*
+  manejarRegistro(options)
+  Qué hace: lógica similar a `manejarLogin` pero para el formulario de
+  registro. Además muestra un overlay de bienvenida antes de redirigir.
+  Puntos clave:
+  - Valida campos `required` y captcha.
+  - Al enviar, muestra `.like-overlay` y espera 3 segundos antes de
+    redireccionar para dar feedback visual.
+*/
 function manejarRegistro({
   formSelector,
   btnSelector,
@@ -179,6 +294,10 @@ function manejarRegistro({
 
   if (!form || !btn || !captcha) return;
 
+  /*
+    validarCampos(): válida requeridos y estado del captcha para el formulario
+    de registro. Igual que en `manejarLogin` habilita/deshabilita el botón.
+  */
   function validarCampos() {
     const obligatorios = form.querySelectorAll("[required]");
     let completos = true;
@@ -193,26 +312,38 @@ function manejarRegistro({
   captcha.addEventListener("change", validarCampos);
   validarCampos();
 
+  // Handler: clic en botón de registro
+  // Qué hace: muestra overlay de bienvenida y tras 3s redirige si el botón
+  // estaba habilitado. Evita envío por defecto del formulario.
   btn.addEventListener("click", function(e) {
-    e.preventDefault();
-    if (btn.disabled) return;
+  e.preventDefault();
+  if (btn.disabled) return;
 
-    const overlay = form.querySelector(".like-overlay");
-    if (overlay) {
-        overlay.classList.add("active"); // activa overlay y pulgar
-    }
+  const overlay = form.querySelector(".like-overlay");
+  if (overlay) {
+    overlay.classList.add("active"); // activa overlay y pulgar
+  }
 
-    // Espera 3 segundos antes de redirigir
-    setTimeout(() => {
-        window.location.href = redireccion;
-    }, 3000);
-});
+  // Espera 3 segundos antes de redirigir
+  setTimeout(() => {
+    window.location.href = redireccion;
+  }, 3000);
+  });
 
 }
 
 // ============================
 // INICIALIZACIÓN AL CARGAR LA PÁGINA
 // ============================
+/*
+  Handler global de inicialización: al cargar el DOM se inicializan las
+  funciones de login/registro (si existen en la página) y se configuran
+  redirecciones para botones de redes sociales.
+  Puntos clave:
+  - Evita errores comprobando la existencia de los formularios antes de
+    inicializarlos.
+  - Centraliza `redirectOnClick` para reutilización.
+*/
 document.addEventListener("DOMContentLoaded", function() {
 
   // LOGIN
@@ -245,8 +376,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // ============================
-// ANAIMACION DE CARGA
+// ANIMACIÓN DE CARGA
 // ============================
+/*
+  Handler: muestra un overlay de carga con porcentaje simulando una carga
+  de 5 segundos.
+  Qué hace: incrementa `percentage` periódicamente hasta 100 y luego oculta
+  el overlay.
+  Puntos clave:
+  - No refleja carga real; es una animación temporal para mejor UX.
+  - Comprueba la existencia de los elementos antes de operar para evitar
+    errores en páginas que no tengan loader.
+*/
 document.addEventListener("DOMContentLoaded", function() {
   const loader = document.getElementById("loader-overlay");
   const percentageEl = document.getElementById("loader-percentage");
@@ -270,6 +411,14 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // ====== Carousel simple para home ======
+/*
+  Handler: carrusel ligero usado en la home. Similar al carrusel principal,
+  mantiene el índice actual y actualiza clases `active`, `prev`, `next`.
+  Puntos clave:
+  - Expone `moveSlide` en `window` para compatibilidad con botones
+    inline u otros controladores.
+  - Reusa la lógica de cálculo modular para índices adyacentes.
+*/
 // Si existe un carrusel en la página, inicializarlo
 document.addEventListener('DOMContentLoaded', function() {
   const carouselEl = document.querySelector('.carousel');
@@ -278,6 +427,11 @@ document.addEventListener('DOMContentLoaded', function() {
   let currentIndex = 0;
   const cards = carouselEl.querySelectorAll('.card');
 
+  /*
+    updateCarousel(): actualiza las clases y estilos de las tarjetas del
+    carrusel simple en home. Igual que en el carrusel principal, usa
+    aritmética modular para determinar prev/next.
+  */
   function updateCarousel() {
     cards.forEach((card, index) => {
       card.classList.remove('active', 'prev', 'next');
@@ -295,6 +449,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // moveSlide: cambia el índice actual del carrusel simple y actualiza vista
   function moveSlide(step) {
     currentIndex = (currentIndex - step + cards.length) % cards.length;
     updateCarousel();

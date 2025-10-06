@@ -1113,7 +1113,7 @@ footer {
 
 
 
-/* Carrusel */
+/* Carrusel PRINCIPAL */
 
 .tituloPrincipal {
     color: #FFD700;
@@ -1413,9 +1413,10 @@ footer {
 
 /* Estilos para las categorías */
 .categorias-container {
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    margin: 50px 50px auto 60px;
+    padding: 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -1427,7 +1428,7 @@ footer {
 /* Flechas para los carruseles de categoría (mismo estilo que el carrusel principal) */
 .categoria-carrousel .arrow {
     position: absolute;
-    top: 50%;
+    top: 60%;
     transform: translateY(-50%);
     font-size: 2rem;
     color: yellow;
@@ -1444,11 +1445,11 @@ footer {
 }
 
 .categoria-carrousel .arrow.left {
-    left: 10px;
+    left: -20px;
 }
 
 .categoria-carrousel .arrow.right {
-    right: 10px;
+    right: -20px;
 }
 
 .categoria-titulo {

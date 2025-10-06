@@ -201,8 +201,18 @@ function manejarRegistro({
   btn.addEventListener("click", function(e) {
     e.preventDefault();
     if (btn.disabled) return;
-    window.location.href = redireccion;
-  });
+
+    const overlay = form.querySelector(".like-overlay");
+    if (overlay) {
+        overlay.classList.add("active"); // activa overlay y pulgar
+    }
+
+    // Espera 3 segundos antes de redirigir
+    setTimeout(() => {
+        window.location.href = redireccion;
+    }, 3000);
+});
+
 }
 
 // ============================

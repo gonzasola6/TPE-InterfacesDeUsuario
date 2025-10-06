@@ -407,7 +407,11 @@ document.addEventListener("DOMContentLoaded", function() {
   loader.classList.add("active");
 
   let percentage = 0;
-  const intervalTime = 5000 / 100; // 5 segundos para llegar a 100%
+  // Duración total de la animación de carga en milisegundos.
+  // Cámbiala si querés que el loader dure más o menos tiempo.
+  // Usado en: home.html
+  const loaderDurationMs = 5000; // 5000 ms = 5 segundos (antes: 5000 ms)
+  const intervalTime = loaderDurationMs / 100; // dividir en 100 pasos
 
   const interval = setInterval(() => {
     percentage++;

@@ -140,6 +140,24 @@
     align-items: center;
 }
 
+/* Estilos para los enlaces en la página de juego (Historia / Web del desarrollador) */
+.game-links {
+    margin-left: 120px; /* alinear con la sección de comentarios */
+    margin-top: 18px;
+    margin-bottom: 24px;
+    display: flex;
+    gap: 18px; /* más espacio entre enlaces */
+    align-items: center;
+}
+.game-links .game-link {
+    color: #ffffff; /* blanco como el resto de enlaces globales */
+    text-decoration: none; /* estilo consistente: sin subrayado */
+    font-size: 1rem; /* mantener tamaño actual */
+}
+.game-links .game-link:hover {
+    text-decoration: underline; /* pequeño feedback al pasar el mouse */
+}
+
 .input-comentario {
     width: 100%;
     max-width: 1200px;

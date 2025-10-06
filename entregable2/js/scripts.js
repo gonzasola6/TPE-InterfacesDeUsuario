@@ -384,6 +384,49 @@ document.addEventListener("DOMContentLoaded", function() {
   redirectOnClick('.btn-google-login', 'home.html');
 });
 
+// Efecto: mostrar botón premium mobile temporalmente con brillo
+document.addEventListener('DOMContentLoaded', function() {
+  const premiumDesktop = document.querySelector('.btn-premium-desktop');
+  if (!premiumDesktop) return;
+
+  let timer = null;
+
+  function activateTemporary() {
+    // Si hay un timer activo, lo limpiamos (y reiniciamos el conteo)
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+
+    // Para reiniciar la animación CSS en cada entrada, si la clase
+    // 'shine' ya está presente la removemos y forzamos un reflow antes
+    // de volver a añadirla. Esto hace que la animación se reproduzca
+    // desde el inicio cada vez que el usuario pone el cursor o toca.
+    if (premiumDesktop.classList.contains('shine')) {
+      premiumDesktop.classList.remove('shine');
+      // Forzar reflow
+      void premiumDesktop.offsetWidth;
+    }
+
+    premiumDesktop.classList.add('shine');
+    // Volver a quitar el brillo tras 2 segundos
+    timer = setTimeout(() => {
+      premiumDesktop.classList.remove('shine');
+      timer = null;
+    }, 2000);
+  }
+
+  // attach events to the whole premium container for better hit area
+  const premiumContainer = document.querySelector('.btn-premium');
+  if (premiumContainer) {
+    premiumContainer.addEventListener('mouseenter', activateTemporary);
+    premiumContainer.addEventListener('touchstart', activateTemporary);
+  } else {
+    premiumDesktop.addEventListener('mouseenter', activateTemporary);
+    premiumDesktop.addEventListener('touchstart', activateTemporary);
+  }
+});
+
 
 // ============================
 // ANIMACIÓN DE CARGA

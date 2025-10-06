@@ -443,6 +443,38 @@ body {
     justify-content: center;
 }
 
+/* Efecto brillo y forzar visibilidad del botón mobile temporalmente */
+/* container remains normal; shine is applied only to the desktop button */
+
+/* Aplicar brillo únicamente al botón desktop para que no alcance al botón de usuario */
+.btn-premium-desktop {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-premium-desktop.shine::after {
+    /* barra brillante que se desplaza dentro del botón desktop */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-20deg);
+    pointer-events: none;
+    z-index: 20;
+    animation: premium-shine 1s ease forwards;
+}
+
+@keyframes premium-shine {
+    to { left: 120%; }
+}
+
+/* Forzar mostrar versión mobile durante el estado temporal */
+/* Note: previously we toggled a .show-mobile state to swap buttons. That
+   behavior was removed — we only keep the shine effect now. */
+
 
 .btn-premium .btn-premium-desktop {
     flex: 1 1 auto;
@@ -1207,21 +1239,92 @@ footer {
 }
 
 /* Play button (scoped) */
-.carousel-container+.play-btn,
+/* El selector adyacente se encarga de posicionar/centrar el botón en el flujo
+   del documento; `.play-btn` controla la apariencia interna. */
+.carousel-container + .play-btn {
+    display: block; /* block para que margin: 0 auto centre el elemento */
+    margin: 30px auto 0; /* separacion bajo el carousel */
+    text-align: center;
+}
 .play-btn {
-    display: block;
     position: relative;
-    top: 30px;
-    /* 30px debajo del carrusel */
-    margin: 0 auto;
-    background: #e63946;
+    background: #E53935;
     color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
+    /* mantener altura fija para evitar reflow al hacer hover */
+    height: 56px;
+    padding: 0 20px;
+    border-radius: 28px;
     border: none;
     font-weight: bold;
     cursor: pointer;
     z-index: 3;
+    display: inline-flex; /* alinea icono/texto internamente */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover effect: al pasar el mouse el botón se hace más grande y se transforma
+   en un círculo con un icono de play dentro. Mantiene texto para lectores de
+   pantalla (accesible via aria-label). */
+.play-btn {
+    position: relative; /* necesario para centrar el pseudo-elemento */
+    transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease, border-radius 0.2s ease, background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    
+    box-sizing: border-box;
+}
+
+.play-btn .play-text {
+    display: inline-block;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.play-btn::after {
+    /* Triángulo (play) centrado y oculto por defecto; se mostrará al hacer hover */
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 12px solid white;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    opacity: 0;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.play-btn:hover {
+    /* Sólo transformación visual: escala y color. No cambiar ancho/alto/padding
+       para evitar reflow de elementos siguientes. */
+    transform: scale(1.06);
+    background: #E53935; /* un poco más brillante */
+    /* Mantener tamaño y padding para que la posición de los elementos
+       inferiores no cambie. */
+    border: 0.5px solid rgba(255, 255, 255, 0.95);
+        /* borde blanco fino */
+}
+
+.play-btn:hover .play-text {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.play-btn:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Asegurar buen comportamiento en dispositivos táctiles: usar :active como fallback */
+.play-btn:active {
+    transform: scale(0.98);
 }
 
 /* Small responsive tweak */
@@ -1376,7 +1479,7 @@ footer {
     position: absolute;
     top: -12px;
     right: -18px;
-    background: #e53935;
+    background: #E53935;
     color: #fff;
     font-size: 0.85em;
     font-weight: bold;
@@ -1413,6 +1516,19 @@ footer {
     margin-top: 5px;
     font-size: 1rem;
     color: white;
+}
+
+/* Evitar que nombres largos rompan la tarjeta en 2 líneas.
+   Forzar una sola línea y mostrar '...' cuando no quepa. Esto
+   aplica en desktop y mobile; mobile ya tenía reglas similares pero
+   las hacemos explícitas globalmente para evitar reflows. */
+.categoria-card p {
+    display: block; /* ocupar todo el ancho de la tarjeta */
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .categoria-card.active {
@@ -1725,7 +1841,7 @@ footer {
     .menu-user .btn-logout {
         width: 134px;
         height: 45px;
-        background-color: #AB0000;
+        background-color: #E53935;
         color: white;
         border: none;
         border-radius: 11px;

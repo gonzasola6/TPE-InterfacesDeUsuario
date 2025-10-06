@@ -1,3 +1,12 @@
+.tituloJuego,
+.textoJuego,
+.textoAyuda,
+.subtituloAyuda {
+    text-align: left;
+    margin-left: 40px;
+}
+
+
 /* Área para comentar */
 .contenedor-formulario {
     background: none;

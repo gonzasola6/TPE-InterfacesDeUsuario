@@ -137,9 +137,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Función pública: cambia la diapositiva en el carrusel principal
     // Parámetro: step (número) → si es 1 mueve a la siguiente, -1 a la anterior
     // Usado en: home.html (controles del slider)
+    function triggerCarouselAnim() {
+      if (!carousel) return;
+      carousel.classList.remove('anim');
+      void carousel.offsetWidth;
+      carousel.classList.add('anim');
+      setTimeout(() => carousel.classList.remove('anim'), 500);
+    }
+
     window.moveSlide = function(step) {
       currentIndex = (currentIndex - step + cards.length) % cards.length;
       updateCarousel();
+      triggerCarouselAnim();
     }
 
     updateCarousel();

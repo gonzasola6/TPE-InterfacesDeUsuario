@@ -1517,6 +1517,10 @@ footer {
 .categoria-juegos.anim .categoria-card {
     animation: categoria-zoom 420ms ease;
 }
+/* Aplicar la misma animación al carrusel principal */
+.carousel.anim .card {
+    animation: categoria-zoom 420ms ease;
+}
 
 .premium-label {
     position: absolute;

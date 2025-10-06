@@ -675,8 +675,6 @@ footer {
 .registro {
     width: 340px;
     margin: 0 auto;
-    margin-top: 40px;   /* espacio con el header */
-    margin-bottom: 40px;
     padding: 8px 6px;
     background-color: #10114B;
     border-radius: 12px;
@@ -722,7 +720,7 @@ footer {
     content: "*";
     position: absolute;
     right: 10px;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
     color: #E53935;
     font-size: 14px;
@@ -860,7 +858,6 @@ footer {
     font-size: 14px;
     /* Aumenté el tamaño de la fuente */
     cursor: pointer;
-    transition: background 0.2s;
     width: 100%;
     /* Hace que el botón ocupe todo el ancho */
     box-shadow: 0 2px 4px rgba(16, 17, 75, 0.1);

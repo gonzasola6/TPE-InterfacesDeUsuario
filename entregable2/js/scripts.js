@@ -6,6 +6,7 @@
   visual de las tarjetas.
   Para qué sirve: permite recorrer los juegos de una categoría sin recargar
   la página, ajustando la 'order' y opacidad para crear un efecto visual.
+  Usado en: home.html
   Puntos clave:
   - Usa `offset` para calcular el desplazamiento circular.
   - Recalcula `order` en CSS para mantener el layout flexible.
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
       tarjetas dentro de un carrusel de categoría.
       Qué hace: resetea clases/estilos, calcula el `visualOrder` en base al
       `offset` actual y aplica opacidad/clase `prev` a los extremos.
+      Usado en: home.html
       Puntos clave:
       - Mantiene el arreglo original `juegos` intacto y sólo cambia CSS `order`.
       - Asegura un comportamiento circular con el modulo (%) para índices.
@@ -76,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
   Qué hace: controla qué tarjeta está activa, la anterior y la siguiente,
   aplicando clases CSS (`active`, `prev`, `next`) y opacidades.
   Para qué sirve: destaca un juego en el centro y permite navegar entre ellos.
+  Usado en: home.html
   Puntos clave:
   - Mantiene `currentIndex` para saber qué tarjeta está en el centro.
   - Usa clases para controlar estilos/animaciones desde CSS.
@@ -93,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
       Qué hace: remueve clases previas y asigna `active`, `prev`, `next` al
       correspondiente elemento; ajusta opacidad para enfatizar la tarjeta
       central.
+      Usado en: home.html
       Puntos clave:
       - Calcula índices de elementos adyacentes con aritmética modular.
       - Resetea estilos inline antes de aplicar los nuevos para evitar
@@ -117,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Función pública: cambia la diapositiva en el carrusel principal
     // Parámetro: step (número) → si es 1 mueve a la siguiente, -1 a la anterior
+    // Usado en: home.html (controles del slider)
     window.moveSlide = function(step) {
       currentIndex = (currentIndex - step + cards.length) % cards.length;
       updateCarousel();
@@ -126,10 +131,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Botón jugar solo si el primer juego está al frente
       const playBtn = document.querySelector('.play-btn');
-      // Handler: clic en botón 'Jugar'
-      // Qué hace: sólo redirige al detalle del juego si la tarjeta activa
-      // coincide con el esperado (ej. alt="Juego 1"). Esto permite que el
-      // botón sólo funcione cuando el primer juego está en el frente.
+  // Handler: clic en botón 'Jugar'
+  // Qué hace: sólo redirige al detalle del juego si la tarjeta activa
+  // coincide con el esperado (ej. alt="Juego 1"). Esto permite que el
+  // botón sólo funcione cuando el primer juego está en el frente.
+  // Usado en: home.html (redirige a game.html cuando corresponde)
       if (playBtn) {
         playBtn.addEventListener('click', function () {
           // Verifica si la tarjeta activa tiene alt="Juego 1"
@@ -148,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
   Qué hace: cambia la visibilidad de las listas de comentarios al hacer
   click en las pestañas y maneja incrementos locales de likes al pulsar
   botones correspondientes.
+  Usado en: game.html (sección de comentarios del juego)
   Puntos clave:
   - No persiste likes: es sólo manipulación del DOM local.
   - Cambia clases `active` en las pestañas para estilos.
@@ -179,6 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Likes locales
   // Qué hace: incrementa el contador visual de likes al hacer click en el
   // botón correspondiente. No se guarda en servidor; sólo DOM.
+  // Usado en: game.html
   document.querySelectorAll('.btn-like').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var likesSpan = btn.previousElementSibling;
@@ -195,6 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
   que previene el comportamiento por defecto y redirige el navegador a `url`
   Para qué sirve: reutilizable para botones de redes sociales u otros enlaces
   que deben llevar a una página concreta sin depender del markup original.
+  Usado en: index.html, home.html, singup.html (botones sociales y enlaces)
   Puntos clave:
   - Llama a `e.preventDefault()` para evitar navegación por defecto.
   - Usa `window.location.href` para forzar la redirección.
@@ -219,6 +228,7 @@ function redirectOnClick(selector, url) {
   Qué hace: habilita/deshabilita el botón de login según la validez de los
   campos obligatorios y del captcha 'falso' presente en el form.
   Parámetros (objeto): formSelector, btnSelector, captchaSelector, redireccion
+  Usado en: index.html (página de inicio de sesión)
   Puntos clave:
   - Valida sólo en el cliente (no hay petición al servidor).
   - Desactiva el botón si faltan campos o el captcha no está checkeado.

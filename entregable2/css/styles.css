@@ -6,7 +6,18 @@
     margin-left: 40px;
 }
 
-
+.premium-label {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #e53935;
+    color: #fff;
+    font-size: 0.85em;
+    font-weight: bold;
+    padding: 2px 10px;
+    border-radius: 8px;
+    z-index: 3;
+}
 /* Área para comentar */
 .contenedor-formulario {
     background: none;

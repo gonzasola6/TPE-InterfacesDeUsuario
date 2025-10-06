@@ -23,6 +23,19 @@
     z-index: 3;
 }
 
+.game-name {
+    position: absolute;
+    bottom: 0.4px;
+    background: #5153A0;
+    color: #fff;
+    font-size: 0.85em;
+    font-weight: bold;
+    padding: 2px 10px;
+    border-radius: 8px;
+    z-index: 3;
+    width: 90%;
+}
+
 /* Área para comentar */
 .contenedor-formulario {
     background: none;
@@ -34,76 +47,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    .categoria-juegos {
-        position: relative;
-        width: 650px;
-        height: 150px;
-        margin: auto;
-    }
-
-
-    .categoria-card {
-        position: static;
-        width: 150px;
-        height: 150px;
-        transition: transform 0.5s ease;
-        opacity: 1 !important;
-        transform: scale(1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        cursor: pointer;
-        z-index: 0;
-    }
-
-    .categoria-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        /* Mostrar preferentemente la parte superior de la imagen
-           para que el texto que esté en la zona superior sea visible */
-        object-position: 50% 20%;
-        border-radius: 10px;
-        background: #222;
-    }
-
-    .categoria-card span {
-        margin-top: 5px;
-        font-size: 1rem;
-        color: white;
-    }
-
-
-    .categoria-card.active {
-        left: 160px;
-        opacity: 1 !important;
-        transform: scale(1);
-        z-index: 2;
-    }
-
-    .categoria-card.active+.categoria-card.active {
-        left: 320px;
-        opacity: 1 !important;
-        transform: scale(1);
-        z-index: 2;
-    }
-
-    .categoria-card.prev {
-        left: 0;
-        opacity: 1 !important;
-        transform: scale(0.8);
-        z-index: 1;
-    }
-
-    .categoria-card.next {
-        left: 480px;
-        opacity: 1 !important;
-        transform: scale(0.8);
-        z-index: 1;
-    }
-
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -124,7 +67,8 @@
     align-items: center;
     gap: 8px;
 
-    position: relative; /* importante para que el icono absoluto quede relativo a este contenedor */
+    position: relative;
+    /* importante para que el icono absoluto quede relativo a este contenedor */
 }
 
 .contenedor-comentador {
@@ -142,20 +86,28 @@
 
 /* Estilos para los enlaces en la página de juego (Historia / Web del desarrollador) */
 .game-links {
-    margin-left: 120px; /* alinear con la sección de comentarios */
+    margin-left: 120px;
+    /* alinear con la sección de comentarios */
     margin-top: 18px;
     margin-bottom: 24px;
     display: flex;
-    gap: 18px; /* más espacio entre enlaces */
+    gap: 18px;
+    /* más espacio entre enlaces */
     align-items: center;
 }
+
 .game-links .game-link {
-    color: #ffffff; /* blanco como el resto de enlaces globales */
-    text-decoration: none; /* estilo consistente: sin subrayado */
-    font-size: 1rem; /* mantener tamaño actual */
+    color: #ffffff;
+    /* blanco como el resto de enlaces globales */
+    text-decoration: none;
+    /* estilo consistente: sin subrayado */
+    font-size: 1rem;
+    /* mantener tamaño actual */
 }
+
 .game-links .game-link:hover {
-    text-decoration: underline; /* pequeño feedback al pasar el mouse */
+    text-decoration: underline;
+    /* pequeño feedback al pasar el mouse */
 }
 
 .input-comentario {
@@ -393,9 +345,12 @@ body {
 
 .borde-menu {
     width: 250px;
-    height: 2px; /* alto de la línea */
-    margin: 4px auto 8px auto; /* arriba y abajo */
-    background-color: #fff; /* color de la línea */
+    height: 2px;
+    /* alto de la línea */
+    margin: 4px auto 8px auto;
+    /* arriba y abajo */
+    background-color: #fff;
+    /* color de la línea */
     margin-top: 20px;
 }
 
@@ -482,7 +437,7 @@ body {
     left: -60%;
     width: 40%;
     height: 100%;
-    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 100%);
     transform: skewX(-20deg);
     pointer-events: none;
     z-index: 20;
@@ -490,7 +445,9 @@ body {
 }
 
 @keyframes premium-shine {
-    to { left: 120%; }
+    to {
+        left: 120%;
+    }
 }
 
 /* Forzar mostrar versión mobile durante el estado temporal */
@@ -700,8 +657,6 @@ footer {
 .registro {
     width: 340px;
     margin: 0 auto;
-    margin-top: 40px;   /* espacio con el header */
-    margin-bottom: 40px;
     padding: 8px 6px;
     background-color: #10114B;
     border-radius: 12px;
@@ -747,7 +702,7 @@ footer {
     content: "*";
     position: absolute;
     right: 10px;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
     color: #E53935;
     font-size: 14px;
@@ -885,7 +840,6 @@ footer {
     font-size: 14px;
     /* Aumenté el tamaño de la fuente */
     cursor: pointer;
-    transition: background 0.2s;
     width: 100%;
     /* Hace que el botón ocupe todo el ancho */
     box-shadow: 0 2px 4px rgba(16, 17, 75, 0.1);
@@ -949,7 +903,7 @@ footer {
     background: #fff;
     border-radius: 6px;
     padding: 10px 12px;
-    margin:16px auto 20px auto;
+    margin: 16px auto 20px auto;
     width: fit-content;
     box-shadow: 0 2px 8px rgba(16, 17, 75, 0.10);
     min-height: 38px;
@@ -1161,7 +1115,7 @@ footer {
 
 /* Carrusel */
 
-.tituloPrincipal{
+.tituloPrincipal {
     color: #FFD700;
     /* amarillo */
     margin: 20px 0;
@@ -1274,11 +1228,14 @@ footer {
 /* Play button (scoped) */
 /* El selector adyacente se encarga de posicionar/centrar el botón en el flujo
    del documento; `.play-btn` controla la apariencia interna. */
-.carousel-container + .play-btn {
-    display: block; /* block para que margin: 0 auto centre el elemento */
-    margin: 30px auto 0; /* separacion bajo el carousel */
+.carousel-container+.play-btn {
+    display: block;
+    /* block para que margin: 0 auto centre el elemento */
+    margin: 30px auto 0;
+    /* separacion bajo el carousel */
     text-align: center;
 }
+
 .play-btn {
     position: relative;
     background: #E53935;
@@ -1291,7 +1248,8 @@ footer {
     font-weight: bold;
     cursor: pointer;
     z-index: 3;
-    display: inline-flex; /* alinea icono/texto internamente */
+    display: inline-flex;
+    /* alinea icono/texto internamente */
     align-items: center;
     justify-content: center;
 }
@@ -1300,13 +1258,14 @@ footer {
    en un círculo con un icono de play dentro. Mantiene texto para lectores de
    pantalla (accesible via aria-label). */
 .play-btn {
-    position: relative; /* necesario para centrar el pseudo-elemento */
+    position: relative;
+    /* necesario para centrar el pseudo-elemento */
     transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease, border-radius 0.2s ease, background 0.2s;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    
+
     box-sizing: border-box;
 }
 
@@ -1338,11 +1297,12 @@ footer {
     /* Sólo transformación visual: escala y color. No cambiar ancho/alto/padding
        para evitar reflow de elementos siguientes. */
     transform: scale(1.06);
-    background: #E53935; /* un poco más brillante */
+    background: #E53935;
+    /* un poco más brillante */
     /* Mantener tamaño y padding para que la posición de los elementos
        inferiores no cambie. */
     border: 0.5px solid rgba(255, 255, 255, 0.95);
-        /* borde blanco fino */
+    /* borde blanco fino */
 }
 
 .play-btn:hover .play-text {
@@ -1510,13 +1470,23 @@ footer {
 
 /* Animación sutil de zoom al cambiar elementos del carrusel de categoría */
 @keyframes categoria-zoom {
-    0% { transform: scale(0.96); }
-    50% { transform: scale(1.04); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(0.96);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
+
 .categoria-juegos.anim .categoria-card {
     animation: categoria-zoom 420ms ease;
 }
+
 /* Aplicar la misma animación al carrusel principal */
 .carousel.anim .card {
     animation: categoria-zoom 420ms ease;
@@ -1539,7 +1509,7 @@ footer {
 .categoria-card {
     position: static;
     /* <-- Cambia de absolute a static */
-    width: 150px;
+    width: 260px;
     height: 150px;
     transition: transform 0.5s ease;
     opacity: 1;
@@ -1573,7 +1543,8 @@ footer {
    aplica en desktop y mobile; mobile ya tenía reglas similares pero
    las hacemos explícitas globalmente para evitar reflows. */
 .categoria-card p {
-    display: block; /* ocupar todo el ancho de la tarjeta */
+    display: block;
+    /* ocupar todo el ancho de la tarjeta */
     width: 100%;
     box-sizing: border-box;
     overflow: hidden;
@@ -1755,8 +1726,9 @@ footer {
 }
 
 .icono-comentario {
-        position: absolute;
-    left: 18px;  /* ajustar según el padding del input */
+    position: absolute;
+    left: 18px;
+    /* ajustar según el padding del input */
     top: 50%;
     transform: translateY(-50%);
     width: 22px;
@@ -1770,7 +1742,8 @@ footer {
 .icono-comentario img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* asegura que la imagen quede centrada y escalada */
+    object-fit: contain;
+    /* asegura que la imagen quede centrada y escalada */
 }
 
 .imagenUsuario {

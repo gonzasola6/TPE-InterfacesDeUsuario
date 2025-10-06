@@ -367,14 +367,11 @@ body {
 }
 
 .borde-menu {
-    display: block;
-    width: 100%;
-    max-width: 1300px;
-    margin: 4px auto 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
+    width: 250px;
+    height: 2px; /* alto de la línea */
+    margin: 4px auto 8px auto; /* arriba y abajo */
+    background-color: #fff; /* color de la línea */
+    margin-top: 20px;
 }
 
 .menu-categorias {

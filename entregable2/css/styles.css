@@ -14,15 +14,14 @@
         margin: auto;
     }
 
+
     .categoria-card {
-        position: absolute;
-        top: 0;
-        left: 0;
+        position: static;
         width: 150px;
         height: 150px;
-        transition: all 0.5s ease-in-out;
-        opacity: 0;
-        transform: scale(0.8);
+        transition: transform 0.5s ease;
+        opacity: 1 !important;
+        transform: scale(1);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -45,6 +44,7 @@
         color: white;
     }
 
+
     .categoria-card.active {
         left: 160px;
         opacity: 1 !important;
@@ -59,13 +59,13 @@
     }
     .categoria-card.prev {
         left: 0;
-        opacity: 0.5 !important;
+        opacity: 1 !important;
         transform: scale(0.8);
         z-index: 1;
     }
     .categoria-card.next {
         left: 480px;
-        opacity: 0.5 !important;
+        opacity: 1 !important;
         transform: scale(0.8);
         z-index: 1;
     }
@@ -1111,6 +1111,20 @@ h2 {
     overflow: visible;
     position: relative;
     height: auto;
+}
+
+.premium-label {
+    position: absolute;
+    top: -12px;
+    right: -18px;
+    background: #e53935;
+    color: #fff;
+    font-size: 0.85em;
+    font-weight: bold;
+    padding: 2px 14px;
+    border-radius: 8px;
+    z-index: 3;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .categoria-card {

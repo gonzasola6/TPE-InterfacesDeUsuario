@@ -6,6 +6,18 @@
     margin-left: 40px;
 }
 
+.premium-label {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #e53935;
+    color: #fff;
+    font-size: 0.85em;
+    font-weight: bold;
+    padding: 2px 10px;
+    border-radius: 8px;
+    z-index: 3;
+}
 
 /* Área para comentar */
 .contenedor-formulario {
@@ -63,24 +75,28 @@
         transform: scale(1);
         z-index: 2;
     }
-    .categoria-card.active + .categoria-card.active {
+
+    .categoria-card.active+.categoria-card.active {
         left: 320px;
         opacity: 1 !important;
         transform: scale(1);
         z-index: 2;
     }
+
     .categoria-card.prev {
         left: 0;
         opacity: 1 !important;
         transform: scale(0.8);
         z-index: 1;
     }
+
     .categoria-card.next {
         left: 480px;
         opacity: 1 !important;
         transform: scale(0.8);
         z-index: 1;
     }
+
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -92,7 +108,7 @@
     margin-right: 8px;
 }
 
-.input-comentario-row{
+.input-comentario-row {
     width: 100%;
     max-width: 1300px;
     margin: 32px auto 0 auto;
@@ -100,12 +116,15 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
+
+    position: relative; /* importante para que el icono absoluto quede relativo a este contenedor */
 }
 
 .contenedor-comentador {
     background: none;
     padding: 0;
     border-radius: 0;
+    margin-left: 120px;
     margin-bottom: 10px;
     max-width: 1300px;
     width: 100%;
@@ -113,10 +132,12 @@
     flex-direction: column;
     align-items: center;
 }
+
 .input-comentario {
     width: 100%;
     max-width: 1200px;
-    padding: 12px 18px 12px 50px; /* espacio para el icono */
+    padding: 12px 18px 12px 50px;
+    /* espacio para el icono */
     border-radius: 16px;
     border: none;
     font-size: 1.08em;
@@ -126,6 +147,7 @@
     outline: none;
     margin: 0 auto;
 }
+
 .input-comentario::placeholder {
     color: #888;
     font-size: 1em;
@@ -135,13 +157,16 @@
 .comentarios-switch {
     margin-bottom: 18px;
     font-size: 1.15em;
+    text-align: center;
 }
+
 .tab-comentario {
     cursor: pointer;
     color: #fff;
     font-weight: 500;
     transition: color 0.2s;
 }
+
 .tab-comentario.active {
     color: #FFD600;
 }
@@ -152,6 +177,7 @@
     flex-direction: column;
     gap: 18px;
 }
+
 .comentario {
     background: #5B5BAA;
     border-radius: 16px;
@@ -159,9 +185,10 @@
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     position: relative;
 }
+
 .comentario-info {
     flex: 1;
     display: flex;
@@ -175,18 +202,21 @@
     justify-content: space-between;
     margin-bottom: 4px;
 }
+
 .nombreUsuario {
     font-weight: 600;
     color: #fff;
     font-size: 1em;
     margin-bottom: 2px;
 }
+
 .fechaComentario {
     color: #e0e0e0;
     font-size: 0.95em;
     margin-left: 12px;
     margin-right: 0;
 }
+
 .comentario-info p {
     background: #e0e0e0;
     color: #222;
@@ -197,6 +227,7 @@
     width: 100%;
     margin-top: 2px;
 }
+
 .imagenUsuario {
     width: 38px;
     height: 38px;
@@ -205,6 +236,7 @@
     margin-right: 8px;
     margin-top: 2px;
 }
+
 .likes-comentario {
     display: flex;
     flex-direction: column;
@@ -213,11 +245,13 @@
     margin-left: 8px;
     gap: 4px;
 }
+
 .cantidad-likes {
     font-weight: 600;
     color: #FFD600;
     font-size: 1.1em;
 }
+
 .btn-like {
     background: none;
     border: none;
@@ -226,16 +260,16 @@
     color: #FFD600;
     transition: transform 0.1s;
 }
+
 .btn-like:active {
     transform: scale(1.2);
 }
+
 /* Estilo del navbar */
 
 body,
 form,
 input {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     color: #fff
 }
@@ -249,7 +283,6 @@ body {
     background: #0c0c25;
     font-family: "Inter", sans-serif;
     color: white;
-    text-align: center;
 }
 
 .header {
@@ -334,14 +367,11 @@ body {
 }
 
 .borde-menu {
-    display: block;
-    width: 100%;
-    max-width: 1300px;
-    margin: 4px auto 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
+    width: 250px;
+    height: 2px; /* alto de la línea */
+    margin: 4px auto 8px auto; /* arriba y abajo */
+    background-color: #fff; /* color de la línea */
+    margin-top: 20px;
 }
 
 .menu-categorias {
@@ -409,6 +439,38 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+/* Efecto brillo y forzar visibilidad del botón mobile temporalmente */
+/* container remains normal; shine is applied only to the desktop button */
+
+/* Aplicar brillo únicamente al botón desktop para que no alcance al botón de usuario */
+.btn-premium-desktop {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-premium-desktop.shine::after {
+    /* barra brillante que se desplaza dentro del botón desktop */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-20deg);
+    pointer-events: none;
+    z-index: 20;
+    animation: premium-shine 1s ease forwards;
+}
+
+@keyframes premium-shine {
+    to { left: 120%; }
+}
+
+/* Forzar mostrar versión mobile durante el estado temporal */
+/* Note: previously we toggled a .show-mobile state to swap buttons. That
+   behavior was removed — we only keep the shine effect now. */
 
 
 .btn-premium .btn-premium-desktop {
@@ -621,6 +683,8 @@ footer {
     box-shadow: 0 2px 8px rgba(16, 17, 75, 0.10);
     font-family: "Poppins", sans-serif;
     text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .titulo-registro {
@@ -797,11 +861,12 @@ footer {
     /* Aumenté el tamaño de la fuente */
     cursor: pointer;
     transition: background 0.2s;
-    width: 100%; /* Hace que el botón ocupe todo el ancho */
+    width: 100%;
+    /* Hace que el botón ocupe todo el ancho */
     box-shadow: 0 2px 4px rgba(16, 17, 75, 0.1);
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 
- 
+
 }
 
 
@@ -885,7 +950,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(16,17,75,0.8);
+    background: rgba(16, 17, 75, 0.8);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -925,15 +990,37 @@ footer {
 }
 
 @keyframes pulgarOverlay {
-    0% { opacity: 0; transform: translateY(0) scale(1); }
-    30% { opacity: 1; transform: translateY(-20px) scale(1.5); }
-    100% { opacity: 0; transform: translateY(-50px) scale(1); }
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(1);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateY(-20px) scale(1.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-50px) scale(1);
+    }
 }
 
 @keyframes welcomeOverlay {
-    0% { opacity: 0; transform: translateY(0) scale(0.8); }
-    30% { opacity: 1; transform: translateY(-5px) scale(1.2); }
-    100% { opacity: 0; transform: translateY(-40px) scale(1); }
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.8);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateY(-5px) scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-40px) scale(1);
+    }
 }
 
 /*================== FIN Formulario de registro ================= */
@@ -1049,10 +1136,11 @@ footer {
 
 /* Carrusel */
 
-h2 {
+.tituloPrincipal{
     color: #FFD700;
     /* amarillo */
     margin: 20px 0;
+    text-align: center;
 }
 
 .carousel-container {
@@ -1138,7 +1226,7 @@ h2 {
     transform: translateY(-50%);
     font-size: 2rem;
     color: yellow;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -1150,29 +1238,189 @@ h2 {
     z-index: 5;
 }
 
-.carousel-container .arrow.left { left: 10px; }
-.carousel-container .arrow.right { right: 10px; }
+.carousel-container .arrow.left {
+    left: 10px;
+}
+
+.carousel-container .arrow.right {
+    right: 10px;
+}
 
 /* Play button (scoped) */
-.carousel-container + .play-btn,
+/* El selector adyacente se encarga de posicionar/centrar el botón en el flujo
+   del documento; `.play-btn` controla la apariencia interna. */
+.carousel-container + .play-btn {
+    display: block; /* block para que margin: 0 auto centre el elemento */
+    margin: 30px auto 0; /* separacion bajo el carousel */
+    text-align: center;
+}
 .play-btn {
-    display: block;
     position: relative;
-    top: 30px; /* 30px debajo del carrusel */
-    margin: 0 auto;
-    background: #e63946;
+    background: #E53935;
     color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
+    /* mantener altura fija para evitar reflow al hacer hover */
+    height: 56px;
+    padding: 0 20px;
+    border-radius: 28px;
     border: none;
     font-weight: bold;
     cursor: pointer;
     z-index: 3;
+    display: inline-flex; /* alinea icono/texto internamente */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover effect: al pasar el mouse el botón se hace más grande y se transforma
+   en un círculo con un icono de play dentro. Mantiene texto para lectores de
+   pantalla (accesible via aria-label). */
+.play-btn {
+    position: relative; /* necesario para centrar el pseudo-elemento */
+    transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease, border-radius 0.2s ease, background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    
+    box-sizing: border-box;
+}
+
+.play-btn .play-text {
+    display: inline-block;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.play-btn::after {
+    /* Triángulo (play) centrado y oculto por defecto; se mostrará al hacer hover */
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 12px solid white;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    opacity: 0;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.play-btn:hover {
+    /* Sólo transformación visual: escala y color. No cambiar ancho/alto/padding
+       para evitar reflow de elementos siguientes. */
+    transform: scale(1.06);
+    background: #E53935; /* un poco más brillante */
+    /* Mantener tamaño y padding para que la posición de los elementos
+       inferiores no cambie. */
+    border: 0.5px solid rgba(255, 255, 255, 0.95);
+        /* borde blanco fino */
+}
+
+.play-btn:hover .play-text {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.play-btn:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Asegurar buen comportamiento en dispositivos táctiles: usar :active como fallback */
+.play-btn:active {
+    transform: scale(0.98);
 }
 
 /* Small responsive tweak */
 @media (max-width: 900px) {
-    .carousel-container, .carousel, .carousel .card { width: 90vw; height: calc(90vw * 0.47); }
+
+    .carousel-container,
+    .carousel,
+    .carousel .card {
+        width: 90vw;
+        height: calc(90vw * 0.47);
+    }
+}
+
+/* Responsive: mostrar solo 3 tarjetas en el carrusel de categorías en pantallas pequeñas
+   Mantener el comportamiento actual en desktop (5 visibles / layout existente). */
+@media (max-width: 900px) {
+    .categorias-container {
+        padding: 0 12px;
+    }
+
+    /* Hacemos que el contenedor no muestre más que el ancho disponible (solo 3 visibles) */
+    .categoria-juegos {
+        overflow: hidden;
+        gap: 18px;
+        /* coincidir con el gap definido */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    /* Cada tarjeta ocupará un tercio del ancho disponible menos los gaps (3 tarjetas visibles) */
+    .categoria-card {
+        /* Hacemos las tarjetas un poco más pequeñas en mobile para dar espacio */
+        flex: 0 0 calc((100% - 36px) / 3 - 8px);
+        width: calc((100% - 36px) / 3 - 8px);
+        max-width: none;
+        height: auto;
+        /* permitir que la tarjeta ajuste su alto */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Mantener la imagen centrada y con buen recorte dentro de la tarjeta */
+    .categoria-card img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        /* mantener cuadrada */
+        object-fit: cover;
+        border-radius: 10px;
+        background: #222;
+    }
+
+    /* Texto debajo de la tarjeta mantiene tamaño legible en mobile */
+    .categoria-card span {
+        margin-top: 6px;
+        font-size: 0.95rem;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        /* truncar con '...' cuando no cabe */
+    }
+
+    /* MOBILE ONLY: colocar la etiqueta premium sobre la esquina de cada tarjeta */
+    .categoria-card {
+        /* solo en mobile hacemos la tarjeta relativo para contener la etiqueta */
+        position: relative;
+    }
+
+    .categoria-card .premium-label {
+        position: absolute;
+        top: 8px;
+        right: -4px;
+        font-size: 0.55rem;
+        padding: 1px 6px;
+        border-radius: 5px;
+        z-index: 4;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+        line-height: 1;
+        white-space: nowrap;
+        transform: none;
+        max-width: 70%;
+    }
 }
 
 /* End of scoped carousel styles */
@@ -1198,7 +1446,7 @@ h2 {
     transform: translateY(-50%);
     font-size: 2rem;
     color: yellow;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -1210,8 +1458,13 @@ h2 {
     z-index: 5;
 }
 
-.categoria-carrousel .arrow.left { left: 10px; }
-.categoria-carrousel .arrow.right { right: 10px; }
+.categoria-carrousel .arrow.left {
+    left: 10px;
+}
+
+.categoria-carrousel .arrow.right {
+    right: 10px;
+}
 
 .categoria-titulo {
     color: #FFD700;
@@ -1234,7 +1487,7 @@ h2 {
     position: absolute;
     top: -12px;
     right: -18px;
-    background: #e53935;
+    background: #E53935;
     color: #fff;
     font-size: 0.85em;
     font-weight: bold;
@@ -1273,6 +1526,19 @@ h2 {
     color: white;
 }
 
+/* Evitar que nombres largos rompan la tarjeta en 2 líneas.
+   Forzar una sola línea y mostrar '...' cuando no quepa. Esto
+   aplica en desktop y mobile; mobile ya tenía reglas similares pero
+   las hacemos explícitas globalmente para evitar reflows. */
+.categoria-card p {
+    display: block; /* ocupar todo el ancho de la tarjeta */
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .categoria-card.active {
     opacity: 1;
     transform: scale(1);
@@ -1299,25 +1565,24 @@ h2 {
     font-family: "Inter", sans-serif;
     font-weight: 600;
     /* Semibold */
-    font-size: 48px;
+    font-size: 24px;
     color: #F8BD00;
-    margin-left: 20px;
+    margin-left: 60px;
     margin-top: 20px;
     margin-bottom: 10px;
 }
 
 .breadcrums {
     font-family: "Poppins", sans-serif;
-    font-size: 24px;
+    font-size: 14px;
     color: white;
     text-decoration: none;
     margin-left: 20px;
-    margin-bottom: 20px;
 }
 
 .textoJuego {
     font-family: "Poppins", sans-serif;
-    font-size: 24px;
+    font-size: 14px;
     color: white;
     margin-bottom: 20px;
 }
@@ -1330,8 +1595,8 @@ h2 {
 }
 
 .imagenJuego {
-    max-width: 1300px;
-    height: 700px;
+    max-width: 1200px;
+    height: 600px;
     display: block;
     margin: 0 auto 30px auto;
     border-radius: 12px;
@@ -1348,16 +1613,17 @@ h2 {
 
 .textoAyuda {
     font-family: "Inter", sans-serif;
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: 400;
     margin-left: 120px;
     color: #F8BD00;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .contenedor-ayuda {
     max-width: 1300px;
-    margin: 0 auto 60px auto;
-    padding: 20px;
+    margin: 0 auto 20px auto;
+    padding: 10px;
     background-color: #5153A0;
     border-radius: 20px;
     box-shadow: 0 2px 8px rgba(16, 17, 75, 0.10);
@@ -1379,7 +1645,7 @@ h2 {
     /* Centra el grupo, opcional */
     padding: 20px;
     max-width: 1300px;
-    margin: 0 auto 60px auto;
+    margin: 0 auto 20px auto;
     font-family: "Inter", sans-serif;
 }
 
@@ -1409,8 +1675,8 @@ h2 {
 }
 
 .contenedor-comentarios {
-    max-width: 1300px;
-    margin: 0 auto 60px auto;
+    max-width: 800px;
+    margin: 40px auto 60px auto;
     padding: 20px;
     background-color: #5153A0;
     border-radius: 20px;
@@ -1447,22 +1713,23 @@ h2 {
 }
 
 .icono-comentario {
-    position: absolute;
-
-    width: 22px;
-    /* Elegí solo el width */
-    height: 22px;
-    /* Permití que el alto se ajuste solo */
-
-    left: 12px;
+        position: absolute;
+    left: 18px;  /* ajustar según el padding del input */
     top: 50%;
     transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     pointer-events: none;
-    /* para no bloquear clics */
 }
 
-
-
+.icono-comentario img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* asegura que la imagen quede centrada y escalada */
+}
 
 .imagenUsuario {
     width: 40px;
@@ -1582,7 +1849,7 @@ h2 {
     .menu-user .btn-logout {
         width: 134px;
         height: 45px;
-        background-color: #AB0000;
+        background-color: #E53935;
         color: white;
         border: none;
         border-radius: 11px;
@@ -1714,5 +1981,107 @@ h2 {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+}
+
+/* Fix overflow / no horizontal scroll on small screens */
+@media (max-width: 900px) {
+
+    /* Evita scroll horizontal en todo el documento en mobile */
+    html,
+    body {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
+    /* Asegura que el header no empuje el ancho fuera de la pantalla */
+    .header {
+        padding: 0 10px;
+        box-sizing: border-box;
+        width: 100%;
+        overflow: visible;
+    }
+
+    /* El buscador tenía margin-left grande para desktop, en mobile quitarlo */
+    .buscador {
+        margin-left: 0;
+        max-width: 85vw;
+        padding: 0 8px;
+    }
+
+    /* Menú / logo container: evitar que el menú absoluto cree overflow */
+    .logo-menu-container,
+    .menu-hamburguesa,
+    .menu-user {
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+
+    /* Categorias: asegurarnos que no haya left/right que provoquen overflow */
+    .categoria-carrousel {
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        /* oculta cualquier desplazamiento lateral */
+        padding: 0 6px;
+    }
+
+    /* Forzar que las tarjetas no usen desplazamientos absolutos en mobile */
+    .categoria-juegos {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+        overflow: hidden;
+    }
+
+    .categoria-card {
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+
+    .categoria-card.prev,
+    .categoria-card.next {
+        left: auto !important;
+        right: auto !important;
+        opacity: 0.5 !important;
+        transform: scale(0.95) !important;
+    }
+
+    /* Ajuste de tamaño: 3 tarjetas visibles, centradas verticalmente */
+    .categoria-card {
+        /* Ajuste secundario (otro bloque mobile) — también hacerlas un poco más pequeñas */
+        flex: 0 0 calc((100% - 24px) / 3 - 6px);
+        width: calc((100% - 24px) / 3 - 6px);
+    }
+
+    .categoria-card img {
+        aspect-ratio: 1 / 1;
+        height: auto;
+    }
+
+    /* Flechas se mantienen dentro del contenedor y no generan overflow */
+    .categoria-carrousel .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+    }
+
+}
+
+/* Premium label: tamaño y posición más compacta en mobile */
+@media (max-width: 900px) {
+    .premium-label {
+        font-size: 0.7rem;
+        padding: 2px 8px;
+        top: -6px;
+        right: -8px;
+        border-radius: 6px;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
     }
 }

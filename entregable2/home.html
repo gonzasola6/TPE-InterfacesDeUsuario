@@ -6,20 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Good Games</title>
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-        .premium-label {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            background: #e53935;
-            color: #fff;
-            font-size: 0.85em;
-            font-weight: bold;
-            padding: 2px 10px;
-            border-radius: 8px;
-            z-index: 3;
-        }
-    </style>
 </head>
 
 <body>
@@ -109,7 +95,7 @@
                     <img class="user-photo" src="images/user.png" alt="Usuario">
                 </button>
                 <div class="menu-user">
-                    <span class="user-name">Nombre de Usuario</span>
+                    <span class="user-name">Lionel Messi</span>
                     <a href="#">
                         <div class="link-content">
                             <img src="images/perfil-icon.png" alt="">
@@ -142,7 +128,7 @@
         </div>
     </header>
 
-    <h2>Juegos Destacados</h2>
+    <h2 class="tituloPrincipal">Juegos Destacados</h2>
 
     <div class="carousel-container">
         <div class="carousel" id="carousel">
@@ -161,53 +147,51 @@
         <div class="arrow right" onclick="moveSlide(1)">&#10095;</div>
     </div>
     <!-- Botón jugar fuera del carrusel -->
-    <button class="play-btn">Jugar</button>
+    <button class="play-btn" aria-label="Jugar"><span class="play-text">Jugar</span></button>
 
     <!-- Carruseles por categoría -->
     <div class="categorias-container">
         <div class="categoria-carrousel">
             <h3 class="categoria-titulo">Juegos Recientes</h3>
             <div class="categoria-juegos">
-                <div class="categoria-card prev"><img src="images/ludoking.png"><span>Ludo King</span></div>
-                <div class="categoria-card"><img src="images/golfrival.png"><span>Golf Rival</span></div>
-                <div class="categoria-card"><img src="images/bombit3.jpg"><span>Bomb It 3</span></div>
-                <div class="categoria-card"><img src="images/supermario.jpg"><span>Super Mario</span><span class="premium-label">Premium</span></div>
-                <div class="categoria-card"><img src="images/subway.png"><span>Subway Surfers</span></div>
-                <div class="categoria-card prev"><img src="images/slitherio.png"><span>Slither.io</span></div>
+                <div class="categoria-card prev"><img src="images/ludoking.png"><p>Ludo King</p></div>
+                <div class="categoria-card"><img src="images/golfrival.png"><p>Golf Rival</p></div>
+                <div class="categoria-card"><img src="images/pubg.jpg"><p>Player Underground Battlegrounds</p><span class="premium-label">Premium</span></div>
+                <div class="categoria-card"><img src="images/supermario.jpg"><p>Super Mario</p><span class="premium-label">Premium</span></div>
+                <div class="categoria-card"><img src="images/subway.png"><p>Subway Surfers</p></div>
+                <div class="categoria-card prev"><img src="images/slitherio.png"><p>Slither.io</p></div>
             </div>
             <div class="arrow left">&#10094;</div>
             <div class="arrow right">&#10095;</div>
         </div>
     </div>
 
-    <!-- Carruseles por categoría -->
     <div class="categorias-container">
         <div class="categoria-carrousel">
-            <h3 class="categoria-titulo">Juegos de Acción</h3>
+            <h3 class="categoria-titulo">Juegos Recientes</h3>
             <div class="categoria-juegos">
-                <div class="categoria-card prev"><img src="images/ludoking.png"><span>Ludo King</span></div>
-                <div class="categoria-card"><img src="images/golfrival.png"><span>Golf Rival</span></div>
-                <div class="categoria-card"><img src="images/bombit3.jpg"><span>Bomb It 3</span></div>
-                <div class="categoria-card"><img src="images/supermario.jpg"><span>Super Mario</span><span class="premium-label">Premium</span></div>
-                <div class="categoria-card"><img src="images/subway.png"><span>Subway Surfers</span></div>
-                <div class="categoria-card prev"><img src="images/slitherio.png"><span>Slither.io</span></div>
+                <div class="categoria-card prev"><img src="images/ludoking.png"><p>Ludo King</p></div>
+                <div class="categoria-card"><img src="images/golfrival.png"><p>Golf Rival</p></div>
+                <div class="categoria-card"><img src="images/pubg.jpg"><p>Player Underground Battlegrounds</p><span class="premium-label">Premium</span></div>
+                <div class="categoria-card"><img src="images/supermario.jpg"><p>Super Mario</p><span class="premium-label">Premium</span></div>
+                <div class="categoria-card"><img src="images/subway.png"><p>Subway Surfers</p></div>
+                <div class="categoria-card prev"><img src="images/slitherio.png"><p>Slither.io</p></div>
             </div>
             <div class="arrow left">&#10094;</div>
             <div class="arrow right">&#10095;</div>
         </div>
     </div>
 
-    <!-- Carruseles por categoría -->
     <div class="categorias-container">
         <div class="categoria-carrousel">
-            <h3 class="categoria-titulo">Juegos de Deporte</h3>
+            <h3 class="categoria-titulo">Juegos Recientes</h3>
             <div class="categoria-juegos">
-                <div class="categoria-card prev"><img src="images/ludoking.png"><span>Ludo King</span></div>
-                <div class="categoria-card"><img src="images/golfrival.png"><span>Golf Rival</span></div>
-                <div class="categoria-card"><img src="images/bombit3.jpg"><span>Bomb It 3</span></div>
-                <div class="categoria-card"><img src="images/supermario.jpg"><span>Super Mario</span><span class="premium-label">Premium</span></div>
-                <div class="categoria-card"><img src="images/subway.png"><span>Subway Surfers</span></div>
-                <div class="categoria-card prev"><img src="images/slitherio.png"><span>Slither.io</span></div>
+                <div class="categoria-card prev"><img src="images/ludoking.png"><p>Ludo King</p></div>
+                <div class="categoria-card"><img src="images/golfrival.png"><p>Golf Rival</p></div>
+                <div class="categoria-card"><img src="images/pubg.jpg"><p>Player Underground Battlegrounds</p><span class="premium-label">Premium</span></div>
+                <div class="categoria-card"><img src="images/supermario.jpg"><p>Super Mario</p><span class="premium-label">Premium</span></div>
+                <div class="categoria-card"><img src="images/subway.png"><p>Subway Surfers</p></div>
+                <div class="categoria-card prev"><img src="images/slitherio.png"><p>Slither.io</p></div>
             </div>
             <div class="arrow left">&#10094;</div>
             <div class="arrow right">&#10095;</div>

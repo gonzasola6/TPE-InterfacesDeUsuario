@@ -241,6 +241,23 @@ function redirectOnClick(selector, url) {
   });
 }
 
+
+//funcion para cerrar sesion con el boton del menu 
+
+document.addEventListener("DOMContentLoaded", () => {
+        const logoutButton = document.querySelector(".btn-logout");
+
+        if (logoutButton) {
+            logoutButton.addEventListener("click", () => {
+                // Opcional: si querés limpiar sesión del almacenamiento local
+                // localStorage.clear(); 
+                // sessionStorage.clear();
+
+                // Redirigir al index
+                window.location.href = "index.html";
+            });
+        }
+    });
 // ============================
 // FUNCION PARA MANEJAR LOGIN
 // ============================

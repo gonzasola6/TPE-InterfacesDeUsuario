@@ -1,3 +1,5 @@
+
+
 // Carruseles por categoría desplazables
 /*
   Handler: inicializa y maneja los carruseles por categoría.
@@ -566,3 +568,33 @@ document.addEventListener('DOMContentLoaded', function() {
   if (rightArrow) rightArrow.addEventListener('click', () => moveSlide(1));
 });
 
+// Toggle Menu Hamburguesa
+const menuToggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+
+    menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
+
+    // Cierra el menú al hacer clic fuera
+    document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
+            menu.classList.remove('active');
+        }
+    });
+
+// Toggle Menú Usuario
+const userButton = document.getElementById('user-menu');
+const userMenu = document.querySelector('.menu-user');
+
+userButton.addEventListener('click', (e) => {
+  e.stopPropagation(); // evita que se cierre inmediatamente
+  userMenu.classList.toggle('active');
+});
+
+// Cierra el menú si hacés clic fuera
+document.addEventListener('click', (e) => {
+  if (!userMenu.contains(e.target) && !userButton.contains(e.target)) {
+    userMenu.classList.remove('active');
+  }
+});

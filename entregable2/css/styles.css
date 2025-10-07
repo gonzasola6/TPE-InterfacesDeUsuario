@@ -39,7 +39,6 @@ body {
 .inicio {
     display: flex;
     align-items: center;
-    flex: 0 0 auto;
 }
 
 /* Logo y botón de logo */
@@ -54,12 +53,6 @@ body {
     /* ajusta según tu gusto */
 }
 
-#logoMenu {
-    width: 28px;
-    height: 26px;
-    cursor: pointer;
-}
-
 .logo-menu-container {
     position: relative;
     /* referencia para el menú interno */
@@ -68,58 +61,85 @@ body {
     gap: 8px;
 }
 
-.menu-hamburguesa {
+.menu-hamburguesa{
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 302px;
-    height: 529px;
-    background-color: #5153A0;
-    min-width: 160px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    z-index: 1000;
-    /* se superpone */
-    overflow: hidden;
-    /* evita que algo se desborde */
+  position: absolute;
+  top: 56px; /* justo debajo del header */
+  width: 300px; 
+  border-radius: 6px;
+  background-color: #5153A0;;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 0;
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-top: 1px solid rgba(255,255,255,0.2);
+  animation: slideDown 0.3s ease;
+}
 
-    font-family: "Poppins", sans-serif;
-    font-size: 18px;
-    color: white;
+hr {
+    border: 0;
+    height: 1px;
+    background: white;
+    margin-top: 1px;
+    margin-left: 8px;
+    margin-bottom: 1px;
+    width: 90%;
+}
+
+/* Links dentro del menú */
+.menu-hamburguesa ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-hamburguesa li {
+  width: 100%;
 }
 
 .menu-hamburguesa a {
-    display: block;
-    padding: 8px 12px;
-    text-decoration: none;
-    background: none;
-    border: none;
-    text-align: left;
-    width: 100%;
-    cursor: pointer;
-    color: white;
-    /* color normal */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  color: #fff;
+  text-decoration: none;
+  width: 100%;
 }
 
-.borde-menu {
-    width: 250px;
-    height: 2px;
-    /* alto de la línea */
-    margin: 4px auto 8px auto;
-    /* arriba y abajo */
-    background-color: #fff;
-    /* color de la línea */
-    margin-top: 20px;
+.menu-hamburguesa a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* Categorías */
 .menu-categorias {
-    display: block;
-    /* Semibold */
-    margin-left: 18px;
-    margin-bottom: 6px;
-    /* separa un poco del primer enlace */
+  display: block;
+  padding: 10px 20px 5px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
 }
+
+/* Pequeña animación al desplegar */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.menu-icon {
+        display: block;
+        width: 30px;
+        height: 28px;
+        cursor: pointer;
+          z-index: 1001;
+    }
+
+    .menu-hamburguesa.active {
+        display: flex;
+    }
+
 
 /* Contenedor de búsqueda */
 .buscador {
@@ -249,14 +269,11 @@ body {
     display: none;
     /* oculto por defecto */
     position: absolute;
-    top: 100%;
+    top: 150%;
     /* debajo del botón */
     right: 0;
     /* alineado a la derecha */
-    width: 302px;
-    /* ancho fijo */
-    height: 381px;
-    /* alto fijo */
+    width: 300px;
     background-color: #5153A0;
     min-width: 160px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -265,28 +282,73 @@ body {
     /* se superpone */
     overflow: hidden;
     /* evita que algo se desborde */
+    flex-direction: column;
 
     font-family: "Poppins", sans-serif;
     /* tipo de letra */
     font-size: 18px;
     color: white;
     /* color normal */
-
 }
+
+.menu-user.active {
+  display: flex;
+  animation: fadeIn 0.25s ease forwards;
+}
+
+/* Animación suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 .menu-user a {
-    display: block;
-    padding: 8px 12px;
-    text-decoration: none;
-    background: none;
-    border: none;
-    text-align: left;
-    width: 100%;
-    cursor: pointer;
-    color: white;
-    /* color normal */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+}
+.menu-user a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
+.user-name {
+  display: block;
+  font-weight: 600;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Botón de cerrar sesión */
+.logout-section {
+  margin-top: auto;
+  padding: 12px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-logout {
+  background-color: #E53935;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-logout:hover {
+  background-color: darkred;
+}
 
 h1 {
     font-family: "Inter", sans-serif;
@@ -376,8 +438,6 @@ body {
     max-width: 100vw;
     overflow-x: hidden;
 }
-
-
 
 
 
@@ -1025,11 +1085,11 @@ body {
 
 
     .categoria-card {
-            /* que se muestren todas las cards */
-            flex: 1;
-            width: auto;
-            
-        }
+        /* que se muestren todas las cards */
+        flex: 1;
+        width: auto;
+
+    }
 
     .buscador {
         flex: 1;
@@ -1101,10 +1161,65 @@ body {
         width: 33px;
         height: 30px;
         cursor: pointer;
+        margin-right: 10px;
     }
 
     .logo-menu-container {
         gap: 16px;
+    }
+
+    .menu-hamburguesa {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 302px;
+        height: 529px;
+        background-color: #5153A0;
+        min-width: 160px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 6px;
+        z-index: 1000;
+        /* se superpone */
+        overflow: hidden;
+        /* evita que algo se desborde */
+
+        font-family: "Poppins", sans-serif;
+        font-size: 18px;
+        color: white;
+    }
+
+    .menu-hamburguesa a {
+        display: block;
+        padding: 8px 12px;
+        background: none;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .menu-hamburguesa li {
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background: white;
+        margin-top: 30px;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        width: 80%;
+    }
+
+    .menu-categorias {
+        display: block;
+        /* Semibold */
+        margin-left: 18px;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        /* separa un poco del primer enlace */
     }
 
     /* Menu hamburguesa desktop */
@@ -1172,9 +1287,8 @@ body {
 
     .menu-user .user-name {
         display: block;
-        margin: 24px auto 16px;
+        margin: 10px auto 2px;
         /* lo baja un poco del borde superior */
-        padding-bottom: 8px;
         /* espacio entre texto y línea */
         border-bottom: 1px solid white;
         width: 80%;
@@ -1186,8 +1300,7 @@ body {
     .menu-user .logout-section {
         border-top: 1px solid white;
         /* línea blanca arriba */
-        margin: 24px auto 16px;
-        padding-top: 16px;
+        margin: auto;
         /* separa el borde del botón */
         width: 80%;
         /* línea más corta (no toca bordes) */
@@ -1206,6 +1319,7 @@ body {
         font-family: "Poppins", sans-serif;
         font-size: 14px;
         line-height: 45px;
+        padding: 0;
     }
 
     .menu-user .btn-logout:hover {

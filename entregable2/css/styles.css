@@ -1078,6 +1078,22 @@ body {
 
 @media (min-width: 768px) {
 
+    .botones-derecha {
+    display: flex;
+    justify-content: right;
+    gap: 15px;
+    flex: 1;    
+    right: 0;
+}
+
+    /* Contenedor de la izquierda (menú y logo) */
+.inicio {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 20px;
+}
+
     .categoria-carrousel .arrow img {
             height: 90px;
         }
@@ -2583,7 +2599,7 @@ body {
 
     .icono-comentario {
         position: absolute;
-        left: 18px;
+        left: 60px;
         /* ajustar según el padding del input */
         top: 50%;
         transform: translateY(-50%);

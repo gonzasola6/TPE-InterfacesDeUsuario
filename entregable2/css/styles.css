@@ -621,12 +621,6 @@ body {
     margin-top: 10px;
 }
 
-/* .carousel-container,
-.carousel,
-.carousel .card {
-    width: 2px;
-    height: calc(90vw * 0.47);
-} */
 
 .categorias-container {
     padding: 0 12px;
@@ -2134,7 +2128,7 @@ body {
     /* Tarjetas laterales */
     .carousel .card.prev {
         position: absolute;
-        left: -140px;
+        left: -400px;
         /* Más afuera para que se vean bien */
         top: 0;
         opacity: 0.5;
@@ -2144,7 +2138,7 @@ body {
 
     .carousel .card.next {
         position: absolute;
-        left: 140px;
+        left: 400px;
         /* Más afuera para que se vean bien */
         top: 0;
         opacity: 0.5;

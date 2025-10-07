@@ -570,30 +570,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Toggle Menu Hamburguesa
 const menuToggle = document.getElementById('menuToggle');
-    const menu = document.getElementById('menu');
-
-    menuToggle.addEventListener('click', () => {
-        menu.classList.toggle('active');
-    });
-
-    // Cierra el menú al hacer clic fuera
-    document.addEventListener('click', (e) => {
-        if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
-            menu.classList.remove('active');
-        }
-    });
+const menu = document.getElementById('menu');
 
 // Toggle Menú Usuario
 const userButton = document.getElementById('user-menu');
 const userMenu = document.querySelector('.menu-user');
 
-userButton.addEventListener('click', (e) => {
-  e.stopPropagation(); // evita que se cierre inmediatamente
-  userMenu.classList.toggle('active');
+menuToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
+  menu.classList.toggle('active');
+
+  // 🔒 Cierra el menú de usuario si está abierto
+  if (userMenu.classList.contains('active')) {
+    userMenu.classList.remove('active');
+  }
 });
 
-// Cierra el menú si hacés clic fuera
+userButton.addEventListener('click', (e) => {
+  e.stopPropagation();
+  userMenu.classList.toggle('active');
+
+  // 🔒 Cierra el menú hamburguesa si está abierto
+  if (menu.classList.contains('active')) {
+    menu.classList.remove('active');
+  }
+});
+
+// Cierra ambos al hacer clic fuera
 document.addEventListener('click', (e) => {
+  if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
+    menu.classList.remove('active');
+  }
   if (!userMenu.contains(e.target) && !userButton.contains(e.target)) {
     userMenu.classList.remove('active');
   }

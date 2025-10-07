@@ -1230,34 +1230,11 @@ body {
         background-color: #44479e;
     }
 
-    /* Mostrar el menú al pasar el mouse */
-    .logo-menu-container:hover .menu-hamburguesa {
-        display: flex;
-        /* aparece como flex */
-        flex-direction: column;
-        /* apila elementos */
-        justify-content: flex-start;
-        align-items: stretch;
-        gap: 12px;
-        /* espacio entre los elementos */
-    }
-
     /* Menu user desktop */
     .menu-user a:hover {
         background-color: #44479e;
     }
 
-    /* Mostrar el menú al pasar el mouse */
-    .user:hover .menu-user {
-        display: flex;
-        /* aparece como flex */
-        flex-direction: column;
-        /* apila elementos */
-        justify-content: flex-start;
-        align-items: stretch;
-        gap: 12px;
-        /* espacio entre los elementos */
-    }
 
     .user-button {
         display: flex;

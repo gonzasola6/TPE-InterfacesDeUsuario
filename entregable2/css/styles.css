@@ -238,6 +238,7 @@ hr {
     background-color: #10114B;
     color: white;
     cursor: pointer;
+    
 }
 
 .user-button .arrowUser {
@@ -293,7 +294,7 @@ hr {
 
 .menu-user.active {
   display: flex;
-  animation: fadeIn 0.25s ease forwards;
+  animation: slideDown 0.3s ease;
 }
 
 /* Animación suave */

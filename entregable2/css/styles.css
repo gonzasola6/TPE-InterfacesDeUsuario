@@ -2484,6 +2484,16 @@ body {
   box-sizing: border-box;
 }
 
+    .btn-feedback img {
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    .btn-feedback img:hover {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+
     .textoAyuda {
         font-size: 20px;
         font-weight: 400;
@@ -2520,23 +2530,23 @@ body {
         font-family: "Inter", sans-serif;
     }
 
-    .contenedor-muestra .card {
+    .contenedor-muestra .card-muestra {
         width: 400px;
         /* Podés ajustar el tamaño */
-        border-radius: 12px;
+        border-radius: 12px 12px 0 0;
         overflow: hidden;
         margin-left: 30px;
     }
 
-    .contenedor-muestra .card img {
+    .contenedor-muestra .card-muestra img {
         width: 100%;
         display: block;
     }
 
-    .contenedor-muestra .card .texto {
+
+    .contenedor-muestra .card-muestra .texto {
         font-family: "Inter", sans-serif;
         background-color: #5952c3;
-        /* Color similar al de tu imagen */
         color: white;
         text-align: center;
         padding: 10px;
@@ -2612,4 +2622,13 @@ body {
 
     
 
+    .btn-like {
+        margin-left: 10px;
+    }
+
+    .btn-like.liked {
+        filter: brightness(1.3);
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
 }

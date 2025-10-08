@@ -214,12 +214,18 @@ document.addEventListener('DOMContentLoaded', function() {
   // botón correspondiente. No se guarda en servidor; sólo DOM.
   // Usado en: game.html
   document.querySelectorAll('.btn-like').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var likesSpan = btn.previousElementSibling;
-      var likes = parseInt(likesSpan.textContent, 10) || 0;
-      likesSpan.textContent = likes + 1;
-    });
+  btn.addEventListener('click', function() {
+    // Si ya tiene la clase 'liked', no hace nada
+    if (btn.classList.contains('liked')) return;
+
+    var likesSpan = btn.previousElementSibling;
+    var likes = parseInt(likesSpan.textContent, 10) || 0;
+    likesSpan.textContent = likes + 1;
+
+    // Marca el botón como que ya fue clickeado
+    btn.classList.add('liked');
   });
+});
 });
 // Función para agregar redirección a botones
 // selector = la clase o id del botón, url = a dónde queremos ir
@@ -604,4 +610,9 @@ document.addEventListener('click', (e) => {
   if (!userMenu.contains(e.target) && !userButton.contains(e.target)) {
     userMenu.classList.remove('active');
   }
+});
+
+//tocar en hazte premium lleva a home
+document.querySelector('.btn-premium-desktop').addEventListener('click', function() {
+  window.location.href = 'home.html';
 });

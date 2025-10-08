@@ -1600,150 +1600,29 @@ footer {
 
 /* Pagina Juego */
 
-.tituloJuego {
-    font-family: "Inter", sans-serif;
-    font-weight: 600;
-    /* Semibold */
-    font-size: 24px;
-    color: #F8BD00;
-    margin-left: 60px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-.breadcrums {
-    font-family: "Poppins", sans-serif;
-    font-size: 14px;
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-}
-
-.textoJuego {
-    font-family: "Poppins", sans-serif;
-    font-size: 14px;
-    color: white;
-    margin-bottom: 20px;
-}
-
-.arrowJuego {
-    width: 12px;
-    height: 12px;
-    margin: 0 8px;
-    vertical-align: middle;
-}
-
-.imagenJuego {
-    max-width: 1200px;
-    height: 600px;
-    display: block;
-    margin: 0 auto 30px auto;
-    border-radius: 12px;
-}
-
-.btn-feedback {
+    .botones-derecha {
     display: flex;
     justify-content: right;
-    gap: 20px;
-    margin-bottom: 40px;
-    margin-right: 140px;
-    margin-top: 0px;
+    gap: 15px;
+    flex: 1;    
+    right: 0;
 }
 
-.textoAyuda {
-    font-family: "Inter", sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    margin-left: 120px;
-    color: #F8BD00;
-    margin-bottom: 10px;
-}
-
-.contenedor-ayuda {
-    max-width: 1300px;
-    margin: 0 auto 20px auto;
-    padding: 10px;
-    background-color: #5153A0;
-    border-radius: 20px;
-    box-shadow: 0 2px 8px rgba(16, 17, 75, 0.10);
-    font-family: "Inter", sans-serif;
-}
-
-.subtituloAyuda {
-    font-family: "Inter", sans-serif;
-    font-size: 20px;
-    margin-bottom: 20px;
-    margin-top: 10px;
-}
-
-.contenedor-muestra {
-    display: flex;
-    gap: 40px;
-    /* Espacio entre las cards */
-    justify-content: center;
-    /* Centra el grupo, opcional */
-    padding: 20px;
-    max-width: 1300px;
-    margin: 0 auto 20px auto;
-    font-family: "Inter", sans-serif;
-}
-
-.contenedor-muestra .card {
-    width: 400px;
-    /* Podés ajustar el tamaño */
-    border-radius: 12px;
-    overflow: hidden;
-    margin-left: 30px;
-}
-
-.contenedor-muestra .card img {
-    width: 100%;
-    display: block;
-}
-
-.contenedor-muestra .card .texto {
-    font-family: "Inter", sans-serif;
-    background-color: #5952c3;
-    /* Color similar al de tu imagen */
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-size: 20px;
-    font-weight: 600;
-    border-radius: 0 0 12px 12px;
-}
-
-.contenedor-comentarios {
-    max-width: 800px;
-    margin: 40px auto 60px auto;
-    padding: 20px;
-    background-color: #5153A0;
-    border-radius: 20px;
-    box-shadow: 0 2px 8px rgba(16, 17, 75, 0.10);
-    font-family: "Inter", sans-serif;
-}
-
-.contenedor-formulario {
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    /* opcional */
-    gap: 10px;
-    margin-left: 60px;
-    margin-right: 50px;
-}
-
-.usuario {
+    /* Contenedor de la izquierda (menú y logo) */
+.inicio {
     display: flex;
     align-items: center;
-    gap: 10px;
+    flex: 1;
+    gap: 20px;
 }
 
-.nombre-usuario {
-    margin: 0;
-    font-weight: 600;
-    font-family: "Inter", sans-serif;
-}
+    .categoria-carrousel .arrow img {
+            height: 90px;
+        }
+    
+        .carousel-container .arrow img {
+            height: 130px;
+        }
 
 
 .input-wrapper {
@@ -1803,34 +1682,11 @@ footer {
         background-color: #44479e;
     }
 
-    /* Mostrar el menú al pasar el mouse */
-    .logo-menu-container:hover .menu-hamburguesa {
-        display: flex;
-        /* aparece como flex */
-        flex-direction: column;
-        /* apila elementos */
-        justify-content: flex-start;
-        align-items: stretch;
-        gap: 12px;
-        /* espacio entre los elementos */
-    }
-
     /* Menu user desktop */
     .menu-user a:hover {
         background-color: #44479e;
     }
 
-    /* Mostrar el menú al pasar el mouse */
-    .user:hover .menu-user {
-        display: flex;
-        /* aparece como flex */
-        flex-direction: column;
-        /* apila elementos */
-        justify-content: flex-start;
-        align-items: stretch;
-        gap: 12px;
-        /* espacio entre los elementos */
-    }
 
     .user-button {
         display: flex;
@@ -2106,14 +1962,238 @@ footer {
         height: auto;
     }
 
-    /* Flechas se mantienen dentro del contenedor y no generan overflow */
-    .categoria-carrousel .arrow {
+    .categoria-card span {
+        margin-top: 5px;
+        font-size: 1rem;
+        color: white;
+    }
+
+    /* Evitar que nombres largos rompan la tarjeta en 2 líneas.
+       Forzar una sola línea y mostrar '...' cuando no quepa. Esto
+       aplica en desktop y mobile; mobile ya tenía reglas similares pero
+       las hacemos explícitas globalmente para evitar reflows. */
+    .categoria-card p {
+        display: block;
+        /* ocupar todo el ancho de la tarjeta */
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .categoria-card.active {
+        opacity: 1;
+        transform: scale(1);
+        z-index: 2;
+    }
+
+    .categoria-card.prev {
+        left: -160px;
+        opacity: 0.5;
+        transform: scale(0.8);
+        z-index: 1;
+    }
+
+    .categoria-card.next {
+        right: -160px;
+        opacity: 0.5;
+        transform: scale(0.8);
+        z-index: 1;
+    }
+
+    /* Pagina Juego */
+
+    .juego-container {
+    max-width: 1000px;      /* límite de ancho */
+    margin: auto;         /* centra horizontalmente */
+    padding: 0 16px;        /* agrega respiro a los costados */
+    box-sizing: border-box; /* evita que padding agrande el ancho total */
+}
+
+
+
+
+    .tituloJuego {
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        /* Semibold */
+        font-size: 24px;
+        color: #F8BD00;
+        margin-left: 60px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .breadcrums {
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+    }
+
+    .textoJuego {
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    .arrowJuego {
+        width: 12px;
+        height: 12px;
+        margin: 0 8px;
+        vertical-align: middle;
+    }
+
+    .imagenJuego {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+  .btn-feedback {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin: 0 auto 40px auto;
+  max-width: 1000px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+    .btn-feedback img {
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    .btn-feedback img:hover {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+
+    .textoAyuda {
+        font-size: 20px;
+        font-weight: 400;
+        color: #F8BD00;
+        margin-bottom: 10px;
+    }
+
+    .contenedor-ayuda {
+        max-width: 1300px;
+        margin: 0 auto 20px auto;
+        padding: 10px;
+        background-color: #5153A0;
+        border-radius: 20px;
+        box-shadow: 0 2px 8px rgba(16, 17, 75, 0.10);
+        font-family: "Inter", sans-serif;
+    }
+
+    .subtituloAyuda {
+        font-family: "Inter", sans-serif;
+        font-size: 20px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+    .contenedor-muestra {
+        display: flex;
+        gap: 40px;
+        /* Espacio entre las cards */
+        justify-content: center;
+        /* Centra el grupo, opcional */
+        padding: 20px;
+        max-width: 1300px;
+        margin: 0 auto 20px auto;
+        font-family: "Inter", sans-serif;
+    }
+
+    .contenedor-muestra .card-muestra {
+        width: 400px;
+        /* Podés ajustar el tamaño */
+        border-radius: 12px 12px 0 0;
+        overflow: hidden;
+        margin-left: 30px;
+    }
+
+    .contenedor-muestra .card-muestra img {
+        width: 100%;
+        display: block;
+    }
+
+
+    .contenedor-muestra .card-muestra .texto {
+        font-family: "Inter", sans-serif;
+        background-color: #5952c3;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: 600;
+        border-radius: 0 0 12px 12px;
+    }
+
+    .contenedor-comentarios {
+        max-width: 800px;
+        margin: 40px auto 60px auto;
+        padding: 20px;
+        background-color: #5153A0;
+        border-radius: 20px;
+        box-shadow: 0 2px 8px rgba(16, 17, 75, 0.10);
+        font-family: "Inter", sans-serif;
+    }
+
+    .contenedor-formulario {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        /* opcional */
+        gap: 10px;
+        margin-left: 60px;
+        margin-right: 50px;
+    }
+
+    .usuario {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .nombre-usuario {
+        margin: 0;
+        font-weight: 600;
+        font-family: "Inter", sans-serif;
+    }
+
+
+    .input-wrapper {
+        position: relative;
+        width: 100%;
+    }
+
+    .icono-comentario {
         position: absolute;
+        left: 60px;
+        /* ajustar según el padding del input */
         top: 50%;
         transform: translateY(-50%);
         z-index: 10;
     }
 
+    
+
+    .btn-like {
+        margin-left: 10px;
+    }
+
+    .btn-like.liked {
+        filter: brightness(1.3);
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
 }
 
 /* Premium label: tamaño y posición más compacta en mobile */

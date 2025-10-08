@@ -2423,6 +2423,16 @@ body {
 
     /* Pagina Juego */
 
+    .juego-container {
+    max-width: 1000px;      /* límite de ancho */
+    margin: auto;         /* centra horizontalmente */
+    padding: 0 16px;        /* agrega respiro a los costados */
+    box-sizing: border-box; /* evita que padding agrande el ancho total */
+}
+
+
+
+
     .tituloJuego {
         font-family: "Inter", sans-serif;
         font-weight: 600;
@@ -2457,27 +2467,26 @@ body {
     }
 
     .imagenJuego {
-        max-width: 1200px;
-        height: 600px;
-        display: block;
-        margin: 0 auto 30px auto;
-        border-radius: 12px;
-    }
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
 
-    .btn-feedback {
-        display: flex;
-        justify-content: right;
-        gap: 20px;
-        margin-bottom: 40px;
-        margin-right: 140px;
-        margin-top: 0px;
-    }
+  .btn-feedback {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin: 0 auto 40px auto;
+  max-width: 1000px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
 
     .textoAyuda {
-        font-family: "Inter", sans-serif;
         font-size: 20px;
         font-weight: 400;
-        margin-left: 120px;
         color: #F8BD00;
         margin-bottom: 10px;
     }
@@ -2600,5 +2609,7 @@ body {
         height: 40px;
         border-radius: 50%;
     }
+
+    
 
 }

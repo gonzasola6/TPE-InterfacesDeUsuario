@@ -23,7 +23,6 @@ let bigBirdTimer = null;
 let pipes = [];
 let coinObjects = [];
 let powerups = [];
-let clouds = [];
 let redPowerups = [];
 
 
@@ -31,21 +30,9 @@ let redPowerups = [];
 let pipeInterval;
 let coinInterval;
 let powerupInterval;
-let cloudInterval;
 let gameLoop;
 let redPowerupInterval;
 
-
-
-// Crear nubes animadas
-function createCloud() {
-    const cloud = document.createElement('div');
-    cloud.className = 'cloud';
-    cloud.style.left = '1200px';
-    cloud.style.top = Math.random() * 200 + 'px';
-    gameContainer.appendChild(cloud);
-    clouds.push(cloud);
-}
 
 // Crear tubería
 function createPipe() {
@@ -188,7 +175,6 @@ function endGame() {
     clearInterval(pipeInterval);
     clearInterval(coinInterval);
     clearInterval(powerupInterval);
-    clearInterval(cloudInterval);
     cancelAnimationFrame(gameLoop);
     clearInterval(redPowerupInterval);
 
@@ -387,12 +373,10 @@ function startGame() {
     });
     coinObjects.forEach(coin => coin.element.remove());
     powerups.forEach(powerup => powerup.element.remove());
-    clouds.forEach(cloud => cloud.remove());
 
     pipes = [];
     coinObjects = [];
     powerups = [];
-    clouds = [];
     redPowerups = [];
 
     bird.classList.remove('bird-explode');
@@ -409,13 +393,11 @@ function startGame() {
     // Crear elementos periódicamente
     coinInterval = setInterval(createCoin, 3000);
     powerupInterval = setInterval(createPowerup, 8000);
-    cloudInterval = setInterval(createCloud, 5000);
     redPowerupInterval = setInterval(createRedPowerup, 10000);
 
 
     // Crear algunos elementos iniciales
     setTimeout(createCoin, 2500);
-    setTimeout(createCloud, 1000);
 
     update();
 }

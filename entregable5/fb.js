@@ -23,7 +23,7 @@ let bigBirdTimer = null;
 let pipes = [];
 let coinObjects = [];
 let powerups = [];
-let redPowerups = [];
+let redPowerdown = [];
 
 
 
@@ -31,14 +31,14 @@ let pipeInterval;
 let coinInterval;
 let powerupInterval;
 let gameLoop;
-let redPowerupInterval;
+let redPowerdownInterval;
 
 
 // Crear tubería
 function createPipe() {
     const gap = 240;
     const minHeight = 80;
-    const maxHeight = 440;
+    const maxHeight = 160;
     const topHeight = Math.random() * (maxHeight - minHeight) + minHeight;
 
     const pipeTop = document.createElement('div');
@@ -93,8 +93,8 @@ function createPowerup() {
     powerups.push({ element: powerup, x: 1200 });
 }
 
-// Crear power-up rojo
-function createRedPowerup() {
+// Crear power-down rojo, que agranda el pájaro
+function createRedPowerdown() {
     const powerup = document.createElement('div');
     powerup.className = 'powerup powerup-red'; // hereda + rojo
     powerup.innerHTML = '<div class="shield-icon"></div>'; // mismo icono, distinto color por CSS
@@ -102,7 +102,7 @@ function createRedPowerup() {
     powerup.style.top = Math.random() * 400 + 100 + 'px';
     gameContainer.appendChild(powerup);
 
-    redPowerups.push({ element: powerup, x: 1200 });
+    redPowerdown.push({ element: powerup, x: 1200 });
 }
 
 // Activar pájaro grande
@@ -176,7 +176,7 @@ function endGame() {
     clearInterval(coinInterval);
     clearInterval(powerupInterval);
     cancelAnimationFrame(gameLoop);
-    clearInterval(redPowerupInterval);
+    clearInterval(redPowerdownInterval);
 
 
     setTimeout(() => {
@@ -286,13 +286,13 @@ function update() {
         }
     }
 
-    // Actualizar power-ups normales (escudo) — antes no se movían
+    // Actualizar power-ups azules (escudo)
     for (let i = powerups.length - 1; i >= 0; i--) {
         const p = powerups[i];
         p.x -= 4;
         p.element.style.left = p.x + 'px';
 
-        // Colisión con escudo normal
+        // Colisión con escudo azul
         const pRect = p.element.getBoundingClientRect();
         const bRect = bird.getBoundingClientRect();
         if (
@@ -313,8 +313,8 @@ function update() {
     }
 
     // Actualizar power-ups rojos (agrandar pájaro)
-    for (let i = redPowerups.length - 1; i >= 0; i--) {
-        const powerup = redPowerups[i];
+    for (let i = redPowerdown.length - 1; i >= 0; i--) {
+        const powerup = redPowerdown[i];
         powerup.x -= 4.3;
         powerup.element.style.left = powerup.x + 'px';
 
@@ -330,12 +330,12 @@ function update() {
         ) {
             activateBigBird();
             powerup.element.remove();
-            redPowerups.splice(i, 1);
+            redPowerdown.splice(i, 1);
         }
 
         if (powerup.x < -50) {
             powerup.element.remove();
-            redPowerups.splice(i, 1);
+            redPowerdown.splice(i, 1);
         }
     }
 
@@ -373,11 +373,12 @@ function startGame() {
     });
     coinObjects.forEach(coin => coin.element.remove());
     powerups.forEach(powerup => powerup.element.remove());
+    redPowerdown.forEach(powerup => powerup.element.remove());
 
     pipes = [];
     coinObjects = [];
     powerups = [];
-    redPowerups = [];
+    redPowerdown = [];
 
     bird.classList.remove('bird-explode');
     bird.style.transform = 'rotate(0deg) scale(1)';
@@ -393,7 +394,7 @@ function startGame() {
     // Crear elementos periódicamente
     coinInterval = setInterval(createCoin, 3000);
     powerupInterval = setInterval(createPowerup, 8000);
-    redPowerupInterval = setInterval(createRedPowerup, 10000);
+    redPowerdownInterval = setInterval(createRedPowerdown, 10000);
 
 
     // Crear algunos elementos iniciales

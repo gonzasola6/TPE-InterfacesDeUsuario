@@ -280,6 +280,12 @@ body {
     animation: powerupPulse 1s ease-in-out infinite;
 }
 
+.powerup-red .shield-icon {
+    background: radial-gradient(circle, #FF9A9A, #FF3B3B);
+    border: 3px solid #990000;
+    box-shadow: 0 0 12px rgba(255, 59, 59, 0.8);
+}
+
 @keyframes powerupPulse {
 
     0%,
@@ -431,21 +437,6 @@ body {
     transform: scale(1.1);
 }
 
-/* ...existing code... */
-
-.powerup-red .shield-icon {
-    background: radial-gradient(circle, #FF9A9A, #FF3B3B);
-    border: 3px solid #990000;
-    box-shadow: 0 0 12px rgba(255, 59, 59, 0.8);
-}
-
-/* cambia el icono/emoji para hacerlo claramente rojo */
-.powerup-red .shield-icon::after {
-    content: '🛡️';
-    font-size: 20px;
-}
-
-/* ...existing code... */
 
 .paused .parallax-layer,
 .paused .bird-wing,

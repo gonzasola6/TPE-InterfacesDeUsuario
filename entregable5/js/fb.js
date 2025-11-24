@@ -164,6 +164,23 @@ function checkCollision(pipe) {
     return hitTop || hitBottom;
 }
 
+function winGame() {
+    gameActive = false;
+    gameContainer.classList.add('paused');
+
+    clearInterval(pipeInterval);
+    clearInterval(coinInterval);
+    clearInterval(powerupInterval);
+    clearInterval(redPowerdownInterval);
+    cancelAnimationFrame(gameLoop);
+
+    document.getElementById('finalScore').textContent = score;
+    document.getElementById('finalCoins').textContent = coins;
+    document.querySelector('#gameOver h1').textContent = "¡GANASTE! 🎉";
+    
+    gameOverScreen.style.display = 'block';
+}
+
 
 // Game Over
 function endGame() {
@@ -339,6 +356,11 @@ function update() {
         }
     }
 
+    if (score >= 10 && gameActive) {
+    winGame();
+    return;
+    }
+
     gameLoop = requestAnimationFrame(update);
 }
 
@@ -406,6 +428,8 @@ function startGame() {
 // Reiniciar juego
 function restartGame() {
     gameOverScreen.style.display = 'none';
+    document.querySelector('#gameOver h1').textContent = "¡GAME OVER!";
+
     startGame();
 }
 

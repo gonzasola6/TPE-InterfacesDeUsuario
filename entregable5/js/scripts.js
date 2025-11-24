@@ -171,8 +171,8 @@ document.addEventListener('DOMContentLoaded', function() {
           if (activeCard && activeCard.getAttribute('alt') === 'peg') {
             window.location.href = 'peg.html';
           }
-          if (activeCard && activeCard.getAttribute('alt') === 'bombit3') {
-            window.location.href = 'peg.html';
+          if (activeCard && activeCard.getAttribute('alt') === 'flappy') {
+            window.location.href = 'flappybird.html';
           } 
         });
       }

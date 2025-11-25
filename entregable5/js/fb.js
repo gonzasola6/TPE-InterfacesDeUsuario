@@ -7,6 +7,7 @@ const gameOverScreen = document.getElementById('gameOver');
 const instructions = document.getElementById('instructions');
 const shieldIndicator = document.getElementById('shield-indicator');
 
+let bgBirdTimer = null;
 let gameStarted = false;
 let gameActive = false;
 let birdY = 250;
@@ -24,6 +25,8 @@ let pipes = [];
 let coinObjects = [];
 let powerups = [];
 let redPowerdown = [];
+let bgBirds = [];
+
 
 
 
@@ -103,6 +106,51 @@ function createRedPowerdown() {
     gameContainer.appendChild(powerup);
 
     redPowerdown.push({ element: powerup, x: 1200 });
+}
+
+function spawnBgBird() {
+    const b = bird.cloneNode(true);
+    b.className = "";               // limpia todas las clases
+    b.removeAttribute("id");        // para no duplicar IDs
+    b.classList.add("background-bird");
+
+    b.id = "";
+    b.classList.add("background-bird");
+
+    const y = Math.random() * 300 + 50;
+    b.style.top = y + "px";
+
+    const scale = 0.2 + Math.random() * 0.3;
+    b.style.transform = `scale(${scale})`;
+
+    const speed = 1 + Math.random() * 2;
+    let x = 1200;
+
+    gameContainer.appendChild(b);
+
+    // ⬅️ FALTABA ESTO
+    bgBirds.push(b);
+
+    const interval = setInterval(() => {
+        x -= speed;
+        b.style.left = x + "px";
+
+        if (x < -100) {
+            clearInterval(interval);
+            b.remove();
+
+            // sacarlo del array
+            const index = bgBirds.indexOf(b);
+            if (index !== -1) bgBirds.splice(index, 1);
+        }
+    }, 8);
+}
+
+
+function startBgBirdSpawner() {
+    const delay = 800 + Math.random() * 1600; // entre 0.8 y 2.4 segundos
+    spawnBgBird();
+    bgBirdTimer = setTimeout(startBgBirdSpawner, delay);
 }
 
 // Activar pájaro grande
@@ -288,7 +336,15 @@ function update() {
             birdRect.right > coinRect.left &&
             birdRect.top < coinRect.bottom &&
             birdRect.bottom > coinRect.top
+            
         ) {
+            // Animación del pájaro al agarrar moneda
+            const body = bird.querySelector('.bird-body');
+            body.classList.add('bird-coin-anim');
+
+            // remover la animación después de 300ms (una vuelta del keyframe)
+            setTimeout(() => body.classList.remove('bird-coin-anim'), 300);
+
             coins++;
             score += 2;
             coinsElement.textContent = coins;
@@ -370,6 +426,8 @@ function startGame() {
     gameActive = true;
     instructions.style.display = 'none';
     gameContainer.classList.remove('paused');
+    clearTimeout(bgBirdTimer);
+
 
     birdY = 250;
     birdVelocity = 0;
@@ -396,6 +454,10 @@ function startGame() {
     coinObjects.forEach(coin => coin.element.remove());
     powerups.forEach(powerup => powerup.element.remove());
     redPowerdown.forEach(powerup => powerup.element.remove());
+    // Limpiar pajaritos de fondo
+    bgBirds.forEach(b => b.remove());
+    bgBirds = [];
+
 
     pipes = [];
     coinObjects = [];
@@ -423,6 +485,7 @@ function startGame() {
     // Crea 2 monedas juntas al comienzo del juego, habria que cambiarle el tiempo
     // para separarla con la primera generada por el coinInterval.
     //setTimeout(createCoin, 2500);
+    startBgBirdSpawner();
 
     update();
 }

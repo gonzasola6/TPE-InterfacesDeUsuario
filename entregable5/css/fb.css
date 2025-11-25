@@ -210,6 +210,46 @@
     }
 }
 
+.background-bird {
+    position: absolute;
+    width: 34px;        /* ancho de un frame */
+    height: 24px;       /* alto del frame */
+    left: 1200px;       /* fuera de pantalla */
+    top: 180px;
+    z-index: 1;         /* detrás del pájaro real */
+    background-size: auto 100%;
+    animation: bgBirdFlap 0.35s steps(3) infinite; /* 3 frames, ajustar si usás más */
+    pointer-events: none;
+}
+
+@keyframes bgBirdFlap {
+    from { background-position: 0 0; }
+    to   { background-position: -102px 0; } /* 34px × 3 frames = 102px */
+}
+
+.background-bird {
+    position: absolute;
+    transform: scale(0.3);
+    left: 1200px;
+    top: 150px;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+
+.bird-coin-anim {
+    animation: birdCoinPop 0.3s ease-out;
+}
+
+
+@keyframes birdCoinPop {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.25); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
 /* Tuberías */
 .game-page .pipe {
     position: absolute;

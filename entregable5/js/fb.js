@@ -411,16 +411,18 @@ function startGame() {
         // Recién después comienza el intervalo normal
         pipeInterval = setInterval(createPipe, 2600);
 
-    }, 1500);
+    },1500);
 
     // Crear elementos periódicamente
     coinInterval = setInterval(createCoin, 3000);
-    powerupInterval = setInterval(createPowerup, 8000);
-    redPowerdownInterval = setInterval(createRedPowerdown, 10000);
+    powerupInterval = setInterval(createPowerup, 6000);
+    redPowerdownInterval = setInterval(createRedPowerdown, 8000);
 
 
     // Crear algunos elementos iniciales
-    setTimeout(createCoin, 2500);
+    // Crea 2 monedas juntas al comienzo del juego, habria que cambiarle el tiempo
+    // para separarla con la primera generada por el coinInterval.
+    //setTimeout(createCoin, 2500);
 
     update();
 }

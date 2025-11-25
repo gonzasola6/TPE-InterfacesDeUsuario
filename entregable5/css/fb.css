@@ -265,7 +265,7 @@
     width: 40px;
     height: 40px;
     z-index: 7;
-    animation: powerupPulse 1s ease-in-out infinite;
+    
 }
 
 .game-page .powerup-red .shield-icon {
@@ -290,6 +290,8 @@
     border-radius: 50%;
     border: 3px solid #0040FF;
     position: relative;
+    animation: powerupPulse 1s ease-in-out infinite;
+    transform-origin: center center; 
 }
 
 .game-page .shield-icon::after {

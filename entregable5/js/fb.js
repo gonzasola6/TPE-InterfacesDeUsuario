@@ -220,6 +220,8 @@ function winGame() {
     clearInterval(powerupInterval);
     clearInterval(redPowerdownInterval);
     cancelAnimationFrame(gameLoop);
+    clearTimeout(bgBirdTimer);
+
 
     document.getElementById('finalScore').textContent = score;
     document.getElementById('finalCoins').textContent = coins;
@@ -241,6 +243,7 @@ function endGame() {
     clearInterval(powerupInterval);
     cancelAnimationFrame(gameLoop);
     clearInterval(redPowerdownInterval);
+    clearTimeout(bgBirdTimer);
 
 
     setTimeout(() => {

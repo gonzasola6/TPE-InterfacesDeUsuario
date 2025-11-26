@@ -99,8 +99,8 @@ function createPowerup() {
 // Crear power-down rojo, que agranda el pájaro
 function createRedPowerdown() {
     const powerup = document.createElement('div');
-    powerup.className = 'powerup powerup-red';
-    powerup.innerHTML = '<div class="cross-icon"></div>'; // CAMBIADO: cross-icon en lugar de shield-icon
+    powerup.className = 'powerup powerup-red'; // hereda + rojo
+    powerup.innerHTML = '<div class="shield-icon"></div>'; // mismo icono, distinto color por CSS
     powerup.style.left = '1200px';
     powerup.style.top = Math.random() * 400 + 100 + 'px';
     gameContainer.appendChild(powerup);
@@ -147,6 +147,7 @@ function spawnBgBird() {
 
 
 function startBgBirdSpawner() {
+    if (!gameActive) return;
     const delay = 800 + Math.random() * 1600; // entre 0.8 y 2.4 segundos
     spawnBgBird();
     bgBirdTimer = setTimeout(startBgBirdSpawner, delay);
@@ -220,8 +221,6 @@ function winGame() {
     clearInterval(powerupInterval);
     clearInterval(redPowerdownInterval);
     cancelAnimationFrame(gameLoop);
-    clearTimeout(bgBirdTimer);
-
 
     document.getElementById('finalScore').textContent = score;
     document.getElementById('finalCoins').textContent = coins;
@@ -243,7 +242,6 @@ function endGame() {
     clearInterval(powerupInterval);
     cancelAnimationFrame(gameLoop);
     clearInterval(redPowerdownInterval);
-    clearTimeout(bgBirdTimer);
 
 
     setTimeout(() => {

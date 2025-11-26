@@ -100,7 +100,7 @@ function createPowerup() {
 function createRedPowerdown() {
     const powerup = document.createElement('div');
     powerup.className = 'powerup powerup-red'; // hereda + rojo
-    powerup.innerHTML = '<div class="shield-icon"></div>'; // mismo icono, distinto color por CSS
+    powerup.innerHTML = '<div class="cross-icon"></div>'; // mismo icono, distinto color por CSS
     powerup.style.left = '1200px';
     powerup.style.top = Math.random() * 400 + 100 + 'px';
     gameContainer.appendChild(powerup);

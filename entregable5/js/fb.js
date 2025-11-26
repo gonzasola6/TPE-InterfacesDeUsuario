@@ -128,7 +128,6 @@ function spawnBgBird() {
 
     gameContainer.appendChild(b);
 
-    // ⬅️ FALTABA ESTO
     bgBirds.push(b);
 
     const interval = setInterval(() => {
@@ -264,7 +263,6 @@ function update() {
     const rotation = Math.min(Math.max(birdVelocity * 3, -30), 90);
     const scale = bigBirdActive ? 1.5 : 1;
     bird.style.transform = `rotate(${rotation}deg) scale(${scale})`;
-    // --- end changed
 
     // Rectángulos actualizados (incluyen transform/scale)
     const birdRect = bird.getBoundingClientRect();
@@ -343,7 +341,7 @@ function update() {
             body.classList.add('bird-coin-anim');
 
             // remover la animación después de 300ms (una vuelta del keyframe)
-            setTimeout(() => body.classList.remove('bird-coin-anim'), 300);
+            setTimeout(() => body.classList.remove('bird-coin-anim'), 800);
 
             coins++;
             score += 2;

@@ -344,6 +344,28 @@
     font-size: 24px;
 }
 
+/* Cross icon (rojo) - NUEVO ⭐ */
+.game-page .cross-icon {
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #FF9A9A, #FF3B3B);
+    border-radius: 50%;
+    border: 3px solid #990000;
+    position: relative;
+    animation: powerupPulse 1s ease-in-out infinite;
+    transform-origin: center center;
+    box-shadow: 0 0 12px rgba(255, 59, 59, 0.8);
+}
+
+.game-page .cross-icon::after {
+    content: '❌'; /* ⭐ CRUZ ROJA */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+}
+
 /* UI del juego */
 .game-page #ui {
     position: absolute;

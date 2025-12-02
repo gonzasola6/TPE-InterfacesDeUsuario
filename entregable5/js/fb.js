@@ -252,6 +252,23 @@ function endGame() {
     cancelAnimationFrame(gameLoop);
     clearInterval(redPowerdownInterval);
 
+    // // 🔥 ELIMINAR todos los pipes
+    // document.querySelectorAll('.pipe').forEach(p => p.remove());
+
+    // // 🔥 ELIMINAR todas las coins
+    // document.querySelectorAll('.coin').forEach(c => c.remove());
+
+    // // 🔥 ELIMINAR todos los powerups
+    // document.querySelectorAll('.powerup').forEach(pu => pu.remove());
+
+    // // 🔥 ELIMINAR todos los powerdowns (si los tenés con otra clase)
+    // document.querySelectorAll('.powerdown').forEach(pd => pd.remove());
+
+    // document.querySelectorAll('.powerdown').forEach(pd => pd.remove());
+
+    // bgBirds.forEach(b => b.remove());
+
+
 
     setTimeout(() => {
         document.getElementById('finalScore').textContent = score;

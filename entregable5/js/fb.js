@@ -1,4 +1,5 @@
 // Variables del juego
+//Captura los elementos del DOM necesarios
 const gameContainer = document.getElementById('gameContainer');
 const bird = document.getElementById('bird');
 const scoreElement = document.getElementById('score');
@@ -10,17 +11,23 @@ const shieldIndicator = document.getElementById('shield-indicator');
 let bgBirdTimer = null;
 let gameStarted = false;
 let gameActive = false;
-let birdY = 250;
-let birdVelocity = 0;
-let gravity = 0.16;
-let jumpForce = -4.2
+let birdY = 250; //posición vertical del pájaro.
+let birdVelocity = 0; //velocidad vertical afectada por gravedad.
+let gravity = 0.16; //cuánto cae el pájaro por frame
+let jumpForce = -4.2 //fuerza al saltar.
+
+//Variables del jugador
 let score = 0;
 let coins = 0;
 let hasShield = false;
 let shieldTimer = null;
+
+//Power-down (agrandar el pájaro)
 let bigBirdActive = false;
 let bigBirdTimer = null;
 
+
+//Arrays de objetos de juego
 let pipes = [];
 let coinObjects = [];
 let powerups = [];
@@ -79,8 +86,8 @@ function createPipe() {
 function createCoin() {
     const coin = document.createElement('div');
     coin.className = 'coin';
-    coin.style.left = '1200px';
-    coin.style.top = Math.random() * 400 + 100 + 'px';
+    coin.style.left = '1200px'; //Se posiciona en X=1200 (fuera de la pantalla)
+    coin.style.top = Math.random() * 400 + 100 + 'px'; //Y aleatoria
     gameContainer.appendChild(coin);
     coinObjects.push({ element: coin, x: 1200 });
 }
@@ -108,6 +115,7 @@ function createRedPowerdown() {
     redPowerdown.push({ element: powerup, x: 1200 });
 }
 
+//Crear pájaros de fondo (decorativos)
 function spawnBgBird() {
     const b = bird.cloneNode(true);
     b.className = "";               // limpia todas las clases
@@ -227,6 +235,7 @@ function winGame() {
     document.querySelector('#gameOver h1').textContent = "¡GANASTE! 🎉";
     
     gameOverScreen.style.display = 'block';
+
 }
 
 
@@ -345,7 +354,7 @@ function update() {
             setTimeout(() => body.classList.remove('bird-coin-anim'), 800);
 
             coins++;
-            score += 2;
+            score += 2; //suma dos puntos al agarrar una moneda
             coinsElement.textContent = coins;
             scoreElement.textContent = score;
             coin.element.remove();
